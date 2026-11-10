@@ -72,6 +72,7 @@
   .in-view .w>span{transform:none}
   .reveal-up.words{opacity:1;transform:none}
   html.still .shot-wrap{clip-path:none}
+  html.still img.fade-img{opacity:1;transition:none}
   html.still .shot-wrap img,html.still .w>span{transform:none}
 </style>
 </head>
@@ -260,18 +261,27 @@
       </div>
       <a href="#contact" class="reveal-blur group inline-flex items-center gap-2 text-[15px] font-medium">Обсудить ваш проект <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>
     </div>
-    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="cards"></div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="cards"></div>
   </div>
 </section>
 
 <!-- ============ FAQ (short) ============ -->
 <section id="faq" class="pb-24 sm:pb-32">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-20">
-    <h2 class="reveal-blur text-4xl sm:text-5xl font-medium tracking-[-0.03em] leading-[1.05]">Частые вопросы.</h2>
+    <div class="lg:sticky lg:top-32 self-start"><h2 class="reveal-blur text-4xl sm:text-5xl font-medium tracking-[-0.03em] leading-[1.05]">Частые вопросы.</h2><p class="reveal-blur mt-5 text-[#879f98] max-w-sm leading-relaxed" style="--d:.1s">Не нашли ответ? Напишите нам — ответим в течение дня.</p></div>
     <div class="divide-y divide-[#132a24]/10 border-y border-[#132a24]/10">
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between text-[19px] font-medium">Какие сроки? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed">Лендинг или простой бот — около недели. Магазин или ИИ-агент — от двух недель.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between text-[19px] font-medium">Что после запуска? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed">Остаёмся на связи: правки, поддержка и доработки. Код и доступы — ваши.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between text-[19px] font-medium">Нужно ли разбираться в технике? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed">Нет. Хостинг, домен, интеграции и запуск берём на себя.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">С чего начать? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Напишите нам в Telegram, боту <a class="underline" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> или оставьте заявку на сайте. Пары слов о задаче достаточно — дальше зададим уточняющие вопросы сами.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Что нужно от меня для старта? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Коротко описать задачу и, если есть, показать примеры, которые нравятся. Тексты, фото и доступы можно прислать позже — подскажем, что именно нужно.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Какие сроки? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Лендинг или простой бот — около недели. Магазин, ИИ-агент или связка «сайт + бот + CRM» — от двух недель. Точный срок называем в плане до старта.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Работаете по договору? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да. Объём работ, сроки и этапы фиксируем письменно до начала, чтобы обе стороны понимали, что и когда будет готово.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Кому принадлежат код и доступы? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Вам. Передаём исходники, домен, хостинг, админки и ботов на ваше имя — без привязки к нам.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Можно начать с небольшой задачи? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да. Многие начинают с одного бота или лендинга, а потом добавляют автоматизацию. Так удобно проверить, как мы работаем.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Доработаете мой текущий сайт или бота? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да. Посмотрим, что уже есть, и скажем, что лучше доработать, а что проще переделать.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Как проходит работа и общение? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Один чат в Telegram для всех вопросов. Показываем промежуточные версии, вносим правки по ходу — без долгих созвонов и согласований.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Подключаете оплату, CRM и аналитику? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да: приём оплаты, CRM, Google-таблицы, рассылки, уведомления в Telegram и аналитику — всё связываем в одну систему.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Делаете сайты и ботов на английском? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да, на русском и английском. Работаем удалённо с клиентами из разных городов и стран.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Нужно ли разбираться в технике? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Нет. Хостинг, домен, интеграции и запуск берём на себя.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Что после запуска? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Остаёмся на связи: правки, поддержка, обновления и доработки по мере роста бизнеса.</p></details>
     </div>
   </div>
 </section>
@@ -286,11 +296,12 @@
       <p class="reveal-blur mt-6 text-[17px] text-[#879f98] max-w-md leading-relaxed" style="--d:.2s">Первую консультацию проводим бесплатно. Ответим в течение дня.</p>
       <a href="tel:+79670450339" class="reveal-blur mt-10 inline-flex items-center gap-3 text-[22px] sm:text-[26px] font-medium border-b border-white/20 pb-1 hover:border-white transition-colors duration-500" style="--d:.3s">+7 967 045-03-39 <iconify-icon icon="solar:arrow-right-up-linear" width="22"></iconify-icon></a>
       <div class="reveal-blur mt-8 flex flex-wrap gap-3" style="--d:.35s">
+        <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-white text-[#132a24] pl-4 pr-5 h-12 font-medium hover:bg-[#78A184] hover:text-white transition-colors duration-500"><iconify-icon icon="solar:chat-round-like-bold" width="18"></iconify-icon>Заявка через бота<iconify-icon icon="solar:arrow-right-linear" width="16" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>
         <a href="https://t.me/rydr3" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:telegram" width="18"></iconify-icon>Telegram</a>
         <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:whatsapp" width="18"></iconify-icon>WhatsApp</a>
         <a href="tel:+79670450339" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</a>
       </div>
-      <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Telegram @rydr3 · WhatsApp и MAX по номеру +7 967 045-03-39</p>
+      <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Бот заявок <a class="underline hover:text-white" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> · Telegram @rydr3 · WhatsApp и MAX по номеру +7 967 045-03-39</p>
     </div>
 
     <form id="form" class="reveal-up flex flex-col gap-4" novalidate>
@@ -327,7 +338,7 @@
   <footer class="relative z-10 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row gap-4 justify-between text-[14px] text-[#879f98]">
       <span class="inline-flex items-center gap-2.5 text-white font-bold text-[18px]"><img src="media/logo.png" alt="" class="w-7 h-7 rounded-lg">voriq</span>
-      <span>Сайты · боты · автоматизация</span>
+      <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="hover:text-white transition-colors duration-500">Бот заявок @voriq_applicationsBot</a>
       <span>© 2026 Voriq</span>
     </div>
   </footer>
@@ -472,6 +483,7 @@ addEventListener('scroll', split, { passive: true }); addEventListener('resize',
 (() => {
   const cards = [
     { shot: 'media/cases/maing.jpg', name: 'MAING', tag: 'Сайт + боты', text: 'Производитель вывесок: сайт, боты для заявок и рассылки по базе.', href: 'https://maing.ru/' },
+    { shot: 'media/cases/velion.jpg', name: 'Velion', tag: 'Сайт + ИИ-агенты', text: 'Агентство сайтов, ботов и ИИ-агентов: сайт с двумя языками и ботами.', href: 'https://velionagency.ru/' },
     { shot: 'media/cases/egolab.jpg', name: 'EgoLab', tag: 'Интернет-магазин', text: 'Магазин спортивного питания: каталог, корзина, промокоды и админка.', href: 'https://egolab.shop/' },
     { shot: 'media/cases/nohassle.jpg', name: 'NoHassle', tag: 'Сайт + бот заявок', text: 'Сайт агентства и бот, который принимает заявки 24/7.', href: 'http://nohassle.ru/' },
     { shot: 'media/cases/apolline.jpg', name: 'Apolline', tag: 'Сайт на 8 языках', text: 'Сайт агентства для США и Европы с блогом и ботом заявок.', href: 'https://apolline.site/' },
@@ -487,7 +499,13 @@ addEventListener('scroll', split, { passive: true }); addEventListener('resize',
         <h3 class="text-[20px] font-medium flex items-center justify-between">${c.name}<iconify-icon icon="solar:arrow-right-up-linear" width="20" class="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></iconify-icon></h3>
         <p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">${c.text}</p>
       </div>
-    </a>`).join('');
+    </a>`).join('') + `
+    <a href="#contact" class="reveal-up group relative flex flex-col justify-between rounded-[24px] bg-[#132a24] text-white p-8 min-h-[320px] overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-25px_rgba(19,42,36,.5)]" style="--d:.4s">
+      <div class="absolute inset-0 grid-bg-dark opacity-60"></div>
+      <span class="relative inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-[12px] font-medium">Следующий</span>
+      <div class="relative"><h3 class="text-[30px] leading-[1.1] font-medium tracking-[-0.02em]">Ваш проект —<br>здесь.</h3><p class="mt-3 text-[15px] text-[#879f98]">Расскажите задачу — пришлём план и сроки.</p>
+      <span class="mt-6 inline-flex items-center gap-2 text-[15px] font-medium">Обсудить <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></span></div>
+    </a>`;
   document.querySelectorAll('#cards .reveal-up').forEach(el => io.observe(el));
   document.querySelectorAll('#cards img, .trust-img, .svc-img').forEach(img => { img.classList.add('fade-img'); const on = () => img.classList.add('loaded'); img.complete ? on() : img.addEventListener('load', on); });
 })();
