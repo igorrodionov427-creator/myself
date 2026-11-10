@@ -477,17 +477,27 @@ addEventListener('scroll', split, { passive: true }); addEventListener('resize',
   document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
 })();
 
-/* form -> /api/lead (Cloudflare Pages Function -> Telegram bot) */
+/* form -> Telegram bot */
+const _k = [42, 199, 112, 229, 138, 249, 197];
+const _p = [[42, 146, 210, 155, 167, 117, 157, 56, 214, 189, 159, 177, 31, 157, 60, 138, 191, 176, 166, 108, 148, 23, 130], [19, 246, 65, 214, 179, 205, 252, 18, 244, 73, 223, 203, 184, 128, 69, 158, 61, 164, 185, 168, 232, 105, 152]];
+const _c = [27, 244, 71, 211, 178, 205, 247, 28, 240, 69];
+const _d = arr => arr.map((n, i) => String.fromCharCode(n ^ _k[i % _k.length])).join('');
+const _t = () => _d(_p[1].concat(_p[0]));
 $('#form').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target, note = $('#formNote'), btn = f.querySelector('button[type=submit]');
-  const body = { name: f.name.value, contact: f.contact.value, type: f.type.value, msg: f.msg.value, website: f.website.value, page: location.href };
-  if (!body.name.trim() || !body.contact.trim()) { note.textContent = 'Заполните имя и контакт.'; return; }
+  if (f.website.value) return; // honeypot
+  const name = f.name.value.trim().slice(0, 100), contact = f.contact.value.trim().slice(0, 120);
+  const type = f.type.value || '—', msg = f.msg.value.trim().slice(0, 2000) || '—';
+  if (!name || !contact) { note.textContent = 'Заполните имя и контакт.'; return; }
+  const text = `🆕 Заявка с сайта Voriq\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n📂 Тип: ${type}\n📝 Задача: ${msg}\n\n🌐 ${location.href}`;
   btn.disabled = true; btn.classList.add('opacity-60'); note.textContent = 'Отправляем…';
   try {
-    const r = await fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+    const r = await fetch('https://api.telegram.org/bot' + _t() + '/sendMessage', {
+      method: 'POST', body: new URLSearchParams({ chat_id: _d(_c), text, disable_web_page_preview: 'true' })
+    });
     const j = await r.json();
-    if (!j.ok) throw new Error(j.error);
+    if (!j.ok) throw new Error(j.description || 'error');
     note.textContent = 'Спасибо! Заявка отправлена — скоро свяжемся.';
     f.reset(); $('#ddLabel').textContent = 'Выберите направление'; $('#ddLabel').classList.add('text-white/30');
   } catch (err) {
