@@ -12,10 +12,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&subset=cyrillic&display=swap">
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <style>
   :root{--ease:cubic-bezier(0.22,1,0.36,1)}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:auto}
   body{font-family:'Satoshi','Manrope',sans-serif}
   ::selection{background:#132a24;color:#fff}
   *{transition-timing-function:var(--ease)}
@@ -26,9 +25,6 @@
   .reveal-up{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
   .reveal-blur{opacity:0;filter:blur(14px);transform:translateY(18px);transition:opacity 1.1s var(--ease),filter 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
   .reveal-up.in-view,.reveal-blur.in-view{opacity:1;transform:none;filter:blur(0)}
-  html.lenis,html.lenis body{height:auto}
-  .lenis.lenis-smooth{scroll-behavior:auto!important}
-  .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
   img.fade-img{opacity:0;transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
   img.fade-img.loaded{opacity:1}
   details>p{opacity:0;transform:translateY(-6px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -55,13 +51,26 @@
   .grid-bg{background-image:linear-gradient(rgba(19,42,36,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(19,42,36,.06) 1px,transparent 1px);background-size:32px 32px}
   .grid-bg-dark{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px}
 
-  @media (prefers-reduced-motion:reduce){
-    .blur-fade-up,.reveal-up,.reveal-blur{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}
-    .marquee-track,.orbit,.orbit-rev,.pulse-soft,.float-y,.ping2{animation:none!important}
-  }
+  html.still .blur-fade-up,html.still .reveal-up,html.still .reveal-blur{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}
+  html.still .marquee-track,html.still .orbit,html.still .orbit-rev,html.still .pulse-soft,html.still .float-y,html.still .ping2{animation:none!important}
+
+  /* apolline motion set */
+  .progress{position:fixed;left:0;top:0;height:2px;width:100%;background:#78A184;transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
+  .shot-wrap{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s cubic-bezier(.77,0,.18,1);transition-delay:calc(var(--d,0s) + .1s)}
+  .in-view .shot-wrap,.shot-wrap.in-view{clip-path:inset(0)}
+  .shot-wrap img{transform:scale(1.18);transition:transform 1.6s var(--ease),opacity 1s var(--ease)!important}
+  .in-view .shot-wrap img,.shot-wrap.in-view img{transform:scale(1)}
+  .in-view.group:hover .shot-wrap img{transform:scale(1.045)}
+  .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+  .w>span{display:inline-block;transform:translateY(110%) rotate(3deg);transform-origin:0 100%;transition:transform 1.15s var(--ease);transition-delay:calc(var(--wd,0s) + var(--d,0s))}
+  .in-view .w>span{transform:none}
+  .reveal-up.words{opacity:1;transform:none}
+  html.still .shot-wrap{clip-path:none}
+  html.still .shot-wrap img,html.still .w>span{transform:none}
 </style>
 </head>
 <body class="bg-[#f5f7f6] text-[#132a24] antialiased">
+<div class="progress" id="progress"></div>
 
 <!-- ============ HEADER ============ -->
 <header id="hdr" class="sticky top-0 z-50 backdrop-blur-md bg-[#f5f7f6]/90 border-b border-[#132a24]/5">
@@ -123,7 +132,6 @@
   <!-- cards -->
   <div class="relative z-10 lg:-mt-[100vh] max-w-7xl mx-auto px-5 sm:px-8 pt-12 lg:pt-[18vh] pb-24 lg:pb-[18vh] flex flex-col items-center gap-6 lg:gap-[14vh]">
 
-    <!-- card 1: sites — iso bars -->
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>01 · WEB</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
       <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
@@ -132,14 +140,11 @@
         </g>
         <g id="isoBars"></g>
       </svg>
-      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Сайты</h3>
-      <p class="mt-2 text-[#879f98] leading-relaxed">Лендинги, многостраничники и интернет-магазины, которые быстро грузятся и приводят заявки.</p>
-      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium">
-        <li class="rounded-xl bg-white/70 px-3 py-2">Лендинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Магазин</li><li class="rounded-xl bg-white/70 px-3 py-2">Редизайн</li><li class="rounded-xl bg-white/70 px-3 py-2">SEO-база</li>
-      </ul>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Сайты и лендинги</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Лендинги, корпоративные сайты и интернет-магазины. Быстрые, удобные с телефона и настроенные на заявки.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Лендинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Корпоративный сайт</li><li class="rounded-xl bg-white/70 px-3 py-2">Магазин</li><li class="rounded-xl bg-white/70 px-3 py-2">Редизайн</li></ul>
     </article>
 
-    <!-- card 2: bots — stacked diamonds -->
     <article id="centerCard" class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>02 · BOTS</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
       <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
@@ -153,16 +158,35 @@
         <path d="M 200 50 L 300 90 L 200 130 L 100 90 Z" fill="#f5f7f6" stroke="#132a24" stroke-width="1" stroke-dasharray="6 4" class="float-y" style="animation-delay:-2.6s"/>
         <circle cx="200" cy="90" r="5" fill="#132a24"/><circle cx="200" cy="90" r="5" fill="#78A184" class="ping2"/>
       </svg>
-      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Боты</h3>
-      <p class="mt-2 text-[#879f98] leading-relaxed">Telegram-боты для заявок, записи, оплаты и поддержки. Работают 24/7 и не теряют клиентов.</p>
-      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium">
-        <li class="rounded-xl bg-white/70 px-3 py-2">Бот заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">Приём оплаты</li><li class="rounded-xl bg-white/70 px-3 py-2">Бот-магазин</li><li class="rounded-xl bg-white/70 px-3 py-2">ИИ-консультант</li>
-      </ul>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Telegram-боты</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Боты для заявок, записи, оплаты и поддержки. Отвечают клиентам круглосуточно и передают заявки вам.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Бот заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">Приём оплаты</li><li class="rounded-xl bg-white/70 px-3 py-2">Рассылки</li><li class="rounded-xl bg-white/70 px-3 py-2">Поддержка</li></ul>
     </article>
 
-    <!-- card 3: automation — hexagon -->
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
-      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>03 · AUTO</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>03 · AI</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
+      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
+        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".8">
+          <path d="M 200 170 L 90 90"/><path d="M 200 170 L 315 85"/><path d="M 200 170 L 80 245"/><path d="M 200 170 L 325 250"/><path d="M 200 170 L 200 45"/>
+        </g>
+        <circle cx="200" cy="170" r="74" fill="none" stroke="#78A184" stroke-width="1" opacity=".5"/>
+        <circle cx="200" cy="170" r="52" fill="#fff" stroke="#132a24" stroke-width="1.5"/>
+        <path d="M200 138 C204 160 210 166 232 170 C210 174 204 180 200 202 C196 180 190 174 168 170 C190 166 196 160 200 138 Z" fill="#132a24" class="pulse-soft"/>
+        <path d="M238 128 C239.5 135 241 136.5 248 138 C241 139.5 239.5 141 238 148 C236.5 141 235 139.5 228 138 C235 136.5 236.5 135 238 128 Z" fill="#78A184"/>
+        <g fill="#fff" stroke="#132a24" stroke-width="1.5">
+          <rect x="70" y="72" width="40" height="36" rx="10"/><rect x="295" y="67" width="40" height="36" rx="10"/>
+          <rect x="60" y="227" width="40" height="36" rx="10"/><rect x="305" y="232" width="40" height="36" rx="10"/>
+        </g>
+        <g fill="#78A184"><circle cx="90" cy="90" r="5"/><circle cx="315" cy="85" r="5"/><circle cx="80" cy="245" r="5"/><circle cx="325" cy="250" r="5"/></g>
+        <circle cx="200" cy="45" r="7" fill="#274f44"/><circle cx="200" cy="45" r="7" fill="#78A184" class="ping2"/>
+      </svg>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">ИИ-агенты</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Ассистенты на базе ИИ: отвечают на вопросы клиентов, разбирают входящие обращения и работают с вашими документами.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Консультант</li><li class="rounded-xl bg-white/70 px-3 py-2">Разбор заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">База знаний</li><li class="rounded-xl bg-white/70 px-3 py-2">Работа с CRM</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>04 · AUTO</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
       <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
         <polygon points="200,60 295,115 295,225 200,280 105,225 105,115" fill="none" stroke="#132a24" stroke-width="1.5"/>
         <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" opacity=".8">
@@ -176,11 +200,54 @@
           <circle cx="200" cy="60" r="6"/><circle cx="295" cy="115" r="6"/><circle cx="295" cy="225" r="6"/><circle cx="200" cy="280" r="6"/><circle cx="105" cy="225" r="6"/><circle cx="105" cy="115" r="6"/>
         </g>
       </svg>
-      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Автоматизация</h3>
-      <p class="mt-2 text-[#879f98] leading-relaxed">Связываем сайт, бота, CRM и таблицы. Заявки, рассылки и отчёты делаются без ручной работы.</p>
-      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium">
-        <li class="rounded-xl bg-white/70 px-3 py-2">CRM</li><li class="rounded-xl bg-white/70 px-3 py-2">Парсеры</li><li class="rounded-xl bg-white/70 px-3 py-2">Рассылки</li><li class="rounded-xl bg-white/70 px-3 py-2">ИИ-агенты</li>
-      </ul>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Автоматизация процессов</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Связываем CRM, мессенджеры, таблицы и оплаты в один поток — рутина делается сама, без ручной работы.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">CRM</li><li class="rounded-xl bg-white/70 px-3 py-2">Таблицы</li><li class="rounded-xl bg-white/70 px-3 py-2">Уведомления</li><li class="rounded-xl bg-white/70 px-3 py-2">Отчёты</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>05 · SOFT</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
+      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
+        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".8">
+          <path d="M 60 280 L 340 280"/><path d="M 300 120 L 340 120 L 340 200"/>
+        </g>
+        <rect x="70" y="60" width="230" height="170" rx="16" fill="#fff" stroke="#132a24" stroke-width="1.5"/>
+        <path d="M70 92 H300" stroke="#132a24" stroke-opacity=".15"/>
+        <g fill="#cfe0d6"><circle cx="90" cy="76" r="5"/><circle cx="106" cy="76" r="5"/><circle cx="122" cy="76" r="5"/></g>
+        <g font-family="ui-monospace,monospace" font-size="16" font-weight="600" fill="#274f44"><text x="88" y="124">&lt;/&gt;</text></g>
+        <g stroke-linecap="round" stroke-width="6">
+          <path d="M128 119 H200" stroke="#78A184"/><path d="M100 143 H230" stroke="#cfe0d6"/><path d="M100 163 H180" stroke="#cfe0d6"/><path d="M120 183 H250" stroke="#78A184" opacity=".6"/><path d="M100 203 H160" stroke="#cfe0d6"/>
+        </g>
+        <g class="float-y">
+          <rect x="240" y="150" width="120" height="96" rx="14" fill="#132a24"/>
+          <g fill="#78A184"><rect x="258" y="206" width="14" height="24" rx="3"/><rect x="280" y="192" width="14" height="38" rx="3"/><rect x="302" y="178" width="14" height="52" rx="3" fill="#cfe0d6"/><rect x="324" y="186" width="14" height="44" rx="3"/></g>
+          <path d="M258 172 H310" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Кастомный софт</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Внутренние сервисы под задачи бизнеса: личные кабинеты, дашборды, парсеры и интеграции по API.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Кабинеты</li><li class="rounded-xl bg-white/70 px-3 py-2">Дашборды</li><li class="rounded-xl bg-white/70 px-3 py-2">Парсеры</li><li class="rounded-xl bg-white/70 px-3 py-2">API</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>06 · CARE</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
+      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
+        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".8">
+          <circle cx="200" cy="160" r="112"/>
+        </g>
+        <g class="orbit" style="transform-origin:200px 160px;transform-box:view-box">
+          <path d="M 200 78 A 82 82 0 0 1 282 160" fill="none" stroke="#132a24" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 276 146 L 282 162 L 294 150" fill="none" stroke="#132a24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 200 242 A 82 82 0 0 1 118 160" fill="none" stroke="#78A184" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 124 174 L 118 158 L 106 170" fill="none" stroke="#78A184" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <circle cx="200" cy="160" r="56" fill="#fff" stroke="#132a24" stroke-width="1.5"/>
+        <path d="M158 162 H180 L188 140 L200 184 L210 150 L218 162 H242" fill="none" stroke="#274f44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="242" cy="162" r="5" fill="#78A184"/><circle cx="242" cy="162" r="5" fill="#78A184" class="ping2"/>
+      </svg>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Поддержка и развитие</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Доработки, обновления и мониторинг после запуска. Продукт продолжает расти вместе с бизнесом.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Доработки</li><li class="rounded-xl bg-white/70 px-3 py-2">Мониторинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Обновления</li><li class="rounded-xl bg-white/70 px-3 py-2">Аналитика</li></ul>
     </article>
   </div>
 </section>
@@ -220,22 +287,22 @@
     <div class="mt-16 grid md:grid-cols-2 gap-5">
       <!-- 1 -->
       <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]">
-        <div class="relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/access.webp" alt="Щит с галочкой: код и доступы у клиента" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"></div>
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/access.webp" alt="Щит с галочкой: код и доступы у клиента" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
         <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Код и доступы — ваши</h3><p class="mt-2 text-[#879f98] leading-relaxed">Передаём исходники, домен, хостинг и админки на ваше имя. Никакой привязки к нам.</p></div>
       </div>
       <!-- 2 -->
       <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]" style="--d:.08s">
-        <div class="relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/contract.webp" alt="Договор с подписью" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"></div>
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/contract.webp" alt="Договор с подписью" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
         <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Работа по договору</h3><p class="mt-2 text-[#879f98] leading-relaxed">Сроки и объём работ фиксируются письменно. Понятно, что и когда вы получите.</p></div>
       </div>
       <!-- 3 -->
       <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]">
-        <div class="relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/plan.webp" alt="Календарь, этапы проекта и часы" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"></div>
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/plan.webp" alt="Календарь, этапы проекта и часы" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
         <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Сроки по плану</h3><p class="mt-2 text-[#879f98] leading-relaxed">Делим проект на этапы и показываем результат после каждого. Всегда видно, на каком шаге работа.</p></div>
       </div>
       <!-- 4 -->
       <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]" style="--d:.08s">
-        <div class="relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/reports.webp" alt="График роста заявок" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04]"></div>
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="media/trust/reports.webp" alt="График роста заявок" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
         <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Понятные отчёты</h3><p class="mt-2 text-[#879f98] leading-relaxed">Подключаем аналитику и показываем, сколько заявок приносит сайт и бот — без воды.</p></div>
       </div>
     </div>
@@ -333,18 +400,78 @@ const hdrIn = $('#hdrIn');
 const onScroll = () => { const s = scrollY > 50; hdrIn.classList.toggle('h-24', !s); hdrIn.classList.toggle('h-20', s); };
 addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-/* smooth scroll */
-let lenis = null;
-if (window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
-  const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
-  requestAnimationFrame(raf);
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-    const id = a.getAttribute('href'); if (id.length < 2) return;
-    const el = document.querySelector(id); if (!el) return;
-    e.preventDefault(); lenis.scrollTo(el, { offset: -70, duration: 1.4 });
-  }));
+/* motion: always on (as on apolline.site); ?static=1 disables it */
+const STILL = new URLSearchParams(location.search).has('static');
+if (STILL) document.documentElement.classList.add('still');
+
+/* anchors glide to their section (ease in-out); wheel/touch cancels */
+let anchorRun = 0;
+const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+['wheel', 'touchstart'].forEach(ev => addEventListener(ev, () => { anchorRun++; }, { passive: true }));
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute('href'), el = id.length > 1 ? document.querySelector(id) : null;
+  if (id.length > 1 && !el) return;
+  e.preventDefault(); wheelStop();
+  const from = scrollY, to = el ? el.getBoundingClientRect().top + scrollY - 72 : 0, d = to - from;
+  const dur = Math.min(1600, 650 + Math.abs(d) * .2), t0 = performance.now(), run = ++anchorRun;
+  const step = now => { if (run !== anchorRun) return; const k = Math.min(1, (now - t0) / dur);
+    scrollTo({ top: from + d * easeIO(k), behavior: 'instant' }); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+  history.replaceState(null, '', id === '#' ? location.pathname + location.search : location.search + id);
+});
+
+/* inertial wheel scrolling (desktop mouse) */
+let wTarget = scrollY, wCur = scrollY, wRunning = false;
+function wheelStop() { wRunning = false; }
+if (!STILL) {
+  const maxY = () => document.documentElement.scrollHeight - innerHeight;
+  const glide = () => {
+    if (!wRunning) return;
+    if (Math.abs(scrollY - Math.round(wCur)) > 3) { wRunning = false; return; } // scrolled by scrollbar/keys/anchor
+    wCur += (wTarget - wCur) * .09;
+    if (Math.abs(wTarget - wCur) < .5) { wCur = wTarget; wRunning = false; }
+    scrollTo({ top: wCur, behavior: 'instant' });
+    if (wRunning) requestAnimationFrame(glide);
+  };
+  addEventListener('wheel', e => {
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    if (e.target.closest && e.target.closest('textarea,#ddMenu')) return;
+    e.preventDefault();
+    if (!wRunning) wTarget = wCur = scrollY;
+    wTarget = Math.max(0, Math.min(maxY(), wTarget + e.deltaY * (e.deltaMode === 1 ? 40 : 1)));
+    if (!wRunning) { wRunning = true; requestAnimationFrame(glide); }
+  }, { passive: false });
+  addEventListener('keydown', wheelStop);
+  addEventListener('pointerdown', wheelStop);
 }
+
+/* scroll progress bar */
+const prog = $('#progress');
+const onProg = () => { const m = document.documentElement.scrollHeight - innerHeight; prog.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`; };
+addEventListener('scroll', onProg, { passive: true }); onProg();
+
+/* word-by-word headline reveal for section h2 */
+document.querySelectorAll('section:not(:first-of-type) h2.reveal-blur').forEach(h => {
+  h.classList.remove('reveal-blur'); h.classList.add('reveal-up', 'words');
+  let wi = 0;
+  const walk = node => {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const i = document.createElement('span'); i.textContent = part; i.style.setProperty('--wd', (wi++ * 0.06) + 's');
+          w.appendChild(i); frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+    });
+  };
+  walk(h);
+});
 
 /* extra stagger targets */
 document.querySelectorAll('#faq details, #form > *').forEach((el, i) => { el.classList.add('reveal-up'); el.style.setProperty('--d', (i % 6) * 0.07 + 's'); });
@@ -409,8 +536,8 @@ addEventListener('scroll', split, { passive: true }); addEventListener('resize',
   ];
   $('#cards').innerHTML = cards.map((c, k) => `
     <a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} class="reveal-up group block rounded-[24px] bg-white border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-25px_rgba(19,42,36,.35)]" style="--d:${k * .08}s">
-      <div class="relative aspect-[1.5/1] overflow-hidden bg-[#e4ebe8]">
-        <img src="${c.shot}" alt="Сайт ${c.name}" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy">
+      <div class="shot-wrap relative aspect-[1.5/1] overflow-hidden bg-[#e4ebe8]">
+        <img src="${c.shot}" alt="Сайт ${c.name}" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-[#132a24]/25 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"></div>
         <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[12px] font-medium">${c.tag}</span>
       </div>
