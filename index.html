@@ -27,6 +27,8 @@
   .reveal-up.in-view,.reveal-blur.in-view{opacity:1;transform:none;filter:blur(0)}
   img.fade-img{opacity:0;transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
   img.fade-img.loaded{opacity:1}
+  .svc-img{transition:transform 1s var(--ease),opacity 1s var(--ease)}
+  .asset-card:hover .svc-img{transform:translateY(-6px) scale(1.03)}
   details>p{opacity:0;transform:translateY(-6px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
   details[open]>p{opacity:1;transform:none}
   a,button,summary{transition-timing-function:var(--ease)}
@@ -143,12 +145,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>01 · WEB</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
-        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".7">
-          <path d="M 80 260 L 200 320"/><path d="M 80 260 L 200 200"/><path d="M 200 200 L 320 260"/><path d="M 200 320 L 320 260"/>
-        </g>
-        <g id="isoBars"></g>
-      </svg>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="media/services/web.webp" alt="Сайт и мобильная версия" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Сайты и лендинги</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Лендинги, корпоративные сайты и интернет-магазины. Быстрые, удобные с телефона и настроенные на заявки.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Лендинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Корпоративный сайт</li><li class="rounded-xl bg-white/70 px-3 py-2">Магазин</li><li class="rounded-xl bg-white/70 px-3 py-2">Редизайн</li></ul>
@@ -156,17 +153,7 @@
 
     <article id="centerCard" class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>02 · BOTS</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
-        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".7">
-          <path d="M 100 210 L 100 90"/><path d="M 300 210 L 300 90"/><path d="M 200 250 L 200 130"/>
-        </g>
-        <path d="M 200 210 L 300 250 L 200 290 L 100 250 Z" fill="#132a24" opacity=".12"/>
-        <path d="M 200 170 L 300 210 L 200 250 L 100 210 Z" fill="#274f44"/>
-        <path d="M 200 130 L 300 170 L 200 210 L 100 170 Z" fill="#78A184" opacity=".9" class="float-y"/>
-        <path d="M 200 90 L 300 130 L 200 170 L 100 130 Z" fill="#fff" stroke="#78A184" stroke-width="1.5" class="float-y" style="animation-delay:-1.3s"/>
-        <path d="M 200 50 L 300 90 L 200 130 L 100 90 Z" fill="#f5f7f6" stroke="#132a24" stroke-width="1" stroke-dasharray="6 4" class="float-y" style="animation-delay:-2.6s"/>
-        <circle cx="200" cy="90" r="5" fill="#132a24"/><circle cx="200" cy="90" r="5" fill="#78A184" class="ping2"/>
-      </svg>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="media/services/bots.webp" alt="Чат-бот в телефоне" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Telegram-боты</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Боты для заявок, записи, оплаты и поддержки. Отвечают клиентам круглосуточно и передают заявки вам.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Бот заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">Приём оплаты</li><li class="rounded-xl bg-white/70 px-3 py-2">Рассылки</li><li class="rounded-xl bg-white/70 px-3 py-2">Поддержка</li></ul>
@@ -174,21 +161,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>03 · AI</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
-        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".8">
-          <path d="M 200 170 L 90 90"/><path d="M 200 170 L 315 85"/><path d="M 200 170 L 80 245"/><path d="M 200 170 L 325 250"/><path d="M 200 170 L 200 45"/>
-        </g>
-        <circle cx="200" cy="170" r="74" fill="none" stroke="#78A184" stroke-width="1" opacity=".5"/>
-        <circle cx="200" cy="170" r="52" fill="#fff" stroke="#132a24" stroke-width="1.5"/>
-        <path d="M200 138 C204 160 210 166 232 170 C210 174 204 180 200 202 C196 180 190 174 168 170 C190 166 196 160 200 138 Z" fill="#132a24" class="pulse-soft"/>
-        <path d="M238 128 C239.5 135 241 136.5 248 138 C241 139.5 239.5 141 238 148 C236.5 141 235 139.5 228 138 C235 136.5 236.5 135 238 128 Z" fill="#78A184"/>
-        <g fill="#fff" stroke="#132a24" stroke-width="1.5">
-          <rect x="70" y="72" width="40" height="36" rx="10"/><rect x="295" y="67" width="40" height="36" rx="10"/>
-          <rect x="60" y="227" width="40" height="36" rx="10"/><rect x="305" y="232" width="40" height="36" rx="10"/>
-        </g>
-        <g fill="#78A184"><circle cx="90" cy="90" r="5"/><circle cx="315" cy="85" r="5"/><circle cx="80" cy="245" r="5"/><circle cx="325" cy="250" r="5"/></g>
-        <circle cx="200" cy="45" r="7" fill="#274f44"/><circle cx="200" cy="45" r="7" fill="#78A184" class="ping2"/>
-      </svg>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="media/services/ai.webp" alt="ИИ-ассистент со связанными сервисами" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">ИИ-агенты</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Ассистенты на базе ИИ: отвечают на вопросы клиентов, разбирают входящие обращения и работают с вашими документами.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Консультант</li><li class="rounded-xl bg-white/70 px-3 py-2">Разбор заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">База знаний</li><li class="rounded-xl bg-white/70 px-3 py-2">Работа с CRM</li></ul>
@@ -196,19 +169,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>04 · AUTO</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
-        <polygon points="200,60 295,115 295,225 200,280 105,225 105,115" fill="none" stroke="#132a24" stroke-width="1.5"/>
-        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" opacity=".8">
-          <line x1="200" y1="60" x2="200" y2="280"/><line x1="105" y1="115" x2="295" y2="225"/><line x1="295" y1="115" x2="105" y2="225"/>
-        </g>
-        <polygon points="200,100 260,205 140,205" fill="#78A184" opacity=".35" class="pulse-soft"/>
-        <polygon points="200,240 140,135 260,135" fill="#274f44" opacity=".25" class="pulse-soft" style="animation-delay:-1.6s"/>
-        <circle cx="200" cy="170" r="40" fill="none" stroke="#78A184" stroke-width="1.5"/>
-        <circle cx="200" cy="170" r="10" fill="#132a24"/>
-        <g fill="#fff" stroke="#132a24" stroke-width="1.5">
-          <circle cx="200" cy="60" r="6"/><circle cx="295" cy="115" r="6"/><circle cx="295" cy="225" r="6"/><circle cx="200" cy="280" r="6"/><circle cx="105" cy="225" r="6"/><circle cx="105" cy="115" r="6"/>
-        </g>
-      </svg>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="media/services/auto.webp" alt="Сервисы, связанные в один поток" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Автоматизация процессов</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Связываем CRM, мессенджеры, таблицы и оплаты в один поток — рутина делается сама, без ручной работы.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">CRM</li><li class="rounded-xl bg-white/70 px-3 py-2">Таблицы</li><li class="rounded-xl bg-white/70 px-3 py-2">Уведомления</li><li class="rounded-xl bg-white/70 px-3 py-2">Отчёты</li></ul>
@@ -216,23 +177,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>05 · SOFT</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
-        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".8">
-          <path d="M 60 280 L 340 280"/><path d="M 300 120 L 340 120 L 340 200"/>
-        </g>
-        <rect x="70" y="60" width="230" height="170" rx="16" fill="#fff" stroke="#132a24" stroke-width="1.5"/>
-        <path d="M70 92 H300" stroke="#132a24" stroke-opacity=".15"/>
-        <g fill="#cfe0d6"><circle cx="90" cy="76" r="5"/><circle cx="106" cy="76" r="5"/><circle cx="122" cy="76" r="5"/></g>
-        <g font-family="ui-monospace,monospace" font-size="16" font-weight="600" fill="#274f44"><text x="88" y="124">&lt;/&gt;</text></g>
-        <g stroke-linecap="round" stroke-width="6">
-          <path d="M128 119 H200" stroke="#78A184"/><path d="M100 143 H230" stroke="#cfe0d6"/><path d="M100 163 H180" stroke="#cfe0d6"/><path d="M120 183 H250" stroke="#78A184" opacity=".6"/><path d="M100 203 H160" stroke="#cfe0d6"/>
-        </g>
-        <g class="float-y">
-          <rect x="240" y="150" width="120" height="96" rx="14" fill="#132a24"/>
-          <g fill="#78A184"><rect x="258" y="206" width="14" height="24" rx="3"/><rect x="280" y="192" width="14" height="38" rx="3"/><rect x="302" y="178" width="14" height="52" rx="3" fill="#cfe0d6"/><rect x="324" y="186" width="14" height="44" rx="3"/></g>
-          <path d="M258 172 H310" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>
-        </g>
-      </svg>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="media/services/soft.webp" alt="Дашборд и код" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Кастомный софт</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Внутренние сервисы под задачи бизнеса: личные кабинеты, дашборды, парсеры и интеграции по API.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Кабинеты</li><li class="rounded-xl bg-white/70 px-3 py-2">Дашборды</li><li class="rounded-xl bg-white/70 px-3 py-2">Парсеры</li><li class="rounded-xl bg-white/70 px-3 py-2">API</li></ul>
@@ -240,20 +185,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>06 · CARE</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <svg viewBox="0 0 400 320" class="w-full mt-4" aria-hidden="true">
-        <g stroke="#879f98" stroke-width="1" stroke-dasharray="6 4" fill="none" opacity=".8">
-          <circle cx="200" cy="160" r="112"/>
-        </g>
-        <g class="orbit" style="transform-origin:200px 160px;transform-box:view-box">
-          <path d="M 200 78 A 82 82 0 0 1 282 160" fill="none" stroke="#132a24" stroke-width="3" stroke-linecap="round"/>
-          <path d="M 276 146 L 282 162 L 294 150" fill="none" stroke="#132a24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M 200 242 A 82 82 0 0 1 118 160" fill="none" stroke="#78A184" stroke-width="3" stroke-linecap="round"/>
-          <path d="M 124 174 L 118 158 L 106 170" fill="none" stroke="#78A184" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        <circle cx="200" cy="160" r="56" fill="#fff" stroke="#132a24" stroke-width="1.5"/>
-        <path d="M158 162 H180 L188 140 L200 184 L210 150 L218 162 H242" fill="none" stroke="#274f44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="242" cy="162" r="5" fill="#78A184"/><circle cx="242" cy="162" r="5" fill="#78A184" class="ping2"/>
-      </svg>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="media/services/support.webp" alt="Мониторинг и обновления" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Поддержка и развитие</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Доработки, обновления и мониторинг после запуска. Продукт продолжает расти вместе с бизнесом.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Доработки</li><li class="rounded-xl bg-white/70 px-3 py-2">Мониторинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Обновления</li><li class="rounded-xl bg-white/70 px-3 py-2">Аналитика</li></ul>
@@ -493,6 +425,7 @@ document.querySelectorAll('.reveal-up,.reveal-blur').forEach(el => io.observe(el
 /* iso bars (card 1) */
 (() => {
   const g = $('#isoBars'), ns = 'http://www.w3.org/2000/svg';
+  if (!g) return;
   // base diamond: M 80 260 (left) → 200 200 (top) → 320 260 (right) → 200 320 (bottom)
   const bars = [[0.18, 0.5, 46], [0.38, 0.32, 78], [0.6, 0.62, 104], [0.8, 0.42, 142]];
   const pt = (u, v) => [80 + 120 * u + 120 * v, 260 - 60 * u + 60 * v];
@@ -556,7 +489,7 @@ addEventListener('scroll', split, { passive: true }); addEventListener('resize',
       </div>
     </a>`).join('');
   document.querySelectorAll('#cards .reveal-up').forEach(el => io.observe(el));
-  document.querySelectorAll('#cards img, .trust-img').forEach(img => { img.classList.add('fade-img'); const on = () => img.classList.add('loaded'); img.complete ? on() : img.addEventListener('load', on); });
+  document.querySelectorAll('#cards img, .trust-img, .svc-img').forEach(img => { img.classList.add('fade-img'); const on = () => img.classList.add('loaded'); img.complete ? on() : img.addEventListener('load', on); });
 })();
 
 /* custom dropdown */
