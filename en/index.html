@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voriq — websites, bots and automation</title>
+<meta name="description" content="Voriq is a development studio: websites, Telegram bots and business automation, turnkey.">
+<link rel="icon" type="image/png" href="../media/favicon.png">
+<link rel="apple-touch-icon" href="../media/logo.png">
+<link rel="canonical" href="https://voriq.ru/en/">
+<link rel="alternate" hreflang="ru" href="https://voriq.ru/">
+<link rel="alternate" hreflang="en" href="https://voriq.ru/en/">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap">
+<!-- Satoshi has no Cyrillic: Manrope covers Russian glyphs -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&subset=cyrillic&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+  :root{--ease:cubic-bezier(0.22,1,0.36,1)}
+  html{scroll-behavior:auto}
+  body{font-family:'Satoshi','Manrope',sans-serif}
+  ::selection{background:#132a24;color:#fff}
+  *{transition-timing-function:var(--ease)}
+
+  @keyframes blurFadeUp{from{opacity:0;transform:translateY(24px);filter:blur(12px)}to{opacity:1;transform:none;filter:blur(0)}}
+  .blur-fade-up{opacity:0;animation:blurFadeUp 1.1s var(--ease) forwards;animation-delay:var(--d,0s)}
+
+  .reveal-up{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+  .reveal-blur{opacity:0;filter:blur(14px);transform:translateY(18px);transition:opacity 1.1s var(--ease),filter 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+  .reveal-up.in-view,.reveal-blur.in-view{opacity:1;transform:none;filter:blur(0)}
+  img.fade-img{opacity:0;transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+  img.fade-img.loaded{opacity:1}
+  .svc-img{transition:transform 1s var(--ease),opacity 1s var(--ease)}
+  .asset-card:hover .svc-img{transform:translateY(-6px) scale(1.03)}
+  details>p{opacity:0;transform:translateY(-6px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  details[open]>p{opacity:1;transform:none}
+  a,button,summary{transition-timing-function:var(--ease)}
+
+  @keyframes gradientFlow1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(12vw,6vh) scale(1.12)}66%{transform:translate(-6vw,10vh) scale(.92)}}
+  @keyframes gradientFlow2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-10vw,-8vh) scale(.9)}66%{transform:translate(8vw,-4vh) scale(1.15)}}
+
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee-track{animation:marquee 35s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+
+  @keyframes pulseSoft{0%,100%{opacity:.35;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
+  .pulse-soft{animation:pulseSoft 3.2s ease-in-out infinite;transform-origin:200px 170px;transform-box:view-box}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .float-y{animation:floatY 4s ease-in-out infinite}
+  @keyframes orbit{to{transform:rotate(360deg)}}
+  .orbit{animation:orbit 40s linear infinite}
+  .orbit-rev{animation:orbit 40s linear infinite reverse}
+  @keyframes ping2{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
+  .ping2{animation:ping2 2s var(--ease) infinite;transform-box:fill-box;transform-origin:center}
+
+  .grid-bg{background-image:linear-gradient(rgba(19,42,36,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(19,42,36,.06) 1px,transparent 1px);background-size:32px 32px}
+  .grid-bg-dark{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px}
+
+  html.still .blur-fade-up,html.still .reveal-up,html.still .reveal-blur{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}
+  html.still .marquee-track,html.still .orbit,html.still .orbit-rev,html.still .pulse-soft,html.still .float-y,html.still .ping2{animation:none!important}
+
+  .hero-art{opacity:0;animation:heroIn 1.4s var(--ease) .35s forwards,heroFloat 10s ease-in-out 1.75s infinite;will-change:transform}
+  @keyframes heroIn{from{opacity:0;transform:translateY(30px) scale(.96);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
+  @keyframes heroFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(-2deg)}}
+  html.still .hero-art{animation:none;opacity:1}
+  .lang-switch a{color:#879f98}
+  .lang-switch a:hover{color:#132a24}
+  .lang-switch[data-current-lang="ru"] .lang-ru-link,.lang-switch[data-current-lang="en"] .lang-en-link{background:#132a24;color:#fff}
+  /* apolline motion set */
+  .progress{position:fixed;left:0;top:0;height:2px;width:100%;background:#78A184;transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
+  .shot-wrap{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s cubic-bezier(.77,0,.18,1);transition-delay:calc(var(--d,0s) + .1s)}
+  .in-view .shot-wrap,.shot-wrap.in-view{clip-path:inset(0)}
+  .shot-wrap img{transform:scale(1.18);transition:transform 1.6s var(--ease),opacity 1s var(--ease)!important}
+  .in-view .shot-wrap img,.shot-wrap.in-view img{transform:scale(1)}
+  .in-view.group:hover .shot-wrap img{transform:scale(1.045)}
+  .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+  .w>span{display:inline-block;transform:translateY(110%) rotate(3deg);transform-origin:0 100%;transition:transform 1.15s var(--ease);transition-delay:calc(var(--wd,0s) + var(--d,0s))}
+  .in-view .w>span{transform:none}
+  .reveal-up.words{opacity:1;transform:none}
+  html.still .shot-wrap{clip-path:none}
+  html.still img.fade-img{opacity:1;transition:none}
+  html.still .shot-wrap img,html.still .w>span{transform:none}
+</style>
+</head>
+<body class="bg-[#f5f7f6] text-[#132a24] antialiased">
+<div class="progress" id="progress"></div>
+
+<!-- ============ HEADER ============ -->
+<header id="hdr" class="sticky top-0 z-50 backdrop-blur-md bg-[#f5f7f6]/90 border-b border-[#132a24]/5">
+  <div id="hdrIn" class="max-w-7xl mx-auto px-5 sm:px-8 h-24 flex items-center justify-between transition-all duration-500">
+    <a href="#" class="group flex items-center gap-3" aria-label="Voriq">
+      <span class="text-[22px] font-bold tracking-tight">voriq</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-9 text-[15px] font-medium">
+      <a href="#assets" class="relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-[#132a24] after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-bottom-left">Services</a>
+      <a href="#principles" class="relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-[#132a24] after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-bottom-left">Principles</a>
+      <a href="#trust" class="relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-[#132a24] after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-bottom-left">Guarantees</a>
+      <a href="#work" class="relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:bg-[#132a24] after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-bottom-left">Projects</a>
+    </nav>
+    <div class="flex items-center gap-2.5">
+      <div data-current-lang="en" class="lang-switch flex items-center rounded-full border border-[#132a24]/15 bg-white/60 p-0.5 text-[12px] font-medium"><a class="lang-ru-link rounded-full px-2.5 py-1 transition-colors duration-500" href="../" hreflang="ru">RU</a><a class="lang-en-link rounded-full px-2.5 py-1 transition-colors duration-500" href="./" hreflang="en">EN</a></div>
+      <a href="#contact" class="group inline-flex items-center gap-2 rounded-full bg-[#132a24] text-white text-[14px] font-medium pl-5 pr-4 h-11 hover:bg-[#274f44] transition-colors duration-500">
+        Contact us <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#e3ede6_0%,#f5f7f6_100%)]"></div>
+  <div class="absolute -z-10 -top-48 -left-40 w-[720px] h-[720px] rounded-full bg-[radial-gradient(circle,#8fbc9c_0%,transparent_68%)] blur-[100px] opacity-90 animate-[gradientFlow1_22s_ease-in-out_infinite]"></div>
+  <div class="absolute -z-10 top-10 -right-48 w-[780px] h-[780px] rounded-full bg-[radial-gradient(circle,#a9cdb5_0%,transparent_68%)] blur-[100px] opacity-90 animate-[gradientFlow2_26s_ease-in-out_infinite]"></div>
+  <div class="absolute inset-x-0 bottom-0 h-56 -z-[5] bg-gradient-to-b from-transparent to-[#f5f7f6] pointer-events-none"></div>
+  <div class="absolute -z-10 bottom-[-30%] left-1/3 w-[560px] h-[560px] rounded-full bg-[radial-gradient(circle,#78A184_0%,transparent_70%)] blur-[110px] opacity-40 animate-[gradientFlow2_30s_ease-in-out_infinite_reverse]"></div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 lg:pt-20 pb-20 sm:pb-28 lg:pb-24 grid lg:grid-cols-[1.05fr_.95fr] items-center gap-8 lg:gap-4 text-center lg:text-left">
+    <div>
+    <h1 class="blur-fade-up text-[44px] leading-[1.02] sm:text-6xl lg:text-[64px] xl:text-[78px] font-medium tracking-[-0.035em] max-w-5xl mx-auto lg:mx-0" style="--d:.15s">
+      Digital infrastructure<br class="hidden sm:block"> for real business.
+    </h1>
+    <p class="blur-fade-up mt-7 text-[17px] sm:text-[19px] text-[#879f98] max-w-2xl mx-auto lg:mx-0 leading-relaxed" style="--d:.3s">
+      We build websites, Telegram bots and automation that bring in leads and take routine off your plate. Turnkey — from idea to launch and support.
+    </p>
+    <div class="blur-fade-up mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3" style="--d:.45s">
+      <a href="#assets" class="group inline-flex items-center gap-2 rounded-full bg-[#132a24] text-white text-[15px] font-medium px-7 h-14 hover:bg-[#274f44] transition-colors duration-500">
+        View services <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon>
+      </a>
+      <a href="#faq" class="inline-flex items-center gap-2 rounded-full border border-[#132a24]/20 text-[15px] font-medium px-7 h-14 hover:bg-[#132a24] hover:text-white hover:border-[#132a24] transition-colors duration-500">
+        FAQ
+      </a>
+    </div>
+    </div>
+    <div class="relative mx-auto w-full max-w-[460px] lg:max-w-none">
+      <img src="../media/hero.webp" alt="" width="1024" height="765" fetchpriority="high" class="hero-art w-full h-auto select-none pointer-events-none">
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSETS (SPLIT SCROLL) ============ -->
+<section id="assets" class="relative">
+  <!-- side text -->
+  <div class="lg:sticky lg:top-0 lg:h-screen z-0 flex items-center pointer-events-none">
+    <div class="max-w-7xl mx-auto w-full px-5 sm:px-8 pt-10 lg:pt-0 flex flex-col lg:flex-row lg:justify-between text-center lg:text-left">
+      <div id="sideL" class="will-change-transform"><h2 class="reveal-blur text-[40px] sm:text-6xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-medium tracking-[-0.035em] leading-[1.02]">Development<br class="hidden lg:block"> turnkey.</h2></div>
+      <div id="sideR" class="will-change-transform"><h2 class="reveal-blur text-[40px] sm:text-6xl lg:text-[52px] xl:text-[60px] 2xl:text-[68px] font-medium tracking-[-0.035em] leading-[1.02] text-[#879f98] lg:text-right" style="--d:.1s">Without extra<br class="hidden lg:block"> contractors.</h2></div>
+    </div>
+  </div>
+
+  <!-- cards -->
+  <div class="relative z-10 lg:-mt-[100vh] max-w-7xl mx-auto px-5 sm:px-8 pt-12 lg:pt-[18vh] pb-24 lg:pb-[18vh] flex flex-col items-center gap-6 lg:gap-[14vh]">
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>01 · WEB</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">turnkey</span></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="../media/services/web.webp" alt="Website and mobile version" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Websites & landings</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Landing pages, company websites and online stores. Fast, mobile-friendly and built to generate leads.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Landing page</li><li class="rounded-xl bg-white/70 px-3 py-2">Company website</li><li class="rounded-xl bg-white/70 px-3 py-2">Online store</li><li class="rounded-xl bg-white/70 px-3 py-2">Redesign</li></ul>
+    </article>
+
+    <article id="centerCard" class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>02 · BOTS</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">turnkey</span></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="../media/services/bots.webp" alt="Chatbot on a phone" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Telegram bots</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Bots for leads, bookings, payments and support. They answer customers 24/7 and pass requests to you.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Lead bot</li><li class="rounded-xl bg-white/70 px-3 py-2">Payments</li><li class="rounded-xl bg-white/70 px-3 py-2">Broadcasts</li><li class="rounded-xl bg-white/70 px-3 py-2">Support</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>03 · AI</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">turnkey</span></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="../media/services/ai.webp" alt="AI assistant with connected services" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">AI agents</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">AI-powered assistants: they answer customer questions, sort incoming requests and work with your documents.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Consultant</li><li class="rounded-xl bg-white/70 px-3 py-2">Lead triage</li><li class="rounded-xl bg-white/70 px-3 py-2">Knowledge base</li><li class="rounded-xl bg-white/70 px-3 py-2">CRM work</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>04 · AUTO</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">turnkey</span></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="../media/services/auto.webp" alt="Services connected into one flow" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Process automation</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">We connect your CRM, messengers, spreadsheets and payments into one flow — routine runs itself, no manual work.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">CRM</li><li class="rounded-xl bg-white/70 px-3 py-2">Spreadsheets</li><li class="rounded-xl bg-white/70 px-3 py-2">Notifications</li><li class="rounded-xl bg-white/70 px-3 py-2">Reports</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>05 · SOFT</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">turnkey</span></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="../media/services/soft.webp" alt="Dashboard and code" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Custom software</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Internal tools built around your business: client portals, dashboards, scrapers and API integrations.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Portals</li><li class="rounded-xl bg-white/70 px-3 py-2">Dashboards</li><li class="rounded-xl bg-white/70 px-3 py-2">Scrapers</li><li class="rounded-xl bg-white/70 px-3 py-2">API</li></ul>
+    </article>
+
+    <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
+      <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>06 · CARE</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">turnkey</span></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="../media/services/support.webp" alt="Monitoring and updates" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Support & growth</h3>
+      <p class="mt-2 text-[#879f98] leading-relaxed">Improvements, updates and monitoring after launch. Your product keeps growing with your business.</p>
+      <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Improvements</li><li class="rounded-xl bg-white/70 px-3 py-2">Monitoring</li><li class="rounded-xl bg-white/70 px-3 py-2">Updates</li><li class="rounded-xl bg-white/70 px-3 py-2">Analytics</li></ul>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PRINCIPLES + MARQUEE ============ -->
+<section id="principles" class="py-24 sm:py-32 border-t border-[#132a24]/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20">
+      <div>
+        <p class="reveal-blur text-[13px] font-medium uppercase tracking-[0.18em] text-[#879f98]">How we work</p>
+        <h2 class="reveal-blur mt-5 text-4xl sm:text-5xl lg:text-[56px] font-medium tracking-[-0.03em] leading-[1.05]" style="--d:.1s">The principles behind every project.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-x-10 gap-y-12">
+        <div class="reveal-up border-t border-[#132a24]/15 pt-6"><span class="text-[13px] font-medium text-[#78A184]">01</span><h3 class="mt-4 text-[22px] font-medium">Your task in a few words</h3><p class="mt-2 text-[#879f98] leading-relaxed">Message us on Telegram by voice or text. We take it from there.</p></div>
+        <div class="reveal-up border-t border-[#132a24]/15 pt-6" style="--d:.08s"><span class="text-[13px] font-medium text-[#78A184]">02</span><h3 class="mt-4 text-[22px] font-medium">A plan before we start</h3><p class="mt-2 text-[#879f98] leading-relaxed">We send a plan and timeline. You know upfront what you get and when.</p></div>
+        <div class="reveal-up border-t border-[#132a24]/15 pt-6" style="--d:.16s"><span class="text-[13px] font-medium text-[#78A184]">03</span><h3 class="mt-4 text-[22px] font-medium">Progress you can see</h3><p class="mt-2 text-[#879f98] leading-relaxed">Interim versions and edits — no lengthy approvals.</p></div>
+        <div class="reveal-up border-t border-[#132a24]/15 pt-6" style="--d:.24s"><span class="text-[13px] font-medium text-[#78A184]">04</span><h3 class="mt-4 text-[22px] font-medium">Launch and support</h3><p class="mt-2 text-[#879f98] leading-relaxed">We connect your domain and analytics and stay in touch. The code and access are yours.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-24 sm:mt-28">
+    <p class="reveal-blur text-center text-[13px] font-medium uppercase tracking-[0.18em] text-[#879f98]">Technologies we work with</p>
+    <div class="marquee relative mt-10 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+      <div class="marquee-track flex w-max gap-6" id="belt"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section id="trust" class="py-24 sm:py-32 bg-white/60 border-y border-[#132a24]/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-3xl">
+      <p class="reveal-blur text-[13px] font-medium uppercase tracking-[0.18em] text-[#879f98]">Guarantees</p>
+      <h2 class="reveal-blur mt-5 text-4xl sm:text-5xl lg:text-[56px] font-medium tracking-[-0.03em] leading-[1.05]" style="--d:.1s">Transparent at every stage.</h2>
+    </div>
+    <div class="mt-16 grid md:grid-cols-2 gap-5">
+      <!-- 1 -->
+      <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]">
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="../media/trust/access.webp" alt="Shield with a check mark: code and access stay with the client" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
+        <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Your code, your access</h3><p class="mt-2 text-[#879f98] leading-relaxed">We hand over the source code, domain, hosting and admin panels in your name. No lock-in.</p></div>
+      </div>
+      <!-- 2 -->
+      <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]" style="--d:.08s">
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="../media/trust/contract.webp" alt="Signed contract" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
+        <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Work under contract</h3><p class="mt-2 text-[#879f98] leading-relaxed">Timeline and scope are fixed in writing. You know exactly what you get and when.</p></div>
+      </div>
+      <!-- 3 -->
+      <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]">
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="../media/trust/plan.webp" alt="Calendar, project stages and a clock" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
+        <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">On schedule</h3><p class="mt-2 text-[#879f98] leading-relaxed">We split the project into stages and show results after each one. You always see where things stand.</p></div>
+      </div>
+      <!-- 4 -->
+      <div class="reveal-up group rounded-[28px] bg-[#f1f1ec] border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(19,42,36,.3)]" style="--d:.08s">
+        <div class="shot-wrap relative aspect-[16/9] overflow-hidden bg-[#f1f1ec]"><img src="../media/trust/reports.webp" alt="Lead growth chart" width="1024" height="572" loading="lazy" class="trust-img absolute inset-0 w-full h-full object-cover"></div>
+        <div class="p-7 sm:p-8"><h3 class="text-[24px] font-medium">Clear reports</h3><p class="mt-2 text-[#879f98] leading-relaxed">We set up analytics and show how many leads your site and bot bring in — no fluff.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK (announcements style) ============ -->
+<section id="work" class="py-24 sm:py-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+      <div>
+        <p class="reveal-blur text-[13px] font-medium uppercase tracking-[0.18em] text-[#879f98]">Projects</p>
+        <h2 class="reveal-blur mt-5 text-4xl sm:text-5xl lg:text-[56px] font-medium tracking-[-0.03em] leading-[1.05]" style="--d:.1s">Our work.</h2>
+      </div>
+      <a href="#contact" class="reveal-blur group inline-flex items-center gap-2 text-[15px] font-medium">Discuss your project <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="cards"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ (short) ============ -->
+<section id="faq" class="pb-24 sm:pb-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-20">
+    <div class="lg:sticky lg:top-32 self-start"><h2 class="reveal-blur text-4xl sm:text-5xl font-medium tracking-[-0.03em] leading-[1.05]">FAQ.</h2><p class="reveal-blur mt-5 text-[#879f98] max-w-sm leading-relaxed" style="--d:.1s">Didn’t find an answer? Message us — we reply within a day.</p></div>
+    <div class="divide-y divide-[#132a24]/10 border-y border-[#132a24]/10">
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Where do we start? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Message us on Telegram, write to the bot <a class="underline" href="https://t.me/voriq_applicationsBot?start=site_en" target="_blank" rel="noopener">@voriq_applicationsBot</a> or leave a request on the site. A couple of words about the task is enough — we’ll ask the follow-up questions.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">What do you need from me to start? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">A short description of the task and, if you have them, examples you like. Texts, photos and access can come later — we’ll tell you exactly what’s needed.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Do you work under a contract? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Yes. Scope, timeline and stages are fixed in writing before we start, so both sides know what will be ready and when.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Who owns the code and access? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">You do. We hand over the source code, domain, hosting, admin panels and bots in your name — no lock-in.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Can we start with a small task? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Yes. Many clients start with one bot or a landing page and add automation later. It’s an easy way to see how we work.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Can you improve my existing website or bot? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Yes. We’ll look at what you have and tell you what’s worth improving and what’s easier to rebuild.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">How do work and communication go? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">One Telegram chat for everything. We show interim versions and make edits along the way — no long calls or approvals.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Do you set up payments, CRM and analytics? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Yes: payments, CRM, Google Sheets, broadcasts, Telegram notifications and analytics — all connected into one system.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Do you build websites and bots in English? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Yes, in English and Russian. We work remotely with clients from different cities and countries.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Do I need to be technical? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">No. We handle hosting, the domain, integrations and launch.</p></details>
+      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">What happens after launch? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">We stay in touch: edits, support, updates and improvements as your business grows.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="relative bg-[#132a24] text-white overflow-hidden">
+  <div class="absolute inset-0 grid-bg-dark pointer-events-none"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 py-24 sm:py-32 grid lg:grid-cols-2 gap-14 lg:gap-20">
+    <div class="lg:sticky lg:top-32 self-start">
+      <p class="reveal-blur text-[13px] font-medium uppercase tracking-[0.18em] text-[#879f98]">Contact</p>
+      <h2 class="reveal-blur mt-5 text-4xl sm:text-5xl lg:text-[64px] font-medium tracking-[-0.03em] leading-[1.02]" style="--d:.1s">Tell us the task&nbsp;—<br>we’ll handle the rest.</h2>
+      <p class="reveal-blur mt-6 text-[17px] text-[#879f98] max-w-md leading-relaxed" style="--d:.2s">The first consultation is free. We reply within a day.</p>
+      <a href="tel:+79670450339" class="reveal-blur mt-10 inline-flex items-center gap-3 text-[22px] sm:text-[26px] font-medium border-b border-white/20 pb-1 hover:border-white transition-colors duration-500" style="--d:.3s">+7 967 045-03-39 <iconify-icon icon="solar:arrow-right-up-linear" width="22"></iconify-icon></a>
+      <div class="reveal-blur mt-8 flex flex-wrap gap-3" style="--d:.35s">
+        <a href="https://t.me/voriq_applicationsBot?start=site_en" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-white text-[#132a24] pl-4 pr-5 h-12 font-medium hover:bg-[#78A184] hover:text-white transition-colors duration-500"><iconify-icon icon="solar:chat-round-like-bold" width="18"></iconify-icon>Request via bot<iconify-icon icon="solar:arrow-right-linear" width="16" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>
+        <a href="https://t.me/rydr3" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:telegram" width="18"></iconify-icon>Telegram</a>
+        <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:whatsapp" width="18"></iconify-icon>WhatsApp</a>
+        <a href="tel:+79670450339" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</a>
+      </div>
+      <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Lead bot <a class="underline hover:text-white" href="https://t.me/voriq_applicationsBot?start=site_en" target="_blank" rel="noopener">@voriq_applicationsBot</a> · Telegram @rydr3 · WhatsApp and MAX: +7 967 045-03-39</p>
+    </div>
+
+    <form id="form" class="reveal-up flex flex-col gap-4" novalidate>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="absolute -left-[9999px] w-px h-px opacity-0">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="block"><span class="text-[13px] text-[#879f98]">Name</span><input required name="name" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 h-14 outline-none focus:border-[#78A184] transition-colors duration-500 placeholder:text-white/30" placeholder="How should we call you"></label>
+        <label class="block"><span class="text-[13px] text-[#879f98]">Telegram or phone</span><input required name="contact" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 h-14 outline-none focus:border-[#78A184] transition-colors duration-500 placeholder:text-white/30" placeholder="@username"></label>
+      </div>
+
+      <div class="block relative z-30" id="ddWrap">
+        <span class="text-[13px] text-[#879f98]">Request type</span>
+        <input type="hidden" name="type" id="typeVal" value="">
+        <button type="button" id="ddBtn" aria-haspopup="listbox" aria-expanded="false" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 h-14 flex items-center justify-between text-left focus:border-[#78A184] outline-none transition-colors duration-500">
+          <span id="ddLabel" class="text-white/30">Choose a service</span>
+          <svg id="ddArrow" viewBox="0 0 24 24" class="w-5 h-5 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div id="ddMenu" role="listbox" class="absolute z-50 left-0 right-0 mt-2 rounded-2xl bg-[#1d3a31] border border-white/15 p-2 shadow-[0_30px_60px_-15px_rgba(0,0,0,.6)] max-h-[420px] overflow-auto opacity-0 -translate-y-2 pointer-events-none transition-all duration-500">
+          <div role="option" data-v="Website or landing page" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">Website or landing page</div>
+          <div role="option" data-v="Telegram bot" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">Telegram bot</div>
+          <div role="option" data-v="AI agent" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">AI agent</div>
+          <div role="option" data-v="Process automation" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">Process automation</div>
+          <div role="option" data-v="Custom software" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">Custom software</div>
+          <div role="option" data-v="Support & growth" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">Support & growth</div>
+          <div role="option" data-v="Not sure yet / other" class="dd-opt rounded-xl px-4 py-3 cursor-pointer hover:bg-white/10 transition-colors duration-300">Not sure yet / other</div>
+        </div>
+      </div>
+
+      <label class="block"><span class="text-[13px] text-[#879f98]">Task</span><textarea name="msg" rows="5" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 py-4 outline-none focus:border-[#78A184] transition-colors duration-500 resize-none placeholder:text-white/30" placeholder="A few words about the project"></textarea></label>
+      <button type="submit" class="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-white text-[#132a24] text-[15px] font-medium h-14 hover:bg-[#78A184] hover:text-white transition-colors duration-500">
+        Send request <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon>
+      </button>
+      <p id="formNote" class="text-[13px] text-[#879f98] min-h-[20px]"></p>
+    </form>
+  </div>
+
+  <footer class="relative z-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row gap-4 justify-between text-[14px] text-[#879f98]">
+      <span class="inline-flex items-center gap-2.5 text-white font-bold text-[18px]"><img src="../media/logo.png" alt="" class="w-7 h-7 rounded-lg">voriq</span>
+      <a href="https://t.me/voriq_applicationsBot?start=site_en" target="_blank" rel="noopener" class="hover:text-white transition-colors duration-500">Lead bot @voriq_applicationsBot</a>
+      <span>© 2026 Voriq</span>
+    </div>
+  </footer>
+</section>
+
+<script>
+const $ = s => document.querySelector(s);
+
+/* header shrink */
+const hdrIn = $('#hdrIn');
+const onScroll = () => { const s = scrollY > 50; hdrIn.classList.toggle('h-24', !s); hdrIn.classList.toggle('h-20', s); };
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+/* motion: always on (as on apolline.site); ?static=1 disables it */
+const STILL = new URLSearchParams(location.search).has('static');
+if (STILL) document.documentElement.classList.add('still');
+
+/* anchors glide to their section (ease in-out); wheel/touch cancels */
+let anchorRun = 0;
+const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+['wheel', 'touchstart'].forEach(ev => addEventListener(ev, () => { anchorRun++; }, { passive: true }));
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute('href'), el = id.length > 1 ? document.querySelector(id) : null;
+  if (id.length > 1 && !el) return;
+  e.preventDefault(); wheelStop();
+  const from = scrollY, to = el ? el.getBoundingClientRect().top + scrollY - 72 : 0, d = to - from;
+  const dur = Math.min(1600, 650 + Math.abs(d) * .2), t0 = performance.now(), run = ++anchorRun;
+  const step = now => { if (run !== anchorRun) return; const k = Math.min(1, (now - t0) / dur);
+    scrollTo({ top: from + d * easeIO(k), behavior: 'instant' }); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+  history.replaceState(null, '', id === '#' ? location.pathname + location.search : location.search + id);
+});
+
+/* inertial wheel scrolling (desktop mouse) */
+let wTarget = scrollY, wCur = scrollY, wRunning = false;
+function wheelStop() { wRunning = false; }
+if (!STILL) {
+  const maxY = () => document.documentElement.scrollHeight - innerHeight;
+  const glide = () => {
+    if (!wRunning) return;
+    if (Math.abs(scrollY - Math.round(wCur)) > 3) { wRunning = false; return; } // scrolled by scrollbar/keys/anchor
+    wCur += (wTarget - wCur) * .09;
+    if (Math.abs(wTarget - wCur) < .5) { wCur = wTarget; wRunning = false; }
+    scrollTo({ top: wCur, behavior: 'instant' });
+    if (wRunning) requestAnimationFrame(glide);
+  };
+  addEventListener('wheel', e => {
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    if (e.target.closest && e.target.closest('textarea,#ddMenu')) return;
+    e.preventDefault();
+    if (!wRunning) wTarget = wCur = scrollY;
+    wTarget = Math.max(0, Math.min(maxY(), wTarget + e.deltaY * (e.deltaMode === 1 ? 40 : 1)));
+    if (!wRunning) { wRunning = true; requestAnimationFrame(glide); }
+  }, { passive: false });
+  addEventListener('keydown', wheelStop);
+  addEventListener('pointerdown', wheelStop);
+}
+
+/* scroll progress bar */
+const prog = $('#progress');
+const onProg = () => { const m = document.documentElement.scrollHeight - innerHeight; prog.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`; };
+addEventListener('scroll', onProg, { passive: true }); onProg();
+
+/* word-by-word headline reveal for section h2 */
+document.querySelectorAll('section:not(:first-of-type) h2.reveal-blur').forEach(h => {
+  h.classList.remove('reveal-blur'); h.classList.add('reveal-up', 'words');
+  let wi = 0;
+  const walk = node => {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const i = document.createElement('span'); i.textContent = part; i.style.setProperty('--wd', (wi++ * 0.06) + 's');
+          w.appendChild(i); frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+    });
+  };
+  walk(h);
+});
+
+/* extra stagger targets */
+document.querySelectorAll('#faq details, #form > *').forEach((el, i) => { el.classList.add('reveal-up'); el.style.setProperty('--d', (i % 6) * 0.07 + 's'); });
+document.querySelectorAll('#form').forEach(el => el.classList.remove('reveal-up'));
+
+/* reveal */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal-up,.reveal-blur').forEach(el => io.observe(el));
+
+/* iso bars (card 1) */
+(() => {
+  const g = $('#isoBars'), ns = 'http://www.w3.org/2000/svg';
+  if (!g) return;
+  // base diamond: M 80 260 (left) → 200 200 (top) → 320 260 (right) → 200 320 (bottom)
+  const bars = [[0.18, 0.5, 46], [0.38, 0.32, 78], [0.6, 0.62, 104], [0.8, 0.42, 142]];
+  const pt = (u, v) => [80 + 120 * u + 120 * v, 260 - 60 * u + 60 * v];
+  const w = 0.12;
+  bars.forEach(([u, v, h], i) => {
+    const [lx, ly] = pt(u - w, v), [tx, ty] = pt(u, v - w), [rx, ry] = pt(u + w, v), [bx, by] = pt(u, v + w);
+    const top = `M ${lx} ${ly - h} L ${tx} ${ty - h} L ${rx} ${ry - h} L ${bx} ${by - h} Z`;
+    const left = `M ${lx} ${ly} L ${lx} ${ly - h} L ${bx} ${by - h} L ${bx} ${by} Z`;
+    const right = `M ${bx} ${by} L ${bx} ${by - h} L ${rx} ${ry - h} L ${rx} ${ry} Z`;
+    [[left, '#274f44'], [right, '#132a24'], [top, i === 3 ? '#78A184' : '#cfe0d6']].forEach(([d, f]) => {
+      const p = document.createElementNS(ns, 'path'); p.setAttribute('d', d); p.setAttribute('fill', f); g.appendChild(p);
+    });
+  });
+})();
+
+/* split scroll (lg+) */
+const sideL = $('#sideL'), sideR = $('#sideR'), center = $('#centerCard');
+const lg = matchMedia('(min-width:1024px)');
+function split() {
+  if (!lg.matches) { sideL.style.transform = sideR.style.transform = ''; return; }
+  const r = center.getBoundingClientRect();
+  // progress: 0 when center card's middle is at bottom of viewport, 1 when it is at viewport middle
+  const mid = r.top + r.height / 2;
+  let p = (innerHeight - mid) / (innerHeight / 2);
+  p = Math.max(0, Math.min(1, p));
+  const off = (1 - p) * Math.min(innerWidth * 0.16, 240);
+  sideL.style.transform = `translateX(${off}px)`;
+  sideR.style.transform = `translateX(${-off}px)`;
+}
+addEventListener('scroll', split, { passive: true }); addEventListener('resize', split); split();
+
+/* marquee belt */
+(() => {
+  const items = [
+    { t: 'AI' }, { i: 'simple-icons:telegram' }, { i: 'simple-icons:python' }, { i: 'simple-icons:react' }, { i: 'simple-icons:openai' },
+    { i: 'simple-icons:nodedotjs' }, { i: 'simple-icons:postgresql' }, { i: 'simple-icons:figma' }, { i: 'simple-icons:whatsapp' },
+    { i: 'simple-icons:googlesheets' }, { i: 'simple-icons:tailwindcss' }, { i: 'simple-icons:cloudflare' }, { i: 'simple-icons:github' }
+  ];
+  const html = items.map((x, k) => `<div class="shrink-0 w-24 h-24 rounded-full ${k % 3 === 0 ? 'bg-[#132a24] text-white' : 'bg-white text-[#274f44]'} border border-[#132a24]/10 flex items-center justify-center">${x.t ? `<span class="text-[26px] font-bold tracking-tight">${x.t}</span>` : `<iconify-icon icon="${x.i}" width="34"></iconify-icon>`}</div>`).join('');
+  $('#belt').innerHTML = html + html;
+})();
+
+/* work cards */
+(() => {
+  const cards = [
+    { shot: '../media/cases/maing.jpg', name: 'MAING', tag: 'Website + bots', text: 'Sign manufacturer: website, lead bots and customer broadcasts.', href: 'https://maing.ru/' },
+    { shot: '../media/cases/velion.jpg', name: 'Velion', tag: 'Website + AI agents', text: 'Agency for websites, bots and AI agents: a bilingual website with bots.', href: 'https://velionagency.ru/' },
+    { shot: '../media/cases/egolab.jpg', name: 'EgoLab', tag: 'Online store', text: 'Sports nutrition store: catalog, cart, promo codes and admin panel.', href: 'https://egolab.shop/' },
+    { shot: '../media/cases/nohassle.jpg', name: 'NoHassle', tag: 'Website + lead bot', text: 'Agency website and a bot that takes requests 24/7.', href: 'http://nohassle.ru/' },
+    { shot: '../media/cases/apolline.jpg', name: 'Apolline', tag: 'Website in 8 languages', text: 'Agency website for the US and Europe with a blog and a lead bot.', href: 'https://apolline.site/' },
+  ];
+  $('#cards').innerHTML = cards.map((c, k) => `
+    <a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} class="reveal-up group block rounded-[24px] bg-white border border-[#132a24]/10 overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-25px_rgba(19,42,36,.35)]" style="--d:${k * .08}s">
+      <div class="shot-wrap relative aspect-[1.5/1] overflow-hidden bg-[#e4ebe8]">
+        <img src="${c.shot}" alt="Website ${c.name}" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#132a24]/25 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"></div>
+        <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[12px] font-medium">${c.tag}</span>
+      </div>
+      <div class="p-6">
+        <h3 class="text-[20px] font-medium flex items-center justify-between">${c.name}<iconify-icon icon="solar:arrow-right-up-linear" width="20" class="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></iconify-icon></h3>
+        <p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">${c.text}</p>
+      </div>
+    </a>`).join('') + `
+    <a href="#contact" class="reveal-up group relative flex flex-col justify-between rounded-[24px] bg-[#132a24] text-white p-8 min-h-[320px] overflow-hidden transition-[box-shadow,transform,opacity] duration-700 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-25px_rgba(19,42,36,.5)]" style="--d:.4s">
+      <div class="absolute inset-0 grid-bg-dark opacity-60"></div>
+      <span class="relative inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-[12px] font-medium">Next</span>
+      <div class="relative"><h3 class="text-[30px] leading-[1.1] font-medium tracking-[-0.02em]">Your project —<br>here.</h3><p class="mt-3 text-[15px] text-[#879f98]">Tell us the task — we’ll send a plan and timeline.</p>
+      <span class="mt-6 inline-flex items-center gap-2 text-[15px] font-medium">Let’s talk <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></span></div>
+    </a>`;
+  document.querySelectorAll('#cards .reveal-up').forEach(el => io.observe(el));
+  document.querySelectorAll('#cards img, .trust-img, .svc-img').forEach(img => { img.classList.add('fade-img'); const on = () => img.classList.add('loaded'); img.complete ? on() : img.addEventListener('load', on); });
+})();
+
+/* custom dropdown */
+(() => {
+  const btn = $('#ddBtn'), menu = $('#ddMenu'), arrow = $('#ddArrow'), label = $('#ddLabel'), val = $('#typeVal');
+  const set = open => {
+    btn.setAttribute('aria-expanded', open);
+    menu.classList.toggle('opacity-0', !open); menu.classList.toggle('-translate-y-2', !open); menu.classList.toggle('pointer-events-none', !open);
+    arrow.style.transform = open ? 'rotate(180deg)' : '';
+  };
+  btn.addEventListener('click', e => { e.stopPropagation(); set(btn.getAttribute('aria-expanded') !== 'true'); });
+  menu.querySelectorAll('.dd-opt').forEach(o => o.addEventListener('click', () => {
+    val.value = o.dataset.v; label.textContent = o.dataset.v; label.classList.remove('text-white/30'); set(false);
+  }));
+  document.addEventListener('click', () => set(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+})();
+
+/* form -> Telegram bot */
+const _k = [55, 97, 91, 248, 205, 65, 75, 241, 153];
+const _p = [[139, 244, 9, 10, 176, 163, 1, 88, 110, 200, 252, 116, 115, 192, 168, 14], [126, 9, 16, 169, 168, 57, 42, 195, 160, 98, 85, 62, 141, 189, 34], [30, 162, 227, 127, 37, 30, 190, 248, 23, 32, 158, 172, 127, 20, 31]];
+const _o = [1, 2, 0];
+const _c = [6, 82, 108, 206, 245, 117, 121, 199, 174, 2];
+const _d = arr => arr.map((n, i) => String.fromCharCode(n ^ _k[i % _k.length])).join('');
+const _t = () => _d(_o.flatMap(i => _p[i])).split('').reverse().join('');
+$('#form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, note = $('#formNote'), btn = f.querySelector('button[type=submit]');
+  if (f.website.value) return; // honeypot
+  const name = f.name.value.trim().slice(0, 100), contact = f.contact.value.trim().slice(0, 120);
+  const type = f.type.value || '—', msg = f.msg.value.trim().slice(0, 2000) || '—';
+  if (!name || !contact) { note.textContent = 'Please fill in your name and contact.'; return; }
+  const text = `🆕 Заявка с сайта Voriq (форма, EN)\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n📂 Тип: ${type}\n📝 Задача: ${msg}\n\n🌐 ${location.href}`;
+  btn.disabled = true; btn.classList.add('opacity-60'); note.textContent = 'Sending…';
+  try {
+    const r = await fetch('https://api.telegram.org/bot' + _t() + '/sendMessage', {
+      method: 'POST', body: new URLSearchParams({ chat_id: _d(_c), text, disable_web_page_preview: 'true',
+        ...(/^@?[A-Za-z0-9_]{5,32}$/.test(contact) ? { reply_markup: JSON.stringify({ inline_keyboard: [[{ text: '💬 Написать клиенту', url: 'https://t.me/' + contact.replace('@', '') }]] }) } : {}) })
+    });
+    const j = await r.json();
+    if (!j.ok) throw new Error(j.description || 'error');
+    note.textContent = 'Thank you! Your request is sent — we’ll be in touch soon.';
+    f.reset(); $('#ddLabel').textContent = 'Choose a service'; $('#ddLabel').classList.add('text-white/30');
+  } catch (err) {
+    note.innerHTML = 'Couldn’t send it. Message us on <a class="underline" href="https://t.me/rydr3" target="_blank" rel="noopener">Telegram</a>.';
+  } finally { btn.disabled = false; btn.classList.remove('opacity-60'); }
+});
+</script>
+</body>
+</html>
