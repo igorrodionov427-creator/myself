@@ -23,6 +23,11 @@ L = {
                months=None, locale='en_US', start='blog_en', privacy='/en/privacy/', privacy_t='Privacy policy'),
 }
 
+TAG_SERVICE = {'Сайты': ('/razrabotka-sajtov/', 'Разработка сайтов и лендингов'), 'Боты': ('/telegram-boty/', 'Разработка Telegram-ботов'),
+               'ИИ': ('/ii-agenty/', 'ИИ-агенты для бизнеса'), 'Автоматизация': ('/avtomatizaciya-biznesa/', 'Автоматизация бизнес-процессов'),
+               'Советы': ('/razrabotka-sajtov/', 'Разработка сайтов и лендингов')}
+
+
 def fmt_date(d, lang):
     if lang == 'ru':
         return f'{d.day} {L["ru"]["months"][d.month - 1]} {d.year}'
@@ -167,6 +172,15 @@ def card(p, c, lang, k):
       <span class="mt-5 inline-flex items-center gap-2 text-[14px] font-medium">{c["read"]}<iconify-icon icon="solar:arrow-right-linear" width="16" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></span></div>
     </a>'''
 
+def svc_link(p, lang):
+    if lang != 'ru' or p['tag'] not in TAG_SERVICE:
+        return ''
+    href, name = TAG_SERVICE[p['tag']]
+    return (f'<a href="{href}" class="reveal group mt-12 flex items-center justify-between gap-4 max-w-3xl rounded-[22px] bg-white border border-[#132a24]/10 p-6 hover:border-[#78A184] transition-colors duration-500">'
+            f'<span><span class="block text-[13px] text-[#879f98]">Услуга по теме</span><span class="block mt-1 text-[20px] font-medium tracking-[-0.01em]">{name}</span></span>'
+            '<iconify-icon icon="solar:arrow-right-linear" width="22" class="shrink-0 transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>')
+
+
 def render():
     pages = []
     posts = {lang: load(lang) for lang in L}
@@ -216,6 +230,7 @@ def render():
 {p["body"]}
     </div>
   </article>
+  {svc_link(p, lang)}
   {cta(lang, c)}
   <h2 class="mt-20 text-[28px] font-medium tracking-[-0.02em]">{c["more"]}</h2>
   <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">{"".join(card(o, c, lang, k) for k, o in enumerate(others))}</div>

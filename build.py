@@ -52,6 +52,9 @@ TOKEN = re.compile(r'[^<>"\'`{}\n]*[А-Яа-яЁё][^<>"\'`{}\n]*')
 KEEP = {'🆕 Заявка с сайта Voriq (форма, EN)\\n\\n👤 Имя: $', '\\n📱 Контакт: $', '\\n📂 Тип: $', '\\n📝 Задача: $', '💬 Написать клиенту'}
 
 def to_english(s):
+    # RU-only service pages: no links to them from the English page
+    s = re.sub(r'\n      <a href="/[a-z-]+/" class="svc-more[\s\S]*?</a>', '', s)
+    s = re.sub(r'    <div class="svc-footer[^\n]*\n', '', s)
     s = s.replace('🆕 Заявка с сайта Voriq (форма)', '🆕 Заявка с сайта Voriq (форма, EN)')
     missing = set()
     def swap(m):
@@ -129,6 +132,12 @@ def main():
         for url, rel, html in blog_build.render():
             pages.append((url, write(rel, localize_assets(html))))
 
+    # service landing pages
+    if (S / 'services_build.py').exists():
+        import services_build
+        for url, rel, html in services_build.render():
+            pages.append((url, write(rel, localize_assets(html))))
+
     # tailwind
     built = [p for _, p in pages] + (['404.html'] if (R / '404.html').exists() else [])
     tw_in = S / 'tw.css'
@@ -143,7 +152,7 @@ def main():
     urls = sorted({u for u, _ in pages})
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        pr = '1.0' if u in ('/', '/en/') else ('0.3' if 'privacy' in u else '0.7')
+        pr = '1.0' if u in ('/', '/en/') else ('0.3' if 'privacy' in u else ('0.6' if 'blog' in u else '0.9'))
         sm.append(f'  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>')
     sm.append('</urlset>')
     (R / 'sitemap.xml').write_text('\n'.join(sm) + '\n', encoding='utf-8')
