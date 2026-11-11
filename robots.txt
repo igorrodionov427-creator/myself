@@ -3,4 +3,4 @@ Allow: /
 Disallow: /_src/
 
 Host: voriq.ru
-Sitemap: https://voriq.ru/sitemap.xml
+Sitemap: http://voriq.ru/sitemap.xml

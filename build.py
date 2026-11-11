@@ -12,7 +12,9 @@ S = R / '_src'
 sys.path.insert(0, str(S))
 from i18n_en import EN  # noqa: E402
 
-SITE = 'https://voriq.ru'
+# Switch to 'https' once GitHub Pages issues the certificate for voriq.ru
+SCHEME = 'http'
+SITE = 'https://voriq.ru'  # sources are written with https; outputs are rewritten to SCHEME below
 NODE = pathlib.Path.home() / 'tools' / 'node-v24.22.1-win-x64' / 'node.exe'
 TAILWIND = R.parent / 'v2' / 'node_modules' / 'tailwindcss' / 'lib' / 'cli.js'
 TODAY = datetime.date.today().isoformat()
@@ -146,7 +148,10 @@ def main():
     sm.append('</urlset>')
     (R / 'sitemap.xml').write_text('\n'.join(sm) + '\n', encoding='utf-8')
     (R / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\n\nHost: voriq.ru\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
-    print(f'built {len(urls)} pages, css v={v}, {(R / "assets" / "site.css").stat().st_size // 1024} KB')
+    if SCHEME == 'http':
+        for p in built + ['sitemap.xml', 'robots.txt']:
+            f = R / p; f.write_text(f.read_text(encoding='utf-8').replace('https://voriq.ru', 'http://voriq.ru'), encoding='utf-8')
+    print(f'built {len(urls)} pages, css v={v}, {(R / "assets" / "site.css").stat().st_size // 1024} KB, scheme={SCHEME}')
 
 if __name__ == '__main__':
     main()
