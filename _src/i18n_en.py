@@ -8,6 +8,8 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Согласие на обработку персональных данных': 'Consent to personal data processing',
+    'Владелец сайта и оператор персональных данных: самозанятый Родионов Игорь Романович, ИНН 773135398240.': 'Website owner and data controller: Igor Romanovich Rodionov, self-employed (Russia), TIN 773135398240.',
     'Самозанятый Родионов И. Р., ИНН 773135398240': 'Igor R. Rodionov, self-employed, TIN 773135398240',
     'Разработка сайтов, Telegram-ботов и ИИ-агентов под ключ — Voriq': 'Websites, Telegram Bots & AI Agents Development — Voriq',
     'Voriq — разработка сайтов и лендингов, Telegram-ботов, ИИ-агентов и автоматизации бизнеса под ключ. Работаем удалённо по всей России, первая консультация бесплатно.': 'Voriq builds websites and landing pages, Telegram bots, AI agents and business automation, turnkey. Remote team, worldwide; the first consultation is free.',

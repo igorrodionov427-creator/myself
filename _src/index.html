@@ -376,9 +376,10 @@
         <a href="tel:+79670450339" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</a>
       </div>
       <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Бот заявок <a class="underline hover:text-white" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> · Telegram @rydr3 · WhatsApp и MAX по номеру +7 967 045-03-39</p>
+      <p class="reveal-blur mt-6 text-[13px] text-[#879f98] leading-relaxed" style="--d:.45s">Владелец сайта и оператор персональных данных: самозанятый Родионов Игорь Романович, ИНН 773135398240. <a href="/privacy/" class="underline hover:text-white">Политика конфиденциальности</a></p>
     </div>
 
-    <form id="form" class="reveal-up flex flex-col gap-4" novalidate>
+    <form id="form" method="post" action="#contact" class="reveal-up flex flex-col gap-4" novalidate>
       <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="absolute -left-[9999px] w-px h-px opacity-0">
       <div class="grid sm:grid-cols-2 gap-4">
         <label class="block"><span class="text-[13px] text-[#879f98]">Имя</span><input required name="name" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 h-14 outline-none focus:border-[#78A184] transition-colors duration-500 placeholder:text-white/30" placeholder="Как к вам обращаться"></label>
@@ -405,7 +406,7 @@
 
       <label class="block"><span class="text-[13px] text-[#879f98]">Задача</span><textarea name="msg" rows="5" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 py-4 outline-none focus:border-[#78A184] transition-colors duration-500 resize-none placeholder:text-white/30" placeholder="Пара слов о проекте"></textarea></label>
       <label class="consent flex items-start gap-3 cursor-pointer select-none text-[13px] leading-relaxed text-[#879f98]">
-        <input type="checkbox" name="consent" id="consent" class="peer sr-only">
+        <input type="checkbox" name="consent" id="consent" value="yes" required aria-required="true" aria-label="Согласие на обработку персональных данных" class="peer sr-only">
         <span class="consent-box mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-white/25 bg-[#1d3a31] transition-colors duration-300 peer-checked:bg-[#78A184] peer-checked:border-[#78A184] peer-focus-visible:ring-2 peer-focus-visible:ring-[#78A184]/60"><svg viewBox="0 0 16 16" class="h-3 w-3 opacity-0 transition-opacity duration-300" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg></span>
         <span>Согласен на обработку персональных данных и принимаю <a href="/privacy/" target="_blank" rel="noopener" class="underline hover:text-white">политику конфиденциальности</a>. Данные нужны только чтобы ответить на заявку — не продаём и не передаём их третьим лицам.</span>
       </label>
