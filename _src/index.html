@@ -57,7 +57,6 @@
 
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .marquee-track{animation:marquee 35s linear infinite}
-  .marquee:hover .marquee-track{animation-play-state:paused}
 
   @keyframes pulseSoft{0%,100%{opacity:.35;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
   .pulse-soft{animation:pulseSoft 3.2s ease-in-out infinite;transform-origin:200px 170px;transform-box:view-box}
@@ -147,20 +146,21 @@
 
 <!-- mobile menu -->
 <div id="mnav" class="mnav md:hidden fixed inset-0 z-40 pointer-events-none" aria-hidden="true">
-  <div class="mnav-bg absolute inset-0 bg-[#132a24]/40 backdrop-blur-sm"></div>
-  <nav class="mnav-panel absolute left-3 right-3 top-[88px] rounded-[24px] bg-[#f5f7f6] border border-[#132a24]/10 shadow-[0_30px_60px_-20px_rgba(19,42,36,.45)] p-6">
-    <div class="flex flex-col text-[28px] font-medium tracking-[-0.02em] leading-tight">
-      <a href="#assets" class="mnav-link py-2">Услуги</a>
-      <a href="#principles" class="mnav-link py-2">Принципы</a>
-      <a href="#trust" class="mnav-link py-2">Гарантии</a>
-      <a href="#work" class="mnav-link py-2">Проекты</a>
-      <a href="/blog/" class="mnav-link py-2">Блог</a>
-      <a href="#faq" class="mnav-link py-2">Частые вопросы</a>
+  <div class="mnav-bg absolute inset-0 bg-[#132a24]/35 backdrop-blur-[3px]"></div>
+  <nav class="mnav-panel absolute left-3 right-3 top-[84px] max-h-[calc(100dvh-100px)] overflow-y-auto overscroll-contain rounded-[24px] bg-[#f5f7f6]/95 backdrop-blur-xl border border-[#132a24]/10 shadow-[0_30px_60px_-20px_rgba(19,42,36,.4)] px-5 pt-2 pb-5" aria-label="Меню">
+    <div class="flex flex-col">
+      <a href="#assets" class="mnav-link group flex items-center gap-4 py-3.5 border-b border-[#132a24]/[0.08]"><span class="w-6 text-[12px] font-medium text-[#879f98] tabular-nums">01</span><span class="flex-1 text-[18px] font-medium tracking-[-0.01em]">Услуги</span><iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-[#879f98] transition-transform duration-500 group-active:translate-x-1"></iconify-icon></a>
+      <a href="#principles" class="mnav-link group flex items-center gap-4 py-3.5 border-b border-[#132a24]/[0.08]"><span class="w-6 text-[12px] font-medium text-[#879f98] tabular-nums">02</span><span class="flex-1 text-[18px] font-medium tracking-[-0.01em]">Принципы</span><iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-[#879f98] transition-transform duration-500 group-active:translate-x-1"></iconify-icon></a>
+      <a href="#trust" class="mnav-link group flex items-center gap-4 py-3.5 border-b border-[#132a24]/[0.08]"><span class="w-6 text-[12px] font-medium text-[#879f98] tabular-nums">03</span><span class="flex-1 text-[18px] font-medium tracking-[-0.01em]">Гарантии</span><iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-[#879f98] transition-transform duration-500 group-active:translate-x-1"></iconify-icon></a>
+      <a href="#work" class="mnav-link group flex items-center gap-4 py-3.5 border-b border-[#132a24]/[0.08]"><span class="w-6 text-[12px] font-medium text-[#879f98] tabular-nums">04</span><span class="flex-1 text-[18px] font-medium tracking-[-0.01em]">Проекты</span><iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-[#879f98] transition-transform duration-500 group-active:translate-x-1"></iconify-icon></a>
+      <a href="/blog/" class="mnav-link group flex items-center gap-4 py-3.5 border-b border-[#132a24]/[0.08]"><span class="w-6 text-[12px] font-medium text-[#879f98] tabular-nums">05</span><span class="flex-1 text-[18px] font-medium tracking-[-0.01em]">Блог</span><iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-[#879f98] transition-transform duration-500 group-active:translate-x-1"></iconify-icon></a>
+      <a href="#faq" class="mnav-link group flex items-center gap-4 py-3.5 border-b border-[#132a24]/[0.08]"><span class="w-6 text-[12px] font-medium text-[#879f98] tabular-nums">06</span><span class="flex-1 text-[18px] font-medium tracking-[-0.01em]">Частые вопросы</span><iconify-icon icon="solar:alt-arrow-right-linear" width="18" class="text-[#879f98] transition-transform duration-500 group-active:translate-x-1"></iconify-icon></a>
     </div>
-    <div class="mt-6 grid grid-cols-2 gap-2 text-[14px] font-medium">
-      <a href="#contact" class="mnav-link col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#132a24] text-white h-12">Оставить заявку <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#132a24]/15 h-12"><iconify-icon icon="simple-icons:telegram" width="16"></iconify-icon>Бот</a>
-      <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#132a24]/15 h-12"><iconify-icon icon="simple-icons:whatsapp" width="16"></iconify-icon>WhatsApp</a>
+    <a href="#contact" class="mnav-link mt-5 flex items-center justify-center gap-2 rounded-full bg-[#132a24] text-white text-[15px] font-medium h-12">Оставить заявку <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+    <div class="mnav-link mt-2 grid grid-cols-3 gap-2 text-[13px] font-medium">
+      <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="simple-icons:telegram" width="18"></iconify-icon>Бот</a>
+      <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="simple-icons:whatsapp" width="18"></iconify-icon>WhatsApp</a>
+      <a href="tel:+79670450339" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="solar:phone-linear" width="18"></iconify-icon>Позвонить</a>
     </div>
   </nav>
 </div>
@@ -649,6 +649,7 @@ $('#form').addEventListener('submit', async e => {
 (() => {
   const root = document.documentElement, btn = $('#burger'), nav = $('#mnav');
   const set = open => {
+    if (open) { const hb = $('#hdr').getBoundingClientRect().bottom; nav.querySelector('.mnav-panel').style.top = (hb + 8) + 'px'; }
     root.classList.toggle('menu-open', open);
     btn.setAttribute('aria-expanded', open); nav.setAttribute('aria-hidden', !open);
     nav.querySelectorAll('.mnav-link').forEach((a, i) => a.style.transitionDelay = open ? (0.05 + i * 0.04) + 's' : '0s');

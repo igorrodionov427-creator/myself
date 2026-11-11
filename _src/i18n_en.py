@@ -8,6 +8,7 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Позвонить': 'Call',
     'Разработка сайтов, ботов для Telegram и MAX, ИИ-агентов — Voriq': 'Websites, Telegram & MAX Bots, AI Agents — Voriq',
     'Voriq — разработка сайтов и лендингов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ. Работаем удалённо по всей России, первая консультация бесплатно.': 'Voriq builds websites and landing pages, Telegram & MAX bots, AI agents and business automation, turnkey. Remote team, worldwide; the first consultation is free.',
     'Сайты, боты для Telegram и MAX, ИИ-агенты и автоматизация для бизнеса. План и сроки — до старта, код и доступы — ваши.': 'Websites, Telegram & MAX bots, AI agents and automation for business. Plan and timeline before we start; the code and access are yours.',
