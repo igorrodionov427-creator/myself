@@ -88,13 +88,13 @@ def jsonld(html, lang):
     faq = []
     for q, a in re.findall(r'<summary[^>]*>(.*?)<svg[\s\S]*?</summary><p[^>]*>([\s\S]*?)</p>', html):
         faq.append({'@type': 'Question', 'name': _plain(q), 'acceptedAnswer': {'@type': 'Answer', 'text': _plain(a)}})
-    services = (['Websites and landing pages', 'Telegram bots', 'AI agents', 'Process automation', 'Custom software', 'Support and growth'] if en else
-                ['Разработка сайтов и лендингов', 'Telegram-боты', 'ИИ-агенты', 'Автоматизация процессов', 'Кастомный софт', 'Поддержка и развитие'])
+    services = (['Websites and landing pages', 'Telegram & MAX bots', 'AI agents', 'Process automation', 'Custom software', 'Support and growth'] if en else
+                ['Разработка сайтов и лендингов', 'Боты для Telegram и MAX', 'ИИ-агенты', 'Автоматизация процессов', 'Кастомный софт', 'Поддержка и развитие'])
     graph = [
         {'@type': 'ProfessionalService', '@id': SITE + '/#org', 'name': 'Voriq', 'url': SITE + '/',
          'logo': SITE + '/media/logo.png', 'image': SITE + f'/media/og-{lang}.jpg',
          'description': ('Voriq builds websites, Telegram bots, AI agents and business automation, turnkey.' if en else
-                         'Voriq — разработка сайтов, Telegram-ботов, ИИ-агентов и автоматизации бизнеса под ключ.'),
+                         'Voriq — разработка сайтов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ.'),
          'telephone': '+7-967-045-03-39', 'areaServed': ['RU', 'Worldwide'] if en else 'RU',
          'sameAs': ['https://t.me/rydr3', 'https://t.me/voriq_applicationsBot'],
          'contactPoint': {'@type': 'ContactPoint', 'contactType': 'sales', 'telephone': '+7-967-045-03-39', 'availableLanguage': ['Russian', 'English']},

@@ -8,6 +8,13 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Разработка сайтов, ботов для Telegram и MAX, ИИ-агентов — Voriq': 'Websites, Telegram & MAX Bots, AI Agents — Voriq',
+    'Voriq — разработка сайтов и лендингов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ. Работаем удалённо по всей России, первая консультация бесплатно.': 'Voriq builds websites and landing pages, Telegram & MAX bots, AI agents and business automation, turnkey. Remote team, worldwide; the first consultation is free.',
+    'Сайты, боты для Telegram и MAX, ИИ-агенты и автоматизация для бизнеса. План и сроки — до старта, код и доступы — ваши.': 'Websites, Telegram & MAX bots, AI agents and automation for business. Plan and timeline before we start; the code and access are yours.',
+    'Строим сайты, ботов для Telegram и MAX и автоматизацию, которые приводят заявки и снимают рутину. Под ключ — от идеи до запуска и поддержки.': 'We build websites, Telegram & MAX bots and automation that bring in leads and take routine off your plate. Turnkey — from idea to launch and support.',
+    'Боты Telegram и MAX': 'Telegram & MAX bots',
+    'Боты в Telegram и MAX для заявок, записи, оплаты и поддержки. Отвечают клиентам круглосуточно и передают заявки вам.': 'Telegram and MAX bots for leads, bookings, payments and support. They answer customers 24/7 and pass requests to you.',
+    'Бот для Telegram или MAX': 'Telegram or MAX bot',
     'Согласие на обработку персональных данных': 'Consent to personal data processing',
     'Владелец сайта и оператор персональных данных: самозанятый Родионов Игорь Романович, ИНН 773135398240.': 'Website owner and data controller: Igor Romanovich Rodionov, self-employed (Russia), TIN 773135398240.',
     'Самозанятый Родионов И. Р., ИНН 773135398240': 'Igor R. Rodionov, self-employed, TIN 773135398240',
