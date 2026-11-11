@@ -8,6 +8,14 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Примеры наших сайтов: MAING, Apolline, NoHassle': 'Examples of our websites: MAING, Apolline, NoHassle',
+    'Пример диалога с ботом Voriq в Telegram': 'Example conversation with the Voriq Telegram bot',
+    'Пример: ИИ-ассистент отвечает клиенту по документам': 'Example: an AI assistant answers a customer from documents',
+    'Пример автоматизации: форма, карточка в Telegram, таблица': 'Automation example: form, Telegram card, spreadsheet',
+    'Пример админ-панели с заявками': 'Example admin panel with leads',
+    'Пример мониторинга и списка доработок': 'Example monitoring and change log',
+    'Номер': 'Number',
+    'скопирован — найдите его в поиске MAX и напишите нам.': 'copied — find it in MAX search and message us.',
     'Позвонить': 'Call',
     'Разработка сайтов, ботов для Telegram и MAX, ИИ-агентов — Voriq': 'Websites, Telegram & MAX Bots, AI Agents — Voriq',
     'Voriq — разработка сайтов и лендингов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ. Работаем удалённо по всей России, первая консультация бесплатно.': 'Voriq builds websites and landing pages, Telegram & MAX bots, AI agents and business automation, turnkey. Remote team, worldwide; the first consultation is free.',

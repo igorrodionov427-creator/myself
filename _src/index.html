@@ -97,6 +97,8 @@
   .fab.on{transform:scale(1)}
   .cookie-open .fab{bottom:7.5rem}
   .menu-open .fab{transform:scale(0)}
+  .max-tip{opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .max-tip.on{opacity:1;transform:none}
   /* apolline motion set */
   .progress{position:fixed;left:0;top:0;height:2px;width:100%;background:#78A184;transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
   .shot-wrap{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s cubic-bezier(.77,0,.18,1);transition-delay:calc(var(--d,0s) + .1s)}
@@ -215,7 +217,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>01 · WEB</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services/web.webp" alt="Сайт и мобильная версия" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services-real/web.webp" alt="Примеры наших сайтов: MAING, Apolline, NoHassle" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Сайты и лендинги</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Лендинги, корпоративные сайты и интернет-магазины. Быстрые, удобные с телефона и настроенные на заявки.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Лендинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Корпоративный сайт</li><li class="rounded-xl bg-white/70 px-3 py-2">Магазин</li><li class="rounded-xl bg-white/70 px-3 py-2">Редизайн</li></ul>
@@ -224,7 +226,7 @@
 
     <article id="centerCard" class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>02 · BOTS</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services/bots.webp" alt="Чат-бот в телефоне" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services-real/bots.webp" alt="Пример диалога с ботом Voriq в Telegram" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Боты Telegram и MAX</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Боты в Telegram и MAX для заявок, записи, оплаты и поддержки. Отвечают клиентам круглосуточно и передают заявки вам.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Бот заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">Приём оплаты</li><li class="rounded-xl bg-white/70 px-3 py-2">Рассылки</li><li class="rounded-xl bg-white/70 px-3 py-2">Поддержка</li></ul>
@@ -233,7 +235,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>03 · AI</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services/ai.webp" alt="ИИ-ассистент со связанными сервисами" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services-real/ai.webp" alt="Пример: ИИ-ассистент отвечает клиенту по документам" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">ИИ-агенты</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Ассистенты на базе ИИ: отвечают на вопросы клиентов, разбирают входящие обращения и работают с вашими документами.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Консультант</li><li class="rounded-xl bg-white/70 px-3 py-2">Разбор заявок</li><li class="rounded-xl bg-white/70 px-3 py-2">База знаний</li><li class="rounded-xl bg-white/70 px-3 py-2">Работа с CRM</li></ul>
@@ -242,7 +244,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>04 · AUTO</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services/auto.webp" alt="Сервисы, связанные в один поток" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services-real/auto.webp" alt="Пример автоматизации: форма, карточка в Telegram, таблица" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Автоматизация процессов</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Связываем CRM, мессенджеры, таблицы и оплаты в один поток — рутина делается сама, без ручной работы.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">CRM</li><li class="rounded-xl bg-white/70 px-3 py-2">Таблицы</li><li class="rounded-xl bg-white/70 px-3 py-2">Уведомления</li><li class="rounded-xl bg-white/70 px-3 py-2">Отчёты</li></ul>
@@ -251,7 +253,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>05 · SOFT</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services/soft.webp" alt="Дашборд и код" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services-real/soft.webp" alt="Пример админ-панели с заявками" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Кастомный софт</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Внутренние сервисы под задачи бизнеса: личные кабинеты, дашборды, парсеры и интеграции по API.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Кабинеты</li><li class="rounded-xl bg-white/70 px-3 py-2">Дашборды</li><li class="rounded-xl bg-white/70 px-3 py-2">Парсеры</li><li class="rounded-xl bg-white/70 px-3 py-2">API</li></ul>
@@ -260,7 +262,7 @@
 
     <article class="asset-card reveal-up w-full max-w-[420px] rounded-[28px] bg-gradient-to-br from-[#f2f6f4] to-[#e4ebe8] border border-white shadow-[0_30px_60px_-30px_rgba(19,42,36,.25)] p-7 sm:p-8">
       <div class="flex items-center justify-between text-[13px] font-medium text-[#879f98]"><span>06 · CARE</span><span class="rounded-full bg-white px-3 py-1 text-[#274f44]">под ключ</span></div>
-      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services/support.webp" alt="Мониторинг и обновления" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
+      <div class="mt-4 -mx-2 aspect-[4/3]"><img src="/media/services-real/support.webp" alt="Пример мониторинга и списка доработок" width="820" height="615" loading="lazy" class="svc-img w-full h-full object-contain"></div>
       <h3 class="mt-2 text-[28px] font-medium tracking-[-0.02em]">Поддержка и развитие</h3>
       <p class="mt-2 text-[#879f98] leading-relaxed">Доработки, обновления и мониторинг после запуска. Продукт продолжает расти вместе с бизнесом.</p>
       <ul class="mt-5 grid grid-cols-2 gap-2 text-[14px] font-medium"><li class="rounded-xl bg-white/70 px-3 py-2">Доработки</li><li class="rounded-xl bg-white/70 px-3 py-2">Мониторинг</li><li class="rounded-xl bg-white/70 px-3 py-2">Обновления</li><li class="rounded-xl bg-white/70 px-3 py-2">Аналитика</li></ul>
@@ -373,7 +375,7 @@
         <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-white text-[#132a24] pl-4 pr-5 h-12 font-medium hover:bg-[#78A184] hover:text-white transition-colors duration-500"><iconify-icon icon="solar:chat-round-like-bold" width="18"></iconify-icon>Заявка через бота<iconify-icon icon="solar:arrow-right-linear" width="16" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>
         <a href="https://t.me/rydr3" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:telegram" width="18"></iconify-icon>Telegram</a>
         <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:whatsapp" width="18"></iconify-icon>WhatsApp</a>
-        <a href="tel:+79670450339" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</a>
+        <span class="relative inline-flex"><button type="button" id="maxBtn" data-phone="+7 967 045-03-39" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</button><span id="maxTip" role="status" aria-live="polite" class="max-tip pointer-events-none absolute left-0 bottom-full mb-2 w-[260px] rounded-2xl bg-white text-[#132a24] text-[13px] leading-snug px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,.5)]">Номер <b>+7 967 045-03-39</b> скопирован — найдите его в поиске MAX и напишите нам.</span></span>
       </div>
       <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Бот заявок <a class="underline hover:text-white" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> · Telegram @rydr3 · WhatsApp и MAX по номеру +7 967 045-03-39</p>
       <p class="reveal-blur mt-6 text-[13px] text-[#879f98] leading-relaxed" style="--d:.45s">Владелец сайта и оператор персональных данных: самозанятый Родионов Игорь Романович, ИНН 773135398240. <a href="/privacy/" class="underline hover:text-white">Политика конфиденциальности</a></p>
@@ -665,6 +667,18 @@ $('#form').addEventListener('submit', async e => {
   const fab = $('#fab');
   const onS = () => fab.classList.toggle('on', scrollY > innerHeight * 0.6);
   addEventListener('scroll', onS, { passive: true }); onS();
+})();
+
+/* MAX: no public deep link by phone — copy the number and show a hint */
+(() => {
+  const btn = $('#maxBtn'), tip = $('#maxTip'); if (!btn) return;
+  let t;
+  btn.addEventListener('click', async () => {
+    const num = btn.dataset.phone.replace(/[^+\d]/g, '');
+    try { await navigator.clipboard.writeText(num); }
+    catch (e) { const i = document.createElement('input'); i.value = num; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); } catch (_) {} i.remove(); }
+    tip.classList.add('on'); clearTimeout(t); t = setTimeout(() => tip.classList.remove('on'), 4500);
+  });
 })();
 
 /* cookie notice */

@@ -165,7 +165,7 @@ def render():
         <a href="{BOT}?start={sv["slug"]}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-[#132a24]/20 text-[15px] font-medium px-7 h-14 hover:bg-[#132a24] hover:text-white transition-colors duration-500"><iconify-icon icon="simple-icons:telegram" width="16"></iconify-icon>Написать боту</a>
       </div>
     </div>
-    <img src="/media/services/{sv["img"]}.webp" alt="{html.escape(sv["short"])} — иллюстрация" width="820" height="615" class="reveal w-full max-w-[520px] mx-auto" style="--d:.2s">
+    <img src="/media/services-real/{sv["img"]}.webp" alt="{html.escape(sv["short"])} — иллюстрация" width="820" height="615" class="reveal w-full max-w-[520px] mx-auto" style="--d:.2s">
   </div>
 </section>
 <section class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
