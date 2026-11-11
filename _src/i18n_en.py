@@ -8,6 +8,15 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Самозанятый Родионов И. Р., ИНН 773135398240': 'Igor R. Rodionov, self-employed, TIN 773135398240',
+    'Разработка сайтов, Telegram-ботов и ИИ-агентов под ключ — Voriq': 'Websites, Telegram Bots & AI Agents Development — Voriq',
+    'Voriq — разработка сайтов и лендингов, Telegram-ботов, ИИ-агентов и автоматизации бизнеса под ключ. Работаем удалённо по всей России, первая консультация бесплатно.': 'Voriq builds websites and landing pages, Telegram bots, AI agents and business automation, turnkey. Remote team, worldwide; the first consultation is free.',
+    'Сайты, боты, ИИ-агенты и автоматизация для бизнеса. План и сроки — до старта, код и доступы — ваши.': 'Websites, bots, AI agents and automation for business. Plan and timeline before we start; the code and access are yours.',
+    'Блог': 'Blog',
+    'Меню': 'Menu',
+    'Оставить заявку': 'Send a request',
+    'Бот': 'Bot',
+    'Написать в Telegram': 'Message on Telegram',
     'Согласен на обработку персональных данных и принимаю': 'I agree to the processing of my personal data and accept the',
     'политику конфиденциальности': 'privacy policy',
     '. Данные нужны только чтобы ответить на заявку — не продаём и не передаём их третьим лицам.': '. We use the data only to reply to your request — we never sell it or share it with third parties.',

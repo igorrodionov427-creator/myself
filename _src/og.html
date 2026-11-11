@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Satoshi;font-weight:500;src:url(../assets/fonts/satoshi-500.woff2)}
+@font-face{font-family:Satoshi;font-weight:700;src:url(../assets/fonts/satoshi-700.woff2)}
+@font-face{font-family:Manrope;font-weight:300 800;src:url(../assets/fonts/manrope-cyrillic.woff2);unicode-range:U+0400-045F}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{font-family:Satoshi,Manrope,sans-serif;color:#132a24;background:#f5f7f6;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(600px 500px at 8% 0%,#a9cdb5 0%,transparent 70%),radial-gradient(700px 600px at 95% 40%,#b9d6c3 0%,transparent 70%),linear-gradient(180deg,#e3ede6,#f5f7f6)}
+.art{position:absolute;right:-20px;top:70px;width:600px}
+.wrap{position:absolute;left:72px;top:64px;bottom:64px;width:640px;display:flex;flex-direction:column;justify-content:space-between}
+.logo{font-weight:700;font-size:40px;letter-spacing:-.03em}
+h1{margin:0;font-weight:500;font-size:68px;line-height:1.02;letter-spacing:-.035em}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.chip{font-size:22px;font-weight:500;padding:12px 22px;border-radius:999px;background:#fff;border:1px solid rgba(19,42,36,.1)}
+.chip.dark{background:#132a24;color:#fff;border-color:#132a24}
+</style></head>
+<body>
+<div class="bg"></div>
+<img class="art" src="../media/hero.webp" alt="">
+<div class="wrap">
+  <div class="logo">voriq</div>
+  <h1 id="t"></h1>
+  <div class="row" id="c"></div>
+</div>
+<script>
+const en = location.hash === '#en';
+document.getElementById('t').innerHTML = en ? 'Websites, bots<br>&amp; AI agents —<br>turnkey.' : 'Сайты, боты<br>и ИИ-агенты —<br>под ключ.';
+const chips = en ? ['voriq.ru', 'Automation', 'Custom software'] : ['voriq.ru', 'Автоматизация', 'Кастомный софт'];
+document.getElementById('c').innerHTML = chips.map((x, i) => `<span class="chip${i === 0 ? ' dark' : ''}">${x}</span>`).join('');
+</script>
+</body></html>
