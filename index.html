@@ -78,6 +78,9 @@
   .in-view .w>span{transform:none}
   .reveal-up.words{opacity:1;transform:none}
   html.still .shot-wrap{clip-path:none}
+  .consent input:checked + .consent-box svg{opacity:1}
+  .cookie{transform:translateY(140%);transition:transform .9s var(--ease)}
+  .cookie.show{transform:none}
   html.still img.fade-img{opacity:1;transition:none}
   html.still .shot-wrap img,html.still .w>span{transform:none}
 </style>
@@ -271,21 +274,21 @@
 </section>
 
 <!-- ============ FAQ (short) ============ -->
-<section id="faq" class="pb-24 sm:pb-32">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-20">
-    <div class="lg:sticky lg:top-32 self-start"><h2 class="reveal-blur text-4xl sm:text-5xl font-medium tracking-[-0.03em] leading-[1.05]">Частые вопросы.</h2><p class="reveal-blur mt-5 text-[#879f98] max-w-sm leading-relaxed" style="--d:.1s">Не нашли ответ? Напишите нам — ответим в течение дня.</p></div>
-    <div class="divide-y divide-[#132a24]/10 border-y border-[#132a24]/10">
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">С чего начать? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Напишите нам в Telegram, боту <a class="underline" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> или оставьте заявку на сайте. Пары слов о задаче достаточно — дальше зададим уточняющие вопросы сами.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Что нужно от меня для старта? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Коротко описать задачу и, если есть, показать примеры, которые нравятся. Тексты, фото и доступы можно прислать позже — подскажем, что именно нужно.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Работаете по договору? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да. Объём работ, сроки и этапы фиксируем письменно до начала, чтобы обе стороны понимали, что и когда будет готово.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Кому принадлежат код и доступы? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Вам. Передаём исходники, домен, хостинг, админки и ботов на ваше имя — без привязки к нам.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Можно начать с небольшой задачи? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да. Многие начинают с одного бота или лендинга, а потом добавляют автоматизацию. Так удобно проверить, как мы работаем.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Доработаете мой текущий сайт или бота? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да. Посмотрим, что уже есть, и скажем, что лучше доработать, а что проще переделать.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Как проходит работа и общение? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Один чат в Telegram для всех вопросов. Показываем промежуточные версии, вносим правки по ходу — без долгих созвонов и согласований.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Подключаете оплату, CRM и аналитику? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да: приём оплаты, CRM, Google-таблицы, рассылки, уведомления в Telegram и аналитику — всё связываем в одну систему.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Делаете сайты и ботов на английском? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Да, на русском и английском. Работаем удалённо с клиентами из разных городов и стран.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Нужно ли разбираться в технике? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Нет. Хостинг, домен, интеграции и запуск берём на себя.</p></details>
-      <details class="group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[19px] font-medium">Что после запуска? <iconify-icon icon="solar:add-circle-linear" width="24" class="transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-3 text-[#879f98] leading-relaxed max-w-2xl">Остаёмся на связи: правки, поддержка, обновления и доработки по мере роста бизнеса.</p></details>
+<section id="faq" class="pb-20 sm:pb-24">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"><h2 class="reveal-blur text-4xl sm:text-5xl font-medium tracking-[-0.03em] leading-[1.05]">Частые вопросы.</h2><p class="reveal-blur text-[#879f98] max-w-sm leading-relaxed sm:text-right" style="--d:.1s">Не нашли ответ? Напишите нам — ответим в течение дня.</p></div>
+    <div class="mt-10 grid md:grid-cols-2 gap-x-10 border-t border-[#132a24]/10">
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">С чего начать? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Напишите нам в Telegram, боту <a class="underline" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> или оставьте заявку на сайте. Пары слов о задаче достаточно — дальше зададим уточняющие вопросы сами.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Что нужно от меня для старта? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Коротко описать задачу и, если есть, показать примеры, которые нравятся. Тексты, фото и доступы можно прислать позже — подскажем, что именно нужно.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Работаете по договору? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Да. Объём работ, сроки и этапы фиксируем письменно до начала, чтобы обе стороны понимали, что и когда будет готово.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Кому принадлежат код и доступы? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Вам. Передаём исходники, домен, хостинг, админки и ботов на ваше имя — без привязки к нам.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Можно начать с небольшой задачи? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Да. Многие начинают с одного бота или лендинга, а потом добавляют автоматизацию. Так удобно проверить, как мы работаем.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Доработаете мой текущий сайт или бота? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Да. Посмотрим, что уже есть, и скажем, что лучше доработать, а что проще переделать.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Как проходит работа и общение? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Один чат в Telegram для всех вопросов. Показываем промежуточные версии, вносим правки по ходу — без долгих созвонов и согласований.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Подключаете оплату, CRM и аналитику? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Да: приём оплаты, CRM, Google-таблицы, рассылки, уведомления в Telegram и аналитику — всё связываем в одну систему.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Делаете сайты и ботов на английском? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Да, на русском и английском. Работаем удалённо с клиентами из разных городов и стран.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Нужно ли разбираться в технике? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Нет. Хостинг, домен, интеграции и запуск берём на себя.</p></details>
+      <details class="group py-4 border-b border-[#132a24]/10"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] sm:text-[17px] font-medium">Что после запуска? <iconify-icon icon="solar:add-circle-linear" width="20" class="shrink-0 transition-transform duration-500 group-open:rotate-45"></iconify-icon></summary><p class="mt-2 text-[14px] text-[#879f98] leading-relaxed">Остаёмся на связи: правки, поддержка, обновления и доработки по мере роста бизнеса.</p></details>
     </div>
   </div>
 </section>
@@ -334,6 +337,11 @@
       </div>
 
       <label class="block"><span class="text-[13px] text-[#879f98]">Задача</span><textarea name="msg" rows="5" class="mt-2 w-full rounded-2xl bg-[#1d3a31] border border-white/5 px-5 py-4 outline-none focus:border-[#78A184] transition-colors duration-500 resize-none placeholder:text-white/30" placeholder="Пара слов о проекте"></textarea></label>
+      <label class="consent flex items-start gap-3 cursor-pointer select-none text-[13px] leading-relaxed text-[#879f98]">
+        <input type="checkbox" name="consent" id="consent" class="peer sr-only">
+        <span class="consent-box mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-white/25 bg-[#1d3a31] transition-colors duration-300 peer-checked:bg-[#78A184] peer-checked:border-[#78A184] peer-focus-visible:ring-2 peer-focus-visible:ring-[#78A184]/60"><svg viewBox="0 0 16 16" class="h-3 w-3 opacity-0 transition-opacity duration-300" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg></span>
+        <span>Согласен на обработку персональных данных и принимаю <a href="privacy/" target="_blank" rel="noopener" class="underline hover:text-white">политику конфиденциальности</a>. Данные нужны только чтобы ответить на заявку — не продаём и не передаём их третьим лицам.</span>
+      </label>
       <button type="submit" class="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-white text-[#132a24] text-[15px] font-medium h-14 hover:bg-[#78A184] hover:text-white transition-colors duration-500">
         Отправить заявку <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon>
       </button>
@@ -345,11 +353,15 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row gap-4 justify-between text-[14px] text-[#879f98]">
       <span class="inline-flex items-center gap-2.5 text-white font-bold text-[18px]"><img src="media/logo.png" alt="" class="w-7 h-7 rounded-lg">voriq</span>
       <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="hover:text-white transition-colors duration-500">Бот заявок @voriq_applicationsBot</a>
-      <span>© 2026 Voriq</span>
+      <span class="flex flex-wrap gap-x-5 gap-y-1"><a href="privacy/" class="hover:text-white transition-colors duration-500">Политика конфиденциальности</a><span>© 2026 Voriq</span></span>
     </div>
   </footer>
 </section>
 
+<div id="cookie" class="cookie fixed left-3 right-3 bottom-3 sm:left-5 sm:right-auto sm:bottom-5 z-[60] sm:max-w-[400px] rounded-2xl bg-white/95 backdrop-blur-md border border-[#132a24]/10 shadow-[0_20px_50px_-20px_rgba(19,42,36,.35)] p-4 flex items-start gap-4" role="region" aria-label="Cookie">
+  <p class="text-[13px] leading-relaxed text-[#274f44]">Мы не используем рекламные и аналитические cookie. Сайт лишь запоминает в браузере, что вы закрыли это окно. <a href="privacy/" class="underline">Подробнее</a></p>
+  <button type="button" id="cookieOk" class="shrink-0 rounded-full bg-[#132a24] text-white text-[13px] font-medium px-4 h-9 hover:bg-[#274f44] transition-colors duration-500">Понятно</button>
+</div>
 <script>
 const $ = s => document.querySelector(s);
 
@@ -542,10 +554,12 @@ const _t = () => _d(_o.flatMap(i => _p[i])).split('').reverse().join('');
 $('#form').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target, note = $('#formNote'), btn = f.querySelector('button[type=submit]');
+  f.querySelector('.consent-box').classList.remove('ring-2','ring-[#e8a87c]');
   if (f.website.value) return; // honeypot
   const name = f.name.value.trim().slice(0, 100), contact = f.contact.value.trim().slice(0, 120);
   const type = f.type.value || '—', msg = f.msg.value.trim().slice(0, 2000) || '—';
   if (!name || !contact) { note.textContent = 'Заполните имя и контакт.'; return; }
+  if (!f.consent.checked) { note.textContent = 'Отметьте согласие на обработку данных.'; f.querySelector('.consent-box').classList.add('ring-2','ring-[#e8a87c]'); return; }
   const text = `🆕 Заявка с сайта Voriq (форма)\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n📂 Тип: ${type}\n📝 Задача: ${msg}\n\n🌐 ${location.href}`;
   btn.disabled = true; btn.classList.add('opacity-60'); note.textContent = 'Отправляем…';
   try {
@@ -561,6 +575,18 @@ $('#form').addEventListener('submit', async e => {
     note.innerHTML = 'Не получилось отправить. Напишите нам в <a class="underline" href="https://t.me/rydr3" target="_blank" rel="noopener">Telegram</a>.';
   } finally { btn.disabled = false; btn.classList.remove('opacity-60'); }
 });
+
+/* cookie notice */
+(() => {
+  const box = $('#cookie'); let seen = false;
+  try { seen = localStorage.getItem('voriq_cookie_ok') === '1'; } catch (e) {}
+  if (seen) { box.remove(); return; }
+  setTimeout(() => box.classList.add('show'), 1200);
+  $('#cookieOk').addEventListener('click', () => {
+    try { localStorage.setItem('voriq_cookie_ok', '1'); } catch (e) {}
+    box.classList.remove('show'); setTimeout(() => box.remove(), 900);
+  });
+})();
 </script>
 </body>
 </html>

@@ -8,6 +8,14 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Согласен на обработку персональных данных и принимаю': 'I agree to the processing of my personal data and accept the',
+    'политику конфиденциальности': 'privacy policy',
+    '. Данные нужны только чтобы ответить на заявку — не продаём и не передаём их третьим лицам.': '. We use the data only to reply to your request — we never sell it or share it with third parties.',
+    'Отметьте согласие на обработку данных.': 'Please tick the consent box.',
+    'Политика конфиденциальности': 'Privacy policy',
+    'Мы не используем рекламные и аналитические cookie. Сайт лишь запоминает в браузере, что вы закрыли это окно.': "We don't use advertising or analytics cookies. The site only remembers in your browser that you closed this notice.",
+    'Подробнее': 'Learn more',
+    'Понятно': 'Got it',
     "Voriq — сайты, боты и автоматизация": "Voriq — websites, bots and automation",
     "Voriq — студия разработки: сайты, Telegram-боты и автоматизация бизнеса под ключ.": "Voriq is a development studio: websites, Telegram bots and business automation, turnkey.",
     "Telegram-бот": "Telegram bot",
