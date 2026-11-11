@@ -96,7 +96,7 @@ def jsonld(html, lang):
          'description': ('Voriq builds websites, Telegram bots, AI agents and business automation, turnkey.' if en else
                          'Voriq — разработка сайтов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ.'),
          'telephone': '+7-967-045-03-39', 'areaServed': ['RU', 'Worldwide'] if en else 'RU',
-         'sameAs': ['https://t.me/rydr3', 'https://t.me/voriq_applicationsBot'],
+         'sameAs': ['https://t.me/rydr3', 'https://t.me/voriq_applicationsBot', 'https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo'],
          'contactPoint': {'@type': 'ContactPoint', 'contactType': 'sales', 'telephone': '+7-967-045-03-39', 'availableLanguage': ['Russian', 'English']},
          'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': 'Services' if en else 'Услуги',
                              'itemListElement': [{'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': n}} for n in services]}},

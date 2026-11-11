@@ -97,8 +97,6 @@
   .fab.on{transform:scale(1)}
   .cookie-open .fab{bottom:7.5rem}
   .menu-open .fab{transform:scale(0)}
-  .max-tip{opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
-  .max-tip.on{opacity:1;transform:none}
   /* apolline motion set */
   .progress{position:fixed;left:0;top:0;height:2px;width:100%;background:#78A184;transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
   .shot-wrap{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s cubic-bezier(.77,0,.18,1);transition-delay:calc(var(--d,0s) + .1s)}
@@ -162,7 +160,7 @@
     <div class="mnav-link mt-2 grid grid-cols-3 gap-2 text-[13px] font-medium">
       <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="simple-icons:telegram" width="18"></iconify-icon>Бот</a>
       <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="simple-icons:whatsapp" width="18"></iconify-icon>WhatsApp</a>
-      <a href="tel:+79670450339" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="solar:phone-linear" width="18"></iconify-icon>Позвонить</a>
+      <a href="https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo" target="_blank" rel="noopener" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-white border border-[#132a24]/10 h-[60px]"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</a>
     </div>
   </nav>
 </div>
@@ -375,9 +373,9 @@
         <a href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener" class="group inline-flex items-center gap-2.5 rounded-full bg-white text-[#132a24] pl-4 pr-5 h-12 font-medium hover:bg-[#78A184] hover:text-white transition-colors duration-500"><iconify-icon icon="solar:chat-round-like-bold" width="18"></iconify-icon>Заявка через бота<iconify-icon icon="solar:arrow-right-linear" width="16" class="transition-transform duration-500 group-hover:translate-x-1"></iconify-icon></a>
         <a href="https://t.me/rydr3" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:telegram" width="18"></iconify-icon>Telegram</a>
         <a href="https://wa.me/79670450339" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="simple-icons:whatsapp" width="18"></iconify-icon>WhatsApp</a>
-        <span class="relative inline-flex"><button type="button" id="maxBtn" data-phone="+7 967 045-03-39" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</button><span id="maxTip" role="status" aria-live="polite" class="max-tip pointer-events-none absolute left-0 bottom-full mb-2 w-[260px] rounded-2xl bg-white text-[#132a24] text-[13px] leading-snug px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,.5)]">Номер <b>+7 967 045-03-39</b> скопирован — найдите его в поиске MAX и напишите нам.</span></span>
+        <a href="https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full border border-white/15 pl-4 pr-5 h-12 hover:bg-white hover:text-[#132a24] transition-colors duration-500"><iconify-icon icon="solar:chat-round-dots-bold" width="18"></iconify-icon>MAX</a>
       </div>
-      <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Бот заявок <a class="underline hover:text-white" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> · Telegram @rydr3 · WhatsApp и MAX по номеру +7 967 045-03-39</p>
+      <p class="reveal-blur mt-4 text-[13px] text-[#879f98]" style="--d:.4s">Бот заявок <a class="underline hover:text-white" href="https://t.me/voriq_applicationsBot?start=site" target="_blank" rel="noopener">@voriq_applicationsBot</a> · Telegram @rydr3 · WhatsApp +7 967 045-03-39 · MAX</p>
       <p class="reveal-blur mt-6 text-[13px] text-[#879f98] leading-relaxed" style="--d:.45s">Владелец сайта и оператор персональных данных: самозанятый Родионов Игорь Романович, ИНН 773135398240. <a href="/privacy/" class="underline hover:text-white">Политика конфиденциальности</a></p>
     </div>
 
@@ -669,17 +667,6 @@ $('#form').addEventListener('submit', async e => {
   addEventListener('scroll', onS, { passive: true }); onS();
 })();
 
-/* MAX: no public deep link by phone — copy the number and show a hint */
-(() => {
-  const btn = $('#maxBtn'), tip = $('#maxTip'); if (!btn) return;
-  let t;
-  btn.addEventListener('click', async () => {
-    const num = btn.dataset.phone.replace(/[^+\d]/g, '');
-    try { await navigator.clipboard.writeText(num); }
-    catch (e) { const i = document.createElement('input'); i.value = num; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); } catch (_) {} i.remove(); }
-    tip.classList.add('on'); clearTimeout(t); t = setTimeout(() => tip.classList.remove('on'), 4500);
-  });
-})();
 
 /* cookie notice */
 (() => {

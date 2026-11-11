@@ -8,6 +8,7 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    '· Telegram @rydr3 · WhatsApp +7 967 045-03-39 · MAX': '· Telegram @rydr3 · WhatsApp +7 967 045-03-39 · MAX',
     'Примеры наших сайтов: MAING, Apolline, NoHassle': 'Examples of our websites: MAING, Apolline, NoHassle',
     'Пример диалога с ботом Voriq в Telegram': 'Example conversation with the Voriq Telegram bot',
     'Пример: ИИ-ассистент отвечает клиенту по документам': 'Example: an AI assistant answers a customer from documents',
