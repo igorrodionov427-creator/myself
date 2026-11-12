@@ -8,6 +8,16 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'План и сроки до старта': 'Plan and timeline before we start',
+    'Код и доступы — ваши': 'Your code, your access',
+    'Отвечаем в течение дня': 'We reply within a day',
+    'Новая заявка с сайта': 'New lead from the website',
+    'Анна · бот для записи': 'Anna · booking bot',
+    'Бот ответил клиенту': 'Bot replied to a customer',
+    'сегодня в 23:40': 'today at 11:40 pm',
+    'Заявка в CRM': 'Lead added to CRM',
+    'статус «Новая»': 'status: New',
+    'Нам доверяют': 'Trusted by',
     'Магазин спортивного питания: каталог, корзина, промокоды, админка, система оплаты и статистика.': 'Sports nutrition store: catalog, cart, promo codes, admin panel, payment system and analytics.',
     'Мы не используем рекламные и аналитические cookie и ничего не сохраняем в вашем браузере.': 'We don’t use advertising or analytics cookies and store nothing in your browser.',
     'Пример передачи проекта: домен, хостинг, код и бот на имя клиента': 'Example project handover: domain, hosting, code and bot in the client’s name',

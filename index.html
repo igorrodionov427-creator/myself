@@ -29,7 +29,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://voriq.ru/#org", "name": "Voriq", "url": "https://voriq.ru/", "logo": "https://voriq.ru/media/logo.png", "image": "https://voriq.ru/media/og-ru.jpg", "description": "Voriq — разработка сайтов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ.", "telephone": "+7-967-045-03-39", "areaServed": "RU", "founder": {"@type": "Person", "name": "Игорь Родионов"}, "foundingDate": "2026", "slogan": "Цифровая инфраструктура для реального бизнеса", "knowsAbout": ["Разработка сайтов", "Лендинги", "Telegram-боты", "Боты для MAX", "ИИ-агенты", "RAG", "Интеграция с CRM", "amoCRM", "Битрикс24", "Автоматизация бизнес-процессов", "Парсеры", "Разработка ПО на заказ"], "sameAs": ["https://t.me/rydr3", "https://t.me/voriq_applicationsBot", "https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo"], "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+7-967-045-03-39", "availableLanguage": ["Russian", "English"]}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Услуги", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Разработка сайтов и лендингов"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Боты для Telegram и MAX"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ИИ-агенты"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Автоматизация процессов"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Кастомный софт"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Поддержка и развитие"}}]}}, {"@type": "WebSite", "@id": "https://voriq.ru/#site", "url": "https://voriq.ru/", "name": "Voriq", "inLanguage": "ru", "publisher": {"@id": "https://voriq.ru/#org"}}, {"@type": "FAQPage", "@id": "https://voriq.ru/#faq", "mainEntity": [{"@type": "Question", "name": "С чего начать?", "acceptedAnswer": {"@type": "Answer", "text": "Напишите нам в Telegram, боту @voriq_applicationsBot или оставьте заявку на сайте. Пары слов о задаче достаточно — дальше зададим уточняющие вопросы сами."}}, {"@type": "Question", "name": "Что нужно от меня для старта?", "acceptedAnswer": {"@type": "Answer", "text": "Коротко описать задачу и, если есть, показать примеры, которые нравятся. Тексты, фото и доступы можно прислать позже — подскажем, что именно нужно."}}, {"@type": "Question", "name": "Работаете по договору?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Объём работ, сроки и этапы фиксируем письменно до начала, чтобы обе стороны понимали, что и когда будет готово."}}, {"@type": "Question", "name": "Кому принадлежат код и доступы?", "acceptedAnswer": {"@type": "Answer", "text": "Вам. Передаём исходники, домен, хостинг, админки и ботов на ваше имя — без привязки к нам."}}, {"@type": "Question", "name": "Можно начать с небольшой задачи?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Многие начинают с одного бота или лендинга, а потом добавляют автоматизацию. Так удобно проверить, как мы работаем."}}, {"@type": "Question", "name": "Доработаете мой текущий сайт или бота?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Посмотрим, что уже есть, и скажем, что лучше доработать, а что проще переделать."}}, {"@type": "Question", "name": "Как проходит работа и общение?", "acceptedAnswer": {"@type": "Answer", "text": "Один чат в Telegram для всех вопросов. Показываем промежуточные версии, вносим правки по ходу — без долгих созвонов и согласований."}}, {"@type": "Question", "name": "Подключаете оплату, CRM и аналитику?", "acceptedAnswer": {"@type": "Answer", "text": "Да: приём оплаты, CRM, Google-таблицы, рассылки, уведомления в Telegram и аналитику — всё связываем в одну систему."}}, {"@type": "Question", "name": "Делаете сайты и ботов на английском?", "acceptedAnswer": {"@type": "Answer", "text": "Да, на русском и английском. Работаем удалённо с клиентами из разных городов и стран."}}, {"@type": "Question", "name": "Нужно ли разбираться в технике?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Хостинг, домен, интеграции и запуск берём на себя."}}, {"@type": "Question", "name": "Что после запуска?", "acceptedAnswer": {"@type": "Answer", "text": "Остаёмся на связи: правки, поддержка, обновления и доработки по мере роста бизнеса."}}]}]}</script>
 <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=1">
-<link rel="stylesheet" href="/assets/site.css?v=00871434">
+<link rel="stylesheet" href="/assets/site.css?v=7e2a9944">
 <style>
   :root{--ease:cubic-bezier(0.22,1,0.36,1)}
   html{scroll-behavior:auto}
@@ -96,6 +96,13 @@
   .fab.on{transform:scale(1)}
   .cookie-open .fab{bottom:7.5rem}
   .menu-open .fab{transform:scale(0)}
+  .hcard{opacity:0;transform:translateY(14px) scale(.96);animation:hcIn .9s var(--ease) forwards,hcFloat 7s ease-in-out infinite}
+  .hc1{animation-delay:1s,1.9s}.hc2{animation-delay:1.6s,2.5s}.hc3{animation-delay:2.2s,3.1s}
+  @keyframes hcIn{to{opacity:1;transform:none}}
+  @keyframes hcFloat{0%,100%{translate:0 0}50%{translate:0 -8px}}
+  html.still .hcard{animation:none;opacity:1;transform:none}
+  .trust-name{font-weight:700;font-size:20px;letter-spacing:-.02em;color:#132a24;opacity:.38;transition:opacity .5s var(--ease)}
+  .trust-name:hover{opacity:.8}
   /* apolline motion set */
   .progress{position:fixed;left:0;top:0;height:2px;width:100%;background:#78A184;transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
   .shot-wrap{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s cubic-bezier(.77,0,.18,1);transition-delay:calc(var(--d,0s) + .1s)}
@@ -176,7 +183,7 @@
   <div class="absolute -z-10 top-10 -right-48 w-[780px] h-[780px] rounded-full bg-[radial-gradient(circle,#a9cdb5_0%,transparent_68%)] blur-[100px] opacity-90 animate-[gradientFlow2_26s_ease-in-out_infinite]"></div>
   <div class="absolute inset-x-0 bottom-0 h-56 -z-[5] bg-gradient-to-b from-transparent to-[#f5f7f6] pointer-events-none"></div>
   <div class="absolute -z-10 bottom-[-30%] left-1/3 w-[560px] h-[560px] rounded-full bg-[radial-gradient(circle,#78A184_0%,transparent_70%)] blur-[110px] opacity-40 animate-[gradientFlow2_30s_ease-in-out_infinite_reverse]"></div>
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 lg:pt-20 pb-20 sm:pb-28 lg:pb-24 grid lg:grid-cols-[1.05fr_.95fr] items-center gap-8 lg:gap-4 text-center lg:text-left">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 lg:pt-16 pb-16 sm:pb-20 lg:pb-16 grid lg:grid-cols-[1.05fr_.95fr] items-center gap-8 lg:gap-4 text-center lg:text-left">
     <div>
     <h1 class="blur-fade-up text-[44px] leading-[1.02] sm:text-6xl lg:text-[64px] xl:text-[78px] font-medium tracking-[-0.035em] max-w-5xl mx-auto lg:mx-0" style="--d:.15s">
       Цифровая инфраструктура<br class="hidden sm:block"> для реального бизнеса.
@@ -192,9 +199,32 @@
         Частые вопросы
       </a>
     </div>
+    <ul class="blur-fade-up mt-8 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2.5 text-[14.5px] text-[#4b625b]" style="--d:.6s">
+      <li class="inline-flex items-center gap-2"><svg aria-hidden="true" focusable="false" class="text-[#78A184]" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" clip-rule="evenodd"/></svg>План и сроки до старта</li>
+      <li class="inline-flex items-center gap-2"><svg aria-hidden="true" focusable="false" class="text-[#78A184]" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" clip-rule="evenodd"/></svg>Код и доступы — ваши</li>
+      <li class="inline-flex items-center gap-2"><svg aria-hidden="true" focusable="false" class="text-[#78A184]" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" clip-rule="evenodd"/></svg>Отвечаем в течение дня</li>
+    </ul>
     </div>
     <div class="relative mx-auto w-full max-w-[460px] lg:max-w-none">
       <img src="/media/hero.webp" alt="" width="1024" height="765" fetchpriority="high" class="hero-art w-full h-auto select-none pointer-events-none">
+      <div class="hcard hc1 absolute left-0 sm:-left-2 lg:-left-6 top-[6%] flex items-center gap-3 rounded-2xl bg-white/90 backdrop-blur-md border border-[#132a24]/10 shadow-[0_20px_40px_-20px_rgba(19,42,36,.45)] px-4 py-3 text-left" aria-hidden="true">
+        <span class="w-9 h-9 rounded-full bg-[#132a24] text-white grid place-items-center text-[15px] shrink-0">🔔</span>
+        <span class="leading-tight"><b class="block text-[13.5px] font-medium">Новая заявка с сайта</b><span class="text-[12.5px] text-[#879f98]">Анна · бот для записи</span></span>
+      </div>
+      <div class="hcard hc2 hidden sm:flex absolute right-0 lg:-right-4 top-[44%] items-center gap-3 rounded-2xl bg-white/90 backdrop-blur-md border border-[#132a24]/10 shadow-[0_20px_40px_-20px_rgba(19,42,36,.45)] px-4 py-3 text-left" aria-hidden="true">
+        <span class="w-9 h-9 rounded-full bg-[#78A184] text-white grid place-items-center text-[15px] shrink-0">🤖</span>
+        <span class="leading-tight"><b class="block text-[13.5px] font-medium">Бот ответил клиенту</b><span class="text-[12.5px] text-[#879f98]">сегодня в 23:40</span></span>
+      </div>
+      <div class="hcard hc3 hidden sm:flex absolute left-[8%] bottom-[2%] items-center gap-3 rounded-2xl bg-white/90 backdrop-blur-md border border-[#132a24]/10 shadow-[0_20px_40px_-20px_rgba(19,42,36,.45)] px-4 py-3 text-left" aria-hidden="true">
+        <span class="w-9 h-9 rounded-full bg-[#e4ebe8] text-[#274f44] grid place-items-center text-[15px] font-bold shrink-0">✓</span>
+        <span class="leading-tight"><b class="block text-[13.5px] font-medium">Заявка в CRM</b><span class="text-[12.5px] text-[#879f98]">статус «Новая»</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="blur-fade-up relative max-w-7xl mx-auto px-5 sm:px-8 pb-12 -mt-6 sm:-mt-10" style="--d:.75s">
+    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 sm:gap-x-10 gap-y-3 border-t border-[#132a24]/10 pt-6">
+      <span class="text-[12px] font-medium uppercase tracking-[0.18em] text-[#879f98]">Нам доверяют</span>
+      <span class="trust-name">MAING</span><span class="trust-name">Velion</span><span class="trust-name">NoHassle</span><span class="trust-name">Apolline</span>
     </div>
   </div>
 </section>
