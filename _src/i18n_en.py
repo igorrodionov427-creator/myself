@@ -8,6 +8,10 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Пример передачи проекта: домен, хостинг, код и бот на имя клиента': 'Example project handover: domain, hosting, code and bot in the client’s name',
+    'Пример договора с этапами и сроками': 'Example contract with stages and timeline',
+    'Пример плана проекта по этапам': 'Example project plan by stages',
+    'Пример еженедельного отчёта о заявках в Telegram': 'Example weekly lead report in Telegram',
     '· Telegram @rydr3 · WhatsApp +7 967 045-03-39 · MAX': '· Telegram @rydr3 · WhatsApp +7 967 045-03-39 · MAX',
     'Примеры наших сайтов: MAING, Apolline, NoHassle': 'Examples of our websites: MAING, Apolline, NoHassle',
     'Пример диалога с ботом Voriq в Telegram': 'Example conversation with the Voriq Telegram bot',

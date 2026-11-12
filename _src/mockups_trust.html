@@ -1,0 +1,101 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Satoshi;font-weight:400;src:url(../assets/fonts/satoshi-400.woff2)}
+@font-face{font-family:Satoshi;font-weight:500;src:url(../assets/fonts/satoshi-500.woff2)}
+@font-face{font-family:Satoshi;font-weight:700;src:url(../assets/fonts/satoshi-700.woff2)}
+@font-face{font-family:Manrope;font-weight:300 800;src:url(../assets/fonts/manrope-cyrillic.woff2);unicode-range:U+0400-045F,U+2116}
+*{box-sizing:border-box;margin:0}
+html,body{width:960px;height:540px;background:transparent;overflow:hidden}
+body{font-family:Satoshi,Manrope,sans-serif;color:#132a24;position:relative}
+.sh{box-shadow:0 30px 60px -25px rgba(19,42,36,.45),0 8px 20px -10px rgba(19,42,36,.18)}
+.card{position:absolute;background:#fff;border-radius:18px;border:1px solid rgba(19,42,36,.1);padding:18px}
+.lbl{font-size:11.5px;color:#879f98;text-transform:uppercase;letter-spacing:.12em;font-weight:500}
+.row{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:10px 0;border-top:1px solid rgba(19,42,36,.07)}
+.chip{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;border-radius:999px;padding:5px 11px;background:#e4ebe8;color:#274f44}
+.chip.dark{background:#132a24;color:#fff}
+.ic{width:30px;height:30px;border-radius:9px;background:#eef3f0;display:grid;place-items:center;font-size:15px;margin-right:10px;flex:none}
+.ava{width:34px;height:34px;border-radius:50%;background:#132a24;color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+.scene{display:none;position:absolute;inset:0}
+.line{height:7px;border-radius:4px;background:#e4ebe8;margin:7px 0}
+</style></head>
+<body>
+
+<!-- 1 access -->
+<div class="scene" id="access">
+  <div class="card sh" style="left:150px;top:40px;width:470px">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div class="lbl">Передача проекта</div><span class="chip dark">всё на ваше имя</span></div>
+    <div class="row" style="border:0;margin-top:6px"><span style="display:flex;align-items:center"><span class="ic">🌐</span>Домен <b style="margin-left:6px">your-company.ru</b></span><span class="chip">✓ передан</span></div>
+    <div class="row"><span style="display:flex;align-items:center"><span class="ic">🖥</span>Хостинг и сервер</span><span class="chip">✓ передан</span></div>
+    <div class="row"><span style="display:flex;align-items:center"><span class="ic">&lt;/&gt;</span>Исходный код · репозиторий</span><span class="chip">✓ передан</span></div>
+    <div class="row"><span style="display:flex;align-items:center"><span class="ic">⚙️</span>Админка сайта</span><span class="chip">✓ передан</span></div>
+    <div class="row"><span style="display:flex;align-items:center"><span class="ic">🤖</span>Бот <b style="margin-left:6px">@your_company_bot</b></span><span class="chip">✓ передан</span></div>
+  </div>
+  <div class="card sh" style="left:590px;top:270px;width:240px">
+    <div style="font-size:28px">🔑</div>
+    <div style="font-size:15px;font-weight:700;margin-top:8px">Пароли и доступы</div>
+    <div style="font-size:13px;color:#879f98;margin-top:4px;line-height:1.45">одним файлом, с инструкцией как пользоваться</div>
+  </div>
+</div>
+
+<!-- 2 contract -->
+<div class="scene" id="contract">
+  <div class="card sh" style="left:250px;top:60px;width:420px;height:400px;padding:26px 30px">
+    <div style="text-align:center;font-weight:700;font-size:16px">ДОГОВОР № 12</div>
+    <div style="text-align:center;font-size:12px;color:#879f98;margin-top:2px">на разработку сайта и Telegram-бота</div>
+    <div style="margin-top:20px;font-size:13px;font-weight:700">1. Предмет договора</div><div class="line" style="width:95%"></div><div class="line" style="width:80%"></div>
+    <div style="margin-top:12px;font-size:13px;font-weight:700">2. Сроки и этапы</div>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;font-size:12.5px">
+      <div style="display:flex;justify-content:space-between"><span>Этап 1 · Дизайн</span><b>5 дней</b></div>
+      <div style="display:flex;justify-content:space-between"><span>Этап 2 · Разработка</span><b>7 дней</b></div>
+      <div style="display:flex;justify-content:space-between"><span>Этап 3 · Запуск</span><b>2 дня</b></div>
+    </div>
+    <div style="margin-top:12px;font-size:13px;font-weight:700">3. Права на результат</div><div class="line" style="width:90%"></div><div class="line" style="width:60%"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px;font-size:12px;color:#879f98">
+      <div>Исполнитель<div style="border-bottom:1px solid #132a24;height:28px;font-family:'Segoe Script',cursive;color:#132a24;font-size:18px">Voriq</div></div>
+      <div>Заказчик<div style="border-bottom:1px solid #132a24;height:28px;font-family:'Segoe Script',cursive;color:#132a24;font-size:18px">Иванов</div></div>
+    </div>
+  </div>
+  <div class="card sh" style="left:620px;top:300px;width:230px;display:flex;align-items:center;gap:12px"><div style="font-size:26px">✅</div><div style="font-size:13.5px;line-height:1.4"><b>Подписан</b><br><span style="color:#879f98">объём и сроки зафиксированы</span></div></div>
+</div>
+
+<!-- 3 timeline -->
+<div class="scene" id="plan">
+  <div class="card sh" style="left:90px;top:60px;width:780px;padding:22px 24px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><div class="lbl">План проекта · сайт + бот</div><span class="chip">в срок</span></div>
+    <div style="display:grid;grid-template-columns:150px repeat(14,1fr);margin-top:16px;font-size:11px;color:#879f98">
+      <div></div><div>пн</div><div>вт</div><div>ср</div><div>чт</div><div>пт</div><div>сб</div><div>вс</div><div>пн</div><div>вт</div><div>ср</div><div>чт</div><div>пт</div><div>сб</div><div>вс</div>
+    </div>
+    <div style="position:relative;margin-top:6px">
+      <div style="position:absolute;left:calc(150px + (100% - 150px) * 8.5 / 14);top:-4px;bottom:-4px;width:2px;background:#78A184;border-radius:2px"></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;height:44px;font-size:14px"><span>✅ Бриф и план</span><div style="position:relative;height:100%"><div style="position:absolute;left:0;width:calc(100%*2/14);top:10px;height:24px;border-radius:8px;background:#274f44"></div></div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;height:44px;font-size:14px"><span>✅ Дизайн</span><div style="position:relative;height:100%"><div style="position:absolute;left:calc(100%*2/14);width:calc(100%*4/14);top:10px;height:24px;border-radius:8px;background:#274f44"></div></div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;height:44px;font-size:14px"><span>⏳ Разработка</span><div style="position:relative;height:100%"><div style="position:absolute;left:calc(100%*6/14);width:calc(100%*6/14);top:10px;height:24px;border-radius:8px;background:#e4ebe8;overflow:hidden"><div style="width:45%;height:100%;background:#78A184"></div></div></div></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;align-items:center;height:44px;font-size:14px"><span>🚀 Запуск</span><div style="position:relative;height:100%"><div style="position:absolute;left:calc(100%*12/14);width:calc(100%*2/14);top:10px;height:24px;border-radius:8px;border:1.5px dashed #78A184"></div></div></div>
+    </div>
+  </div>
+  <div class="card sh" style="left:530px;top:330px;width:330px;display:flex;gap:12px;align-items:center"><div class="ava">V</div><div style="font-size:13.5px;line-height:1.45"><b>Этап «Дизайн» готов ✅</b><br><span style="color:#879f98">Ссылка на макет — посмотрите и оставьте правки</span></div></div>
+</div>
+
+<!-- 4 reports -->
+<div class="scene" id="reports">
+  <div class="card sh" style="left:90px;top:40px;width:360px">
+    <div style="display:flex;align-items:center;gap:10px"><div class="ava">V</div><div><b style="font-size:14px">VoriqBot</b><div style="font-size:11px;color:#879f98">понедельник, 10:00</div></div></div>
+    <div style="margin-top:14px;font-size:14px;line-height:1.7">📊 <b>Отчёт за неделю</b><br>🌐 Заявки с сайта: <b>14</b><br>🤖 Заявки из бота: <b>9</b><br>💬 Ответили за час: <b>21 из 23</b><br>🔥 Лучший канал: <b>реклама в Яндексе</b></div>
+  </div>
+  <div class="card sh" style="left:420px;top:170px;width:450px">
+    <div class="lbl">Заявки по каналам</div>
+    <div style="display:flex;align-items:flex-end;gap:14px;height:150px;margin-top:16px">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><div style="width:100%;height:85%;background:#274f44;border-radius:8px"></div><span style="font-size:11.5px;color:#879f98">Яндекс</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><div style="width:100%;height:60%;background:#78A184;border-radius:8px"></div><span style="font-size:11.5px;color:#879f98">Бот</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><div style="width:100%;height:42%;background:#a9cdb5;border-radius:8px"></div><span style="font-size:11.5px;color:#879f98">Карты</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><div style="width:100%;height:28%;background:#cfe0d6;border-radius:8px"></div><span style="font-size:11.5px;color:#879f98">Соцсети</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><div style="width:100%;height:18%;background:#e4ebe8;border-radius:8px"></div><span style="font-size:11.5px;color:#879f98">Прямые</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById((location.hash || '#access').slice(1)).style.display = 'block';
+</script>
+</body></html>
