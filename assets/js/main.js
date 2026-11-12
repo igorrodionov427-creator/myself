@@ -31,6 +31,7 @@
   else {
     const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
     els.forEach(el => io.observe(el));
+    window.__rvObserve = el => io.observe(el);
   }
 
   /* hero: вход один раз (WAAPI), затем стили возвращаются к авторскому CSS */
@@ -129,4 +130,79 @@
   /* cookie: показываем при каждом заходе, ничего не сохраняем */
   const ck = $('cookie');
   if (ck) { setTimeout(() => ck.classList.add('on'), 900); $('cookieOk').addEventListener('click', () => ck.classList.remove('on')); }
+})();
+
+/* ===== анимации как на v3: инерционное колесо, плавные якоря, прогресс, заголовки по словам ===== */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HDR = 88;
+
+  /* прогресс прокрутки */
+  const prog = document.getElementById('progress');
+  if (prog) { const on = () => { const m = document.documentElement.scrollHeight - innerHeight; prog.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`; };
+    addEventListener('scroll', on, { passive: true }); addEventListener('resize', on); on(); }
+
+  /* заголовки секций появляются по словам */
+  document.querySelectorAll('main .h2').forEach(h => {
+    if (reduce || h.closest('.hero')) return;
+    let wi = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const i = document.createElement('span'); i.textContent = part; i.style.setProperty('--wd', (wi++ * 0.06) + 's');
+          w.appendChild(i); frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+    });
+    walk(h); h.classList.add('words');
+    if (!h.classList.contains('rv')) { h.classList.add('rv'); window.__rvObserve && window.__rvObserve(h); }
+  });
+
+  if (reduce) return;
+
+  /* инерционная прокрутка колесом (мышь на компьютере) */
+  let wTarget = scrollY, wCur = scrollY, wRunning = false;
+  const wheelStop = () => { wRunning = false; };
+  const maxY = () => document.documentElement.scrollHeight - innerHeight;
+  const glide = () => {
+    if (!wRunning) return;
+    if (Math.abs(scrollY - Math.round(wCur)) > 3) { wRunning = false; return; }   // прокрутили иначе — отдаём управление
+    wCur += (wTarget - wCur) * .09;
+    if (Math.abs(wTarget - wCur) < .5) { wCur = wTarget; wRunning = false; }
+    scrollTo({ top: wCur, behavior: 'instant' });
+    if (wRunning) requestAnimationFrame(glide);
+  };
+  addEventListener('wheel', e => {
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    if (document.documentElement.classList.contains('menu-open')) return;
+    if (e.target.closest && e.target.closest('textarea,.tbl,.mnav')) return;
+    e.preventDefault();
+    if (!wRunning) wTarget = wCur = scrollY;
+    wTarget = Math.max(0, Math.min(maxY(), wTarget + e.deltaY * (e.deltaMode === 1 ? 40 : 1)));
+    if (!wRunning) { wRunning = true; requestAnimationFrame(glide); }
+  }, { passive: false });
+  addEventListener('keydown', wheelStop); addEventListener('pointerdown', wheelStop);
+
+  /* якоря плавно доезжают до секции; колесо/касание прерывает */
+  let run = 0;
+  const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  ['wheel', 'touchstart'].forEach(ev => addEventListener(ev, () => { run++; }, { passive: true }));
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]'); if (!a || e.defaultPrevented) return;
+    const url = new URL(a.href, location.href);
+    if (url.pathname !== location.pathname || !url.hash || a.target === '_blank') return;
+    const el = document.querySelector(url.hash); if (!el) return;
+    e.preventDefault(); wheelStop();
+    const from = scrollY, to = el.getBoundingClientRect().top + scrollY - (el.id === 'main' ? 0 : HDR - 8), d = to - from;
+    const dur = Math.min(1600, 650 + Math.abs(d) * .2), t0 = performance.now(), my = ++run;
+    const step = now => { if (my !== run) return; const k = Math.min(1, (now - t0) / dur);
+      scrollTo({ top: from + d * easeIO(k), behavior: 'instant' }); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+    history.replaceState(null, '', url.hash);
+  });
 })();
