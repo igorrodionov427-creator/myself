@@ -2,7 +2,7 @@
 (() => {
   const $ = id => document.getElementById(id);
   const root = document.documentElement;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduce = /[?&]static/.test(location.search);   // анимации всегда, как на v3; ?static=1 — без них
 
   /* шапка: фон после начала прокрутки */
   const hdr = $('hdr');
@@ -13,15 +13,28 @@
   const burger = $('burger'), mnav = $('mnav');
   mnav.hidden = false;
   mnav.setAttribute('aria-hidden', 'true'); mnav.inert = true;
+  let lockY = 0;
+  const links = [...mnav.querySelectorAll('a.ml, .btn, .mn-contacts')];
   const setMenu = open => {
+    if (open === root.classList.contains('menu-open')) return;
+    if (open) { lockY = scrollY; document.body.style.cssText += `;position:fixed;top:${-lockY}px;left:0;right:0;width:100%`; }
+    else { document.body.style.position = document.body.style.top = document.body.style.left = document.body.style.right = document.body.style.width = ''; scrollTo({ top: lockY, behavior: 'instant' }); }
+    links.forEach((el, i) => el.style.transitionDelay = open ? (0.06 + i * 0.045) + 's' : '0s');
     root.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
     mnav.setAttribute('aria-hidden', String(!open)); mnav.inert = !open;
-    if (open) mnav.querySelector('a').focus({ preventScroll: true });
   };
   burger.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
-  mnav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  mnav.addEventListener('click', e => {
+    const a = e.target.closest('a'); if (!a) return;
+    const url = new URL(a.href, location.href);
+    if (url.pathname === location.pathname && url.hash) {          // якорь на этой же странице: закрыть меню и доехать
+      e.preventDefault(); setMenu(false);
+      const el = document.querySelector(url.hash);
+      if (el) requestAnimationFrame(() => { scrollTo({ top: el.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); history.replaceState(null, '', url.hash); });
+    } else setMenu(false);
+  });
   addEventListener('keydown', e => { if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); burger.focus(); } });
   matchMedia('(min-width: 960px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
@@ -66,9 +79,7 @@
   /* фон-видео: при reduced-motion стоит на первом кадре; фоновая вкладка подхватывает воспроизведение при показе */
   (() => {
     const v = document.querySelector('.hero video.bg'); if (!v) return;
-    const mq = matchMedia('(prefers-reduced-motion: reduce)');
-    const sync = () => { if (mq.matches) { v.pause(); v.currentTime = 0; } else v.play().catch(() => {}); };
-    mq.addEventListener('change', sync);
+    const sync = () => v.play().catch(() => {});
     document.addEventListener('visibilitychange', () => { if (!document.hidden) sync(); });
     v.addEventListener('canplay', sync); sync();
   })();
@@ -134,7 +145,7 @@
 
 /* ===== анимации как на v3: инерционное колесо, плавные якоря, прогресс, заголовки по словам ===== */
 (() => {
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduce = /[?&]static/.test(location.search);   // анимации всегда, как на v3; ?static=1 — без них
   const HDR = 88;
 
   /* прогресс прокрутки */

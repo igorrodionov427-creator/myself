@@ -26,11 +26,11 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=6e6a0efe">
+<link rel="stylesheet" href="/assets/css/style.css?v=d69b5395">
 <script>(function(){var d=document.documentElement;d.classList.add('js');
   if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   if(!('animate' in Element.prototype))return;
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(/[?&]static/.test(location.search))return;
   d.classList.add('pre');setTimeout(function(){d.classList.remove('pre')},4000);})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "ИИ-агенты и ИИ-ассистенты для бизнеса", "description": "Внедряем ИИ-агентов: ответы клиентам 24/7, разбор заявок, работа с документами и базой знаний, интеграция с Telegram, сайтом и CRM.", "serviceType": "ИИ-агенты", "url": "https://voriq.ru/ii-agenty/", "areaServed": "RU", "provider": {"@type": "ProfessionalService", "name": "VORIQ", "url": "https://voriq.ru/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "VORIQ", "item": "https://voriq.ru/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://voriq.ru/#services"}, {"@type": "ListItem", "position": 3, "name": "ИИ-агенты", "item": "https://voriq.ru/ii-agenty/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Чем ИИ-агент отличается от обычного бота?", "acceptedAnswer": {"@type": "Answer", "text": "Обычный бот работает по кнопкам и сценарию. ИИ-агент понимает свободный текст, опирается на ваши документы и сам выполняет действия."}}, {"@type": "Question", "name": "Агент не будет выдумывать ответы?", "acceptedAnswer": {"@type": "Answer", "text": "Ограничиваем его вашей базой знаний и тестируем на реальных вопросах. Если ответа нет — агент передаёт диалог сотруднику."}}, {"@type": "Question", "name": "С чего начать внедрение?", "acceptedAnswer": {"@type": "Answer", "text": "С одной задачи, обычно с ответов на частые вопросы. Когда она работает, добавляем следующие."}}, {"@type": "Question", "name": "Данные клиентов в безопасности?", "acceptedAnswer": {"@type": "Answer", "text": "Обсуждаем, какие данные агенту можно видеть, и настраиваем доступы под ваши требования."}}]}]}</script>
 </head>
@@ -84,26 +84,36 @@
   <div><h2 class="h2 rv">Кому подходит</h2><ul class="sp-who"><li class="rv" style="--d:0.00s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Бизнесу с большим потоком однотипных вопросов</span></li><li class="rv" style="--d:0.05s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Командам, где сотрудники тонут в документах и регламентах</span></li><li class="rv" style="--d:0.10s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Отделам продаж, которым нужны уже квалифицированные заявки</span></li><li class="rv" style="--d:0.15s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Тем, кто хочет внедрить ИИ без хайпа и с понятным результатом</span></li></ul></div>
   <div><h2 class="h2 rv">Как работаем</h2><div class="sp-steps"><div class="sp-step rv" style="--d:0.00s"><span>01</span><b>Задача</b><small>Пишете в Telegram или оставляете заявку — пары слов достаточно.</small></div><div class="sp-step rv" style="--d:0.06s"><span>02</span><b>План и сроки</b><small>Предлагаем решение, состав работ и сроки до старта.</small></div><div class="sp-step rv" style="--d:0.12s"><span>03</span><b>Разработка</b><small>Показываем промежуточные версии и вносим правки по ходу.</small></div><div class="sp-step rv" style="--d:0.18s"><span>04</span><b>Запуск</b><small>Запускаем, передаём доступы и материалы.</small></div></div></div>
 </div></section>
-<section class="section" style="padding-top:0"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:28px">Примеры работ</h2><div class="pf-grid"><a class="pf rv" href="https://velionagency.ru/" target="_blank" rel="noopener" style="--d:0.00s"><div class="pf-shot"><img src="/assets/img/projects/velion.webp" alt="Сайт Velion" width="1200" height="750" loading="lazy" decoding="async"></div>
-  <div class="pf-body"><h3 class="h3">Velion</h3><p>Сайт агентства ИИ-агентов на двух языках</p></div></a><a class="pf rv" href="https://apolline.site/" target="_blank" rel="noopener" style="--d:0.07s"><div class="pf-shot"><img src="/assets/img/projects/apolline.webp" alt="Сайт Apolline" width="1200" height="750" loading="lazy" decoding="async"></div>
-  <div class="pf-body"><h3 class="h3">Apolline</h3><p>Сайт на 8 языках с блогом и ботом заявок</p></div></a><a class="pf rv" href="https://nohassle.ru/" target="_blank" rel="noopener" style="--d:0.14s"><div class="pf-shot"><img src="/assets/img/projects/nohassle.webp" alt="Сайт NoHassle" width="1200" height="750" loading="lazy" decoding="async"></div>
+<section class="section" style="padding-top:0"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:28px">Примеры работ</h2><div class="pf-grid"><a class="pf" href="https://velionagency.ru/" target="_blank" rel="noopener"><div class="pf-shot"><img src="/assets/img/projects/velion.webp" alt="Сайт Velion" width="1200" height="750" loading="lazy" decoding="async"></div>
+  <div class="pf-body"><h3 class="h3">Velion</h3><p>Сайт агентства ИИ-агентов на двух языках</p></div></a><a class="pf" href="https://apolline.site/" target="_blank" rel="noopener"><div class="pf-shot"><img src="/assets/img/projects/apolline.webp" alt="Сайт Apolline" width="1200" height="750" loading="lazy" decoding="async"></div>
+  <div class="pf-body"><h3 class="h3">Apolline</h3><p>Сайт на 8 языках с блогом и ботом заявок</p></div></a><a class="pf" href="https://nohassle.ru/" target="_blank" rel="noopener"><div class="pf-shot"><img src="/assets/img/projects/nohassle.webp" alt="Сайт NoHassle" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body"><h3 class="h3">NoHassle</h3><p>Сайт агентства и бот заявок 24/7</p></div></a></div></div></section>
 <section class="section" style="padding-top:0"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:20px">Частые вопросы</h2><div class="dts"><details class="dt"><summary>Чем ИИ-агент отличается от обычного бота?<span class="acc-ic" aria-hidden="true"></span></summary><p>Обычный бот работает по кнопкам и сценарию. ИИ-агент понимает свободный текст, опирается на ваши документы и сам выполняет действия.</p></details><details class="dt"><summary>Агент не будет выдумывать ответы?<span class="acc-ic" aria-hidden="true"></span></summary><p>Ограничиваем его вашей базой знаний и тестируем на реальных вопросах. Если ответа нет — агент передаёт диалог сотруднику.</p></details><details class="dt"><summary>С чего начать внедрение?<span class="acc-ic" aria-hidden="true"></span></summary><p>С одной задачи, обычно с ответов на частые вопросы. Когда она работает, добавляем следующие.</p></details><details class="dt"><summary>Данные клиентов в безопасности?<span class="acc-ic" aria-hidden="true"></span></summary><p>Обсуждаем, какие данные агенту можно видеть, и настраиваем доступы под ваши требования.</p></details></div>
   <div style="margin-top:56px"><div class="cta-box rv">
   <div><h2 class="h3">Обсудим вашу задачу?</h2><p>Опишите её в паре предложений — подскажем, как реализовать, и сориентируем по срокам.</p></div>
   <div class="cta-box-btns"><a class="btn btn-primary" href="/#contact">Оставить заявку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="https://t.me/voriq_applicationsBot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 18.3 19c-.2 1-.9 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.5 13 2 11.6c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.6.2 1.3 1z"/></svg>Написать боту</a></div>
 </div></div>
-  <h2 class="h2 rv" style="margin:72px 0 28px">Полезно почитать</h2><div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/ii-agent-dlya-biznesa/">
+  <h2 class="h2 rv" style="margin:72px 0 28px">Полезно почитать</h2><div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/ii-konsultant-na-sajt/">
+  <span class="pc-meta"><span class="pc-tag">ИИ</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">ИИ-консультант на сайт — что умеет и чем отличается от обычного чат-бота</h3>
+  <p>Как работает ИИ-консультант на сайте и в Telegram, чем он отличается от бота с кнопками, откуда берёт ответы и как сделать, чтобы он не выдумывал.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.07s" href="/blog/chat-bot-dlya-sajta/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Чат-бот для сайта — зачем он нужен и как работает</h3>
+  <p>Что умеет чат-бот на сайте, чем он лучше формы обратной связи, какие задачи берёт на себя и как подключить его к Telegram, MAX и CRM.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.14s" href="/blog/ii-agent-dlya-biznesa/">
   <span class="pc-meta"><span class="pc-tag">ИИ</span>11 ноября 2026 · 2 мин</span>
   <h3 class="h3">ИИ-агент для бизнеса — чем он отличается от обычного чат-бота</h3>
   <p>Что такое ИИ-агент, какие задачи он берёт на себя и где без него можно обойтись. Простым языком, без хайпа.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-</a><a class="post-card rv" style="--d:0.07s" href="/blog/telegram-bot-dlya-biznesa/">
+</a><a class="post-card rv" style="--d:0.00s" href="/blog/telegram-bot-dlya-biznesa/">
   <span class="pc-meta"><span class="pc-tag">Боты</span>11 ноября 2026 · 2 мин</span>
   <h3 class="h3">Telegram-бот для бизнеса — что он умеет и кому нужен</h3>
   <p>Какие задачи бизнеса закрывает Telegram-бот, чем он лучше формы на сайте и с чего начать, если бота у вас ещё нет.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-</a><a class="post-card rv" style="--d:0.14s" href="/blog/avtomatizaciya-zayavok-sajt-bot-crm/">
+</a><a class="post-card rv" style="--d:0.07s" href="/blog/avtomatizaciya-zayavok-sajt-bot-crm/">
   <span class="pc-meta"><span class="pc-tag">Автоматизация</span>11 ноября 2026 · 2 мин</span>
   <h3 class="h3">Автоматизация заявок — как связать сайт, бота и CRM</h3>
   <p>Как сделать так, чтобы заявки с сайта, из Telegram и мессенджеров сами попадали в одно место, а вы отвечали быстрее.</p>
@@ -171,8 +181,8 @@
   <button type="button" id="cookieOk">Понятно</button>
 </div>
 
-<script src="/assets/js/config.js?v=6e6a0efe" defer></script>
-<script src="/assets/js/main.js?v=6e6a0efe" defer></script>
-<script src="/assets/js/form.js?v=6e6a0efe" defer></script>
+<script src="/assets/js/config.js?v=d69b5395" defer></script>
+<script src="/assets/js/main.js?v=d69b5395" defer></script>
+<script src="/assets/js/form.js?v=d69b5395" defer></script>
 </body>
 </html>

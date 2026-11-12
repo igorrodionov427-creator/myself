@@ -26,11 +26,11 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=6e6a0efe">
+<link rel="stylesheet" href="/assets/css/style.css?v=d69b5395">
 <script>(function(){var d=document.documentElement;d.classList.add('js');
   if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   if(!('animate' in Element.prototype))return;
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(/[?&]static/.test(location.search))return;
   d.classList.add('pre');setTimeout(function(){d.classList.remove('pre')},4000);})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "VORIQ", "url": "https://voriq.ru/", "logo": "https://voriq.ru/assets/img/icon-512.png", "image": "https://voriq.ru/assets/img/og.jpg", "description": "Студия цифровой разработки: сайты, боты для Telegram и MAX, ИИ-агенты и автоматизация.", "telephone": "+79670450339", "areaServed": "RU", "founder": {"@type": "Person", "name": "Игорь Родионов"}, "sameAs": ["https://t.me/rydr3"], "knowsAbout": ["Разработка сайтов", "Telegram-боты", "Боты для MAX", "ИИ-агенты", "Автоматизация бизнес-процессов", "Интеграции API"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "VORIQ", "url": "https://voriq.ru/", "inLanguage": "ru"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли обратиться, если есть только идея?", "acceptedAnswer": {"@type": "Answer", "text": "Конечно. Готовое техническое задание не нужно — достаточно рассказать, что вы хотите получить. В деталях разберёмся вместе."}}, {"@type": "Question", "name": "Сколько времени занимает разработка?", "acceptedAnswer": {"@type": "Answer", "text": "Зависит от сложности и функций проекта. После обсуждения задачи назовём ориентировочные сроки и разобьём работу на этапы."}}, {"@type": "Question", "name": "Сколько стоит проект и как происходит оплата?", "acceptedAnswer": {"@type": "Answer", "text": "Стоимость считаем индивидуально после обсуждения задачи. Порядок оплаты согласовываем заранее и фиксируем в условиях сотрудничества."}}, {"@type": "Question", "name": "Можно ли доработать существующий сайт или бота?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Изучим текущую реализацию и скажем, что и как можно улучшить."}}, {"@type": "Question", "name": "Кому принадлежат исходники проекта?", "acceptedAnswer": {"@type": "Answer", "text": "Права на результат, исходный код и порядок передачи материалов определяются условиями договора — обсуждаем это до начала работы."}}, {"@type": "Question", "name": "Работаете ли вы с частными заказчиками?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Можно прийти как с личным проектом, так и с задачей для бизнеса."}}, {"@type": "Question", "name": "Что делать, если я не знаю, какое решение мне нужно?", "acceptedAnswer": {"@type": "Answer", "text": "Просто расскажите о задаче. Поможем разобраться и предложим несколько вариантов реализации."}}, {"@type": "Question", "name": "Можно ли заказать только небольшую доработку?", "acceptedAnswer": {"@type": "Answer", "text": "Да, берёмся и за полноценную разработку, и за отдельные технические задачи."}}, {"@type": "Question", "name": "Делаете ли вы ботов для MAX?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Можно сделать бота сразу для Telegram и MAX — с общей логикой и одной базой заявок."}}]}</script>
 </head>
@@ -178,7 +178,7 @@
       <p class="lead rv" style="--d:.1s">Реальные сайты и боты, которые работают прямо сейчас. Каждый можно открыть и посмотреть самому.</p>
     </div>
     <div class="pf-grid">
-<article class="pf rv" style="--d:0.00s">
+<article class="pf">
   <div class="pf-shot"><img src="/assets/img/projects/maing.webp" alt="Главная страница сайта MAING" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body">
     <span class="pf-type">Сайт + Telegram-боты</span>
@@ -188,7 +188,7 @@
     <div class="pf-actions"><a class="btn btn-ghost btn-sm" href="https://maing.ru/" target="_blank" rel="noopener">Посмотреть проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-sm btn-dark" href="/projects/maing/">Подробнее</a></div>
   </div>
 </article>
-<article class="pf rv" style="--d:0.08s">
+<article class="pf">
   <div class="pf-shot"><img src="/assets/img/projects/velion.webp" alt="Главная страница сайта Velion" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body">
     <span class="pf-type">Сайт + ИИ-агенты</span>
@@ -198,7 +198,7 @@
     <div class="pf-actions"><a class="btn btn-ghost btn-sm" href="https://velionagency.ru/" target="_blank" rel="noopener">Посмотреть проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-sm btn-dark" href="/projects/velion/">Подробнее</a></div>
   </div>
 </article>
-<article class="pf rv" style="--d:0.16s">
+<article class="pf">
   <div class="pf-shot"><img src="/assets/img/projects/apolline.webp" alt="Главная страница сайта Apolline" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body">
     <span class="pf-type">Многоязычный сайт</span>
@@ -208,7 +208,7 @@
     <div class="pf-actions"><a class="btn btn-ghost btn-sm" href="https://apolline.site/" target="_blank" rel="noopener">Посмотреть проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-sm btn-dark" href="/projects/apolline/">Подробнее</a></div>
   </div>
 </article>
-<article class="pf rv" style="--d:0.00s">
+<article class="pf">
   <div class="pf-shot"><img src="/assets/img/projects/nohassle.webp" alt="Главная страница сайта NoHassle" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body">
     <span class="pf-type">Сайт + бот заявок</span>
@@ -218,7 +218,7 @@
     <div class="pf-actions"><a class="btn btn-ghost btn-sm" href="http://nohassle.ru/" target="_blank" rel="noopener">Посмотреть проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-sm btn-dark" href="/projects/nohassle/">Подробнее</a></div>
   </div>
 </article>
-<article class="pf rv" style="--d:0.08s">
+<article class="pf">
   <div class="pf-shot"><img src="/assets/img/projects/shop.webp" alt="Каталог интернет-магазина спортивного питания" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body">
     <span class="pf-type">Интернет-магазин</span>
@@ -278,7 +278,9 @@
   <div class="wrap about">
     <div class="ph rv">
       
-      <div class="ph-badge"><span><b>Игорь Родионов</b><small>основатель VORIQ</small></span></div>
+      <svg class="ph-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2B45"/><stop offset="1" stop-color="#5F88B4"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lga)"/><path d="M11.5 12.5 18.6 28a1.5 1.5 0 0 0 2.7 0l2.4-5.2" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.2 17.2c1.3-2.3 2.6-3.8 4.6-4.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" opacity=".7"/></svg>
+      <p class="ph-name">Игорь<br>Родионов</p>
+      <p class="ph-role">основатель VORIQ</p>
     </div>
     <div class="about-txt">
       <span class="tag rv">О нас</span>
@@ -309,6 +311,32 @@
         <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5M16 7l2.5 2.5M14 9l2 2"/></svg><b>Передача результата и доступов</b><small>Материалы и доступы передаём по договорённости.</small></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="blog" aria-labelledby="blog-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;max-width:none">
+      <div style="display:grid;gap:16px;max-width:720px"><span class="tag rv">Блог</span><h2 class="h2 rv" id="blog-title">Пишем простым языком</h2>
+      <p class="lead rv">О сайтах, ботах для Telegram и MAX, ИИ-консультантах и автоматизации — без лишних терминов.</p></div>
+      <a class="btn btn-ghost rv" href="/blog/">Все статьи <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/avtomatizaciya-malogo-biznesa/">
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Автоматизация малого бизнеса — с чего начать и что даёт результат быстрее всего</h3>
+  <p>Какие процессы в малом бизнесе стоит автоматизировать в первую очередь: заявки, запись, уведомления, документы, отчёты. Простые шаги без дорогих внедрений.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.07s" href="/blog/bot-dlya-salona-krasoty/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Бот для салона красоты и барбершопа — запись, напоминания и повторные визиты</h3>
+  <p>Как бот в Telegram или MAX записывает клиентов в салон и барбершоп, напоминает о визите, снижает неявки и возвращает клиентов на повторную запись.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.14s" href="/blog/bot-iz-telegram-v-max/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Как запустить бота в MAX, если он уже есть в Telegram</h3>
+  <p>Можно ли перенести Telegram-бота в мессенджер MAX, что меняется, как сделать один сценарий для двух мессенджеров и не вести две базы заявок.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a></div>
   </div>
 </section>
 
@@ -467,8 +495,8 @@
   <button type="button" id="cookieOk">Понятно</button>
 </div>
 
-<script src="/assets/js/config.js?v=6e6a0efe" defer></script>
-<script src="/assets/js/main.js?v=6e6a0efe" defer></script>
-<script src="/assets/js/form.js?v=6e6a0efe" defer></script>
+<script src="/assets/js/config.js?v=d69b5395" defer></script>
+<script src="/assets/js/main.js?v=d69b5395" defer></script>
+<script src="/assets/js/form.js?v=d69b5395" defer></script>
 </body>
 </html>

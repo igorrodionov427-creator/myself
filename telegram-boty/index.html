@@ -26,11 +26,11 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=6e6a0efe">
+<link rel="stylesheet" href="/assets/css/style.css?v=d69b5395">
 <script>(function(){var d=document.documentElement;d.classList.add('js');
   if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   if(!('animate' in Element.prototype))return;
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(/[?&]static/.test(location.search))return;
   d.classList.add('pre');setTimeout(function(){d.classList.remove('pre')},4000);})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Разработка ботов для Telegram и MAX", "description": "Делаем ботов для Telegram и MAX: для заявок, записи, оплаты, рассылок и поддержки. Админка с заявками, интеграция с CRM и таблицами, запуск на сервере под ключ.", "serviceType": "Боты Telegram и MAX", "url": "https://voriq.ru/telegram-boty/", "areaServed": "RU", "provider": {"@type": "ProfessionalService", "name": "VORIQ", "url": "https://voriq.ru/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "VORIQ", "item": "https://voriq.ru/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://voriq.ru/#services"}, {"@type": "ListItem", "position": 3, "name": "Боты Telegram и MAX", "item": "https://voriq.ru/telegram-boty/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько времени занимает разработка бота?", "acceptedAnswer": {"@type": "Answer", "text": "Бот заявок запускается примерно за неделю. Боты с оплатой, записью и интеграциями — от двух недель."}}, {"@type": "Question", "name": "Где будет работать бот?", "acceptedAnswer": {"@type": "Answer", "text": "На сервере, круглосуточно. Настраиваем размещение сами и следим, чтобы бот не падал."}}, {"@type": "Question", "name": "Можно посмотреть, как работает ваш бот?", "acceptedAnswer": {"@type": "Answer", "text": "Да — напишите нашему боту @voriq_applicationsBot: он сделан так же, как боты для клиентов."}}, {"@type": "Question", "name": "Делаете ботов для MAX?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Делаем ботов и для Telegram, и для мессенджера MAX — можно один сценарий сразу в обоих, чтобы клиенты писали туда, где им удобнее."}}, {"@type": "Question", "name": "Бот сможет передавать заявки в CRM?", "acceptedAnswer": {"@type": "Answer", "text": "Да: amoCRM, Битрикс24, Google-таблицы и другие системы — подключаем при разработке."}}]}]}</script>
 </head>
@@ -84,16 +84,31 @@
   <div><h2 class="h2 rv">Кому подходит</h2><ul class="sp-who"><li class="rv" style="--d:0.00s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Салонам, клиникам, студиям и мастерским с записью клиентов</span></li><li class="rv" style="--d:0.05s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Бизнесу, который теряет заявки ночью и в выходные</span></li><li class="rv" style="--d:0.10s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Магазинам, которым нужен каталог и заказ в мессенджере</span></li><li class="rv" style="--d:0.15s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></svg><span>Командам, которые вручную переносят заявки из чатов в таблицы</span></li></ul></div>
   <div><h2 class="h2 rv">Как работаем</h2><div class="sp-steps"><div class="sp-step rv" style="--d:0.00s"><span>01</span><b>Задача</b><small>Пишете в Telegram или оставляете заявку — пары слов достаточно.</small></div><div class="sp-step rv" style="--d:0.06s"><span>02</span><b>План и сроки</b><small>Предлагаем решение, состав работ и сроки до старта.</small></div><div class="sp-step rv" style="--d:0.12s"><span>03</span><b>Разработка</b><small>Показываем промежуточные версии и вносим правки по ходу.</small></div><div class="sp-step rv" style="--d:0.18s"><span>04</span><b>Запуск</b><small>Запускаем, передаём доступы и материалы.</small></div></div></div>
 </div></section>
-<section class="section" style="padding-top:0"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:28px">Примеры работ</h2><div class="pf-grid"><a class="pf rv" href="https://maing.ru/" target="_blank" rel="noopener" style="--d:0.00s"><div class="pf-shot"><img src="/assets/img/projects/maing.webp" alt="Сайт MAING" width="1200" height="750" loading="lazy" decoding="async"></div>
-  <div class="pf-body"><h3 class="h3">MAING</h3><p>Сайт производителя вывесок, боты для заявок, рассылки</p></div></a><a class="pf rv" href="https://nohassle.ru/" target="_blank" rel="noopener" style="--d:0.07s"><div class="pf-shot"><img src="/assets/img/projects/nohassle.webp" alt="Сайт NoHassle" width="1200" height="750" loading="lazy" decoding="async"></div>
-  <div class="pf-body"><h3 class="h3">NoHassle</h3><p>Сайт агентства и бот заявок 24/7</p></div></a><a class="pf rv" href="https://apolline.site/" target="_blank" rel="noopener" style="--d:0.14s"><div class="pf-shot"><img src="/assets/img/projects/apolline.webp" alt="Сайт Apolline" width="1200" height="750" loading="lazy" decoding="async"></div>
+<section class="section" style="padding-top:0"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:28px">Примеры работ</h2><div class="pf-grid"><a class="pf" href="https://maing.ru/" target="_blank" rel="noopener"><div class="pf-shot"><img src="/assets/img/projects/maing.webp" alt="Сайт MAING" width="1200" height="750" loading="lazy" decoding="async"></div>
+  <div class="pf-body"><h3 class="h3">MAING</h3><p>Сайт производителя вывесок, боты для заявок, рассылки</p></div></a><a class="pf" href="https://nohassle.ru/" target="_blank" rel="noopener"><div class="pf-shot"><img src="/assets/img/projects/nohassle.webp" alt="Сайт NoHassle" width="1200" height="750" loading="lazy" decoding="async"></div>
+  <div class="pf-body"><h3 class="h3">NoHassle</h3><p>Сайт агентства и бот заявок 24/7</p></div></a><a class="pf" href="https://apolline.site/" target="_blank" rel="noopener"><div class="pf-shot"><img src="/assets/img/projects/apolline.webp" alt="Сайт Apolline" width="1200" height="750" loading="lazy" decoding="async"></div>
   <div class="pf-body"><h3 class="h3">Apolline</h3><p>Сайт на 8 языках с блогом и ботом заявок</p></div></a></div></div></section>
 <section class="section" style="padding-top:0"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:20px">Частые вопросы</h2><div class="dts"><details class="dt"><summary>Сколько времени занимает разработка бота?<span class="acc-ic" aria-hidden="true"></span></summary><p>Бот заявок запускается примерно за неделю. Боты с оплатой, записью и интеграциями — от двух недель.</p></details><details class="dt"><summary>Где будет работать бот?<span class="acc-ic" aria-hidden="true"></span></summary><p>На сервере, круглосуточно. Настраиваем размещение сами и следим, чтобы бот не падал.</p></details><details class="dt"><summary>Можно посмотреть, как работает ваш бот?<span class="acc-ic" aria-hidden="true"></span></summary><p>Да — напишите нашему боту @voriq_applicationsBot: он сделан так же, как боты для клиентов.</p></details><details class="dt"><summary>Делаете ботов для MAX?<span class="acc-ic" aria-hidden="true"></span></summary><p>Да. Делаем ботов и для Telegram, и для мессенджера MAX — можно один сценарий сразу в обоих, чтобы клиенты писали туда, где им удобнее.</p></details><details class="dt"><summary>Бот сможет передавать заявки в CRM?<span class="acc-ic" aria-hidden="true"></span></summary><p>Да: amoCRM, Битрикс24, Google-таблицы и другие системы — подключаем при разработке.</p></details></div>
   <div style="margin-top:56px"><div class="cta-box rv">
   <div><h2 class="h3">Обсудим вашу задачу?</h2><p>Опишите её в паре предложений — подскажем, как реализовать, и сориентируем по срокам.</p></div>
   <div class="cta-box-btns"><a class="btn btn-primary" href="/#contact">Оставить заявку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="https://t.me/voriq_applicationsBot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 18.3 19c-.2 1-.9 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.5 13 2 11.6c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.6.2 1.3 1z"/></svg>Написать боту</a></div>
 </div></div>
-  <h2 class="h2 rv" style="margin:72px 0 28px">Полезно почитать</h2><div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/bot-dlya-zapisi-klientov/">
+  <h2 class="h2 rv" style="margin:72px 0 28px">Полезно почитать</h2><div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/bot-dlya-salona-krasoty/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Бот для салона красоты и барбершопа — запись, напоминания и повторные визиты</h3>
+  <p>Как бот в Telegram или MAX записывает клиентов в салон и барбершоп, напоминает о визите, снижает неявки и возвращает клиентов на повторную запись.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.07s" href="/blog/bot-iz-telegram-v-max/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Как запустить бота в MAX, если он уже есть в Telegram</h3>
+  <p>Можно ли перенести Telegram-бота в мессенджер MAX, что меняется, как сделать один сценарий для двух мессенджеров и не вести две базы заявок.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.14s" href="/blog/chat-bot-dlya-sajta/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span>13 ноября 2026 · 2 мин</span>
+  <h3 class="h3">Чат-бот для сайта — зачем он нужен и как работает</h3>
+  <p>Что умеет чат-бот на сайте, чем он лучше формы обратной связи, какие задачи берёт на себя и как подключить его к Telegram, MAX и CRM.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.00s" href="/blog/bot-dlya-zapisi-klientov/">
   <span class="pc-meta"><span class="pc-tag">Боты</span>12 ноября 2026 · 2 мин</span>
   <h3 class="h3">Бот для записи клиентов — как он работает и кому нужен</h3>
   <p>Как Telegram- или MAX-бот принимает записи без администратора, напоминает клиентам о визите и снижает число неявок. Разбираем на примере салона и клиники.</p>
@@ -171,8 +186,8 @@
   <button type="button" id="cookieOk">Понятно</button>
 </div>
 
-<script src="/assets/js/config.js?v=6e6a0efe" defer></script>
-<script src="/assets/js/main.js?v=6e6a0efe" defer></script>
-<script src="/assets/js/form.js?v=6e6a0efe" defer></script>
+<script src="/assets/js/config.js?v=d69b5395" defer></script>
+<script src="/assets/js/main.js?v=d69b5395" defer></script>
+<script src="/assets/js/form.js?v=d69b5395" defer></script>
 </body>
 </html>
