@@ -103,6 +103,12 @@ def jsonld(html, lang):
          'description': ('Voriq builds websites, Telegram bots, AI agents and business automation, turnkey.' if en else
                          'Voriq — разработка сайтов, ботов для Telegram и MAX, ИИ-агентов и автоматизации бизнеса под ключ.'),
          'telephone': '+7-967-045-03-39', 'areaServed': ['RU', 'Worldwide'] if en else 'RU',
+         'founder': {'@type': 'Person', 'name': 'Igor Rodionov' if en else 'Игорь Родионов'}, 'foundingDate': '2026',
+         'slogan': 'Digital infrastructure for real business' if en else 'Цифровая инфраструктура для реального бизнеса',
+         'knowsAbout': (['Website development', 'Landing pages', 'Telegram bots', 'MAX messenger bots', 'AI agents', 'RAG',
+                         'CRM integration', 'amoCRM', 'Bitrix24', 'Business process automation', 'Web scraping', 'Custom software'] if en else
+                        ['Разработка сайтов', 'Лендинги', 'Telegram-боты', 'Боты для MAX', 'ИИ-агенты', 'RAG', 'Интеграция с CRM',
+                         'amoCRM', 'Битрикс24', 'Автоматизация бизнес-процессов', 'Парсеры', 'Разработка ПО на заказ']),
          'sameAs': ['https://t.me/rydr3', 'https://t.me/voriq_applicationsBot', 'https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo'],
          'contactPoint': {'@type': 'ContactPoint', 'contactType': 'sales', 'telephone': '+7-967-045-03-39', 'availableLanguage': ['Russian', 'English']},
          'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': 'Services' if en else 'Услуги',
@@ -163,7 +169,21 @@ def main():
         sm.append(f'  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>')
     sm.append('</urlset>')
     (R / 'sitemap.xml').write_text('\n'.join(sm) + '\n', encoding='utf-8')
-    (R / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\n\nHost: https://voriq.ru\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
+    ai_bots = ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
+               'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Bytespider',
+               'meta-externalagent', 'cohere-ai', 'DuckAssistBot', 'YandexAdditional', 'YandexAdditionalBot']
+    robots = 'User-agent: *\nAllow: /\nDisallow: /_src/\n\n'
+    robots += '# AI assistants are welcome: see /llms.txt for a summary of the site\n'
+    robots += ''.join(f'User-agent: {b}\n' for b in ai_bots) + 'Allow: /\nDisallow: /_src/\n\n'
+    robots += f'Host: https://voriq.ru\nSitemap: {SITE}/sitemap.xml\n'
+    (R / 'robots.txt').write_text(robots, encoding='utf-8')
+
+    # llms.txt / llms-full.txt for AI assistants
+    if (S / 'llms_build.py').exists():
+        import llms_build
+        llms, full = llms_build.render()
+        (R / 'llms.txt').write_text(llms, encoding='utf-8')
+        (R / 'llms-full.txt').write_text(full, encoding='utf-8')
     if SCHEME == 'http':
         for p in built + ['sitemap.xml', 'robots.txt']:
             f = R / p; f.write_text(f.read_text(encoding='utf-8').replace('https://voriq.ru', 'http://voriq.ru'), encoding='utf-8')
