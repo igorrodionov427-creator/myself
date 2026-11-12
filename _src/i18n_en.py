@@ -8,6 +8,7 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'Магазин спортивного питания: каталог, корзина, промокоды, админка, система оплаты и статистика.': 'Sports nutrition store: catalog, cart, promo codes, admin panel, payment system and analytics.',
     'Мы не используем рекламные и аналитические cookie и ничего не сохраняем в вашем браузере.': 'We don’t use advertising or analytics cookies and store nothing in your browser.',
     'Пример передачи проекта: домен, хостинг, код и бот на имя клиента': 'Example project handover: domain, hosting, code and bot in the client’s name',
     'Пример договора с этапами и сроками': 'Example contract with stages and timeline',
