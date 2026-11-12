@@ -8,6 +8,7 @@ import re, pathlib
 
 ROOT = pathlib.Path(__file__).parent
 EN = {
+    'А': 'A',
     'План и сроки до старта': 'Plan and timeline before we start',
     'Код и доступы — ваши': 'Your code, your access',
     'Отвечаем в течение дня': 'We reply within a day',
