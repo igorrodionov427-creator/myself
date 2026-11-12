@@ -35,7 +35,14 @@ def _icon(m):
     return svg.replace('<svg ', f'<svg aria-hidden="true" focusable="false"{extra} ', 1)
 
 # ---------------------------------------------------------------- head assets
+ICONS = ('<link rel="icon" href="/favicon.ico" sizes="any">\n'
+         '<link rel="icon" type="image/png" sizes="48x48" href="/media/icon-48.png">\n'
+         '<link rel="icon" type="image/png" sizes="192x192" href="/media/icon-192.png">\n'
+         '<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">')
+
 def localize_assets(s):
+    s = s.replace('<link rel="apple-touch-icon" href="/media/logo.png">\n', '')
+    s = s.replace('<link rel="icon" type="image/png" href="/media/favicon.png">', ICONS, 1)
     s = s.replace('<script src="https://cdn.tailwindcss.com/3.4.17"></script>', '<link rel="stylesheet" href="/assets/site.css?v=__CSSV__">')
     s = re.sub(r'<script src="https://code\.iconify\.design/[^"]+"></script>\n?', '', s)
     s = re.sub(r'<link rel="stylesheet" href="https://api\.fontshare\.com/[^"]+">\n?', '', s)
