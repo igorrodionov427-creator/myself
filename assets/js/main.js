@@ -213,3 +213,68 @@
     history.replaceState(null, '', url.hash);
   });
 })();
+
+/* ===== просмотр фото (лайтбокс) на «Наших работах» и в карточках проектов ===== */
+(() => {
+  const sel = '.bshot-ph img, .wshot img, .ishots img, #sites .pf-shot img';
+  const imgs = [...document.querySelectorAll(sel)];
+  if (!imgs.length) return;
+  const en = document.documentElement.lang === 'en';
+  const lb = document.createElement('div');
+  lb.className = 'lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', en ? 'Image viewer' : 'Просмотр изображения');
+  lb.innerHTML = `<div class="lb-stage"><img alt=""></div>
+    <button class="lb-btn lb-x" type="button" aria-label="${en ? 'Close' : 'Закрыть'}">✕</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="${en ? 'Previous' : 'Предыдущее'}">‹</button>
+    <button class="lb-btn lb-next" type="button" aria-label="${en ? 'Next' : 'Следующее'}">›</button>
+    <div class="lb-cap"><span class="lb-n"></span><span class="lb-t"></span><span class="lb-hint">${en ? 'Tap the image to zoom' : 'Нажмите на фото, чтобы приблизить'}</span></div>`;
+  document.body.appendChild(lb);
+  const stage = lb.querySelector('.lb-stage'), big = stage.querySelector('img');
+  let i = 0, lastFocus = null;
+  const caption = el => {
+    const c = el.closest('figure')?.querySelector('figcaption');
+    if (!c) return el.alt || '';
+    const parts = [...c.children].filter(x => !x.classList.contains('bshot-n')).map(x => x.textContent.trim()).filter(Boolean);
+    return parts.length ? parts.join(' · ') : c.textContent.trim();
+  };
+  const unzoom = () => { lb.classList.remove('z'); big.style.width = ''; };
+  const show = k => {
+    i = (k + imgs.length) % imgs.length; unzoom();
+    big.src = imgs[i].currentSrc || imgs[i].src; big.alt = imgs[i].alt;
+    lb.querySelector('.lb-n').textContent = (i + 1) + ' / ' + imgs.length;
+    lb.querySelector('.lb-t').textContent = caption(imgs[i]);
+    lb.querySelectorAll('.lb-prev,.lb-next').forEach(b => b.hidden = imgs.length < 2);
+  };
+  const open = k => { lastFocus = document.activeElement; show(k); lb.classList.add('on'); document.documentElement.classList.add('lb-open'); lb.querySelector('.lb-x').focus(); };
+  const close = () => { lb.classList.remove('on'); document.documentElement.classList.remove('lb-open'); unzoom(); if (lastFocus) lastFocus.focus(); };
+  imgs.forEach((el, k) => {
+    el.classList.add('zoomable'); el.tabIndex = 0; el.setAttribute('role', 'button');
+    el.setAttribute('aria-label', (en ? 'Open image: ' : 'Открыть фото: ') + (el.alt || ''));
+    el.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); open(k); });
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(k); } });
+  });
+  // приближение: по клику фото увеличивается, точка под пальцем/курсором остаётся на месте
+  big.addEventListener('click', e => {
+    e.stopPropagation();
+    if (lb.classList.contains('z')) { unzoom(); return; }
+    const r = big.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+    const w = Math.max(big.naturalWidth, r.width * 2.2);
+    lb.classList.add('z'); big.style.width = w + 'px';
+    requestAnimationFrame(() => { stage.scrollLeft = w * fx - innerWidth / 2; stage.scrollTop = big.offsetHeight * fy - innerHeight / 2; });
+  });
+  stage.addEventListener('click', e => { if (e.target === stage) close(); });
+  lb.querySelector('.lb-x').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+  lb.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(i - 1); else if (e.key === 'ArrowRight') show(i + 1);
+  });
+  // свайп влево/вправо, когда фото не приближено
+  let sx = 0, sy = 0;
+  stage.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    if (lb.classList.contains('z')) return;
+    const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(i + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+})();

@@ -712,3 +712,24 @@ html:not(.js) .svc-art img{transform:none}
   .step-n{transition-duration:.25s}
   .steps-bar i{transition-duration:.8s}
 }
+
+/* лайтбокс */
+.zoomable{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(9,14,26,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s}
+.lb.on{opacity:1;visibility:visible;transition:opacity .25s ease}
+.lb-open,.lb-open body{overflow:hidden}
+.lb-stage{position:absolute;inset:0;overflow:auto;display:grid;place-items:center;padding:64px 16px 96px;overscroll-behavior:contain}
+.lb-stage img{max-width:min(92vw,1200px);max-height:calc(100dvh - 170px);width:auto;height:auto;border-radius:14px;cursor:zoom-in;box-shadow:0 30px 80px rgba(0,0,0,.5);transition:transform .25s ease}
+.lb.z .lb-stage{place-items:start;padding:0}
+.lb.z .lb-stage img{max-width:none;max-height:none;border-radius:0;cursor:zoom-out}
+.lb-btn{position:absolute;z-index:2;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font:400 26px/1 var(--font);width:52px;height:52px;display:grid;place-items:center;cursor:pointer;transition:background-color .2s}
+.lb-btn:hover{background:rgba(255,255,255,.28)}
+.lb-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lb-x{top:14px;right:14px;font-size:20px}
+.lb-prev{left:14px;top:50%;margin-top:-26px;font-size:34px}
+.lb-next{right:14px;top:50%;margin-top:-26px;font-size:34px}
+.lb.z .lb-prev,.lb.z .lb-next,.lb.z .lb-cap{display:none}
+.lb-cap{position:absolute;left:0;right:0;bottom:0;padding:14px 20px calc(16px + env(safe-area-inset-bottom));display:grid;gap:2px;text-align:center;color:#E6EDF6;font-size:14.5px;pointer-events:none;background:linear-gradient(transparent,rgba(9,14,26,.85))}
+.lb-n{font-size:12px;color:#8FA3C0;letter-spacing:.06em}
+.lb-hint{font-size:12px;color:#8FA3C0}
+@media (max-width:640px){.lb-prev,.lb-next{width:40px;height:40px;margin-top:-20px;font-size:28px;background:rgba(9,14,26,.55)}.lb-prev{left:6px}.lb-next{right:6px}.lb-stage{padding:60px 8px 130px}.lb-stage img{max-height:calc(100dvh - 200px)}}
