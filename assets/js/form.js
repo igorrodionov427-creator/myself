@@ -8,6 +8,7 @@
   const okBox = document.getElementById('formOk');
   const btnLabel = btn.querySelector('.lbl-t');
   let busy = false;
+  const LOADED = Date.now(); let LAST = 0, SENT = 0;   // антиспам, только в памяти страницы
   const isEN = document.documentElement.lang === 'en';
   const L = (ru, en) => isEN ? en : ru;            // тексты для английской версии
 
@@ -90,6 +91,10 @@
     e.preventDefault();
     if (busy) return;                                  // защита от повторной отправки
     if (form.elements.website.value) return;           // ловушка для ботов
+    const now = Date.now();
+    if (now - LOADED < 3000) return;                   // слишком быстро для человека — спам-бот
+    if (SENT >= 3) { status.className = 'form-status bad'; status.textContent = L('Вы уже отправили несколько заявок. Мы скоро ответим — или напишите нам в Telegram.', 'You have already sent a few requests. We’ll reply soon — or message us on Telegram.'); return; }
+    if (now - LAST < 60000) { status.className = 'form-status bad'; status.textContent = L('Подождите минуту перед следующей заявкой.', 'Please wait a minute before sending another request.'); return; }
     const bad = Object.keys(rules).filter(n => !check(n));
     if (bad.length) { status.className = 'form-status bad'; status.textContent = L('Проверьте отмеченные поля', 'Please check the highlighted fields'); form.elements[bad[0]].focus(); return; }
 
@@ -109,6 +114,7 @@
       if (cfg.endpoint) await sendToServer(lead);
       else if (cfg.telegramFallback) await sendToTelegram(lead);
       else throw new Error('нет способа отправки');
+      LAST = Date.now(); SENT++;
       form.reset(); applyCtype();
       form.classList.add('sent');
       okBox.focus();

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://d8j0ntlcm91z4.cloudfront.net; media-src 'self' https://d8j0ntlcm91z4.cloudfront.net; font-src 'self'; connect-src 'self' https://api.telegram.org; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>VORIQ — websites, Telegram bots and AI solutions</title>
 <meta name="description" content="VORIQ is a digital development studio. We build websites, Telegram and MAX bots, AI agents and business automation — and help turn ideas into working products.">
@@ -27,12 +29,8 @@
 <link rel="icon" href="/assets/img/favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=a4d798dc">
-<script>(function(){var d=document.documentElement;d.classList.add('js');
-  if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
-  if(!('animate' in Element.prototype))return;
-  if(/[?&]static/.test(location.search))return;
-  /* вход первого экрана отключён */})();</script>
+<link rel="stylesheet" href="/assets/css/style.css?v=f349fdd5">
+<script src="/assets/js/boot.js?v=f349fdd5"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "VORIQ", "url": "https://voriq.ru/", "logo": "https://voriq.ru/assets/img/icon-512.png", "image": "https://voriq.ru/assets/img/og.jpg", "description": "Студия цифровой разработки: сайты, боты для Telegram и MAX, AI agents и автоматизация.", "telephone": "+79670450339", "areaServed": "RU", "founder": {"@type": "Person", "name": "Igor Rodionov"}, "sameAs": ["https://t.me/rydr3", "https://t.me/voriq_applicationsBot"], "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+79670450339", "availableLanguage": ["ru", "en"], "url": "https://t.me/rydr3"}, "priceRange": "Индивидуально", "knowsAbout": ["Website development", "Telegram-боты", "Bots для MAX", "AI agents", "Automation бизнес-процессов", "Integrations API"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "VORIQ", "url": "https://voriq.ru/", "inLanguage": "ru"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I reach out if I only have an idea?", "acceptedAnswer": {"@type": "Answer", "text": "Of course. You don’t need a technical spec — just tell us what you want to get. We’ll work out the details together."}}, {"@type": "Question", "name": "How long does development take?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on complexity and features. After discussing the task, we’ll give an estimated timeline and split the work into stages."}}, {"@type": "Question", "name": "How much does a project cost and how does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Pricing is calculated individually after we discuss the task. Payment terms are agreed in advance and written down."}}, {"@type": "Question", "name": "Can you improve an existing website or bot?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll review what you have and tell you what can be improved and how."}}, {"@type": "Question", "name": "Who owns the source code?", "acceptedAnswer": {"@type": "Answer", "text": "Rights to the result, the source code and the handover are defined by the agreement — we discuss this before we start."}}, {"@type": "Question", "name": "Do you work with individuals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — with personal projects as well as business tasks."}}, {"@type": "Question", "name": "What if I don’t know what solution I need?", "acceptedAnswer": {"@type": "Answer", "text": "Just describe the task. We’ll help figure it out and suggest a few options."}}, {"@type": "Question", "name": "Can I order just a small fix?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — we take on both full projects and individual technical tasks."}}, {"@type": "Question", "name": "Do you build bots for MAX?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A bot can run on both Telegram and MAX with shared logic and one request database."}}]}</script>
 </head>
 <body class="">
@@ -218,7 +216,7 @@
     <h3 class="h3">NoHassle</h3>
     <p>Agency website and a Telegram bot that takes requests 24/7.</p>
     <div class="pf-tags"><span>Website</span><span>Telegram bot</span></div>
-    <div class="pf-actions"><a class="btn btn-ghost btn-sm" href="http://nohassle.ru/" target="_blank" rel="noopener">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-sm btn-dark" href="/projects/nohassle/">Learn more</a></div>
+    <div class="pf-actions"><a class="btn btn-ghost btn-sm" href="https://nohassle.ru/" target="_blank" rel="noopener">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="btn btn-sm btn-dark" href="/projects/nohassle/">Learn more</a></div>
   </div>
 </article>
 <article class="pf">
@@ -427,7 +425,7 @@
       </div>
       <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div class="fld" data-f="consent">
-        <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="e-consent"><span>I agree to the <a href="/consent/" target="_blank">processing of personal data</a> in accordance with the <a href="/privacy/" target="_blank">privacy policy</a>.</span></label>
+        <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="e-consent"><span>I agree to the <a href="/consent/" target="_blank" rel="noopener">processing of personal data</a> in accordance with the <a href="/privacy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
         <span class="err" id="e-consent" aria-live="polite"></span>
       </div>
       <div class="form-foot">
@@ -510,8 +508,8 @@
   <button type="button" id="cookieOk">Got it</button>
 </div>
 
-<script src="/assets/js/config.js?v=a4d798dc" defer></script>
-<script src="/assets/js/main.js?v=a4d798dc" defer></script>
-<script src="/assets/js/form.js?v=a4d798dc" defer></script>
+<script src="/assets/js/config.js?v=f349fdd5" defer></script>
+<script src="/assets/js/main.js?v=f349fdd5" defer></script>
+<script src="/assets/js/form.js?v=f349fdd5" defer></script>
 </body>
 </html>
