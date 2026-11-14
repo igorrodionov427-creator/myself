@@ -117,7 +117,7 @@
 
   /* карточка «Пример автоматизации»: шаги появляются по очереди один раз */
   const feed = $('feed');
-  if (feed && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (feed && false) {   // анимация строк отключена — всё видно сразу
     const evs = [...feed.children];
     feed.classList.add('seq'); evs.forEach(e => e.classList.remove('on'));
     const t0 = root.classList.contains('pre') ? 2200 : 500;
