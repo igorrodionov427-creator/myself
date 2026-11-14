@@ -44,7 +44,7 @@
   const els = document.querySelectorAll('.rv');
   if (reduce || !('IntersectionObserver' in window)) els.forEach(el => el.classList.add('in'));
   else {
-    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: innerWidth < 760 ? '0px 0px 15% 0px' : '0px 0px -8% 0px', threshold: innerWidth < 760 ? 0 : .08 });
     els.forEach(el => io.observe(el));
     window.__rvObserve = el => io.observe(el);
   }

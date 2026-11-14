@@ -702,3 +702,13 @@ html:not(.js) .svc-art img{transform:none}
   .rv{opacity:1!important;filter:none!important;transform:none!important}
   .req div,.doc-links a{box-shadow:none;border:1px solid #ccc}
 }
+
+/* телефон: анимации короче и легче, чтобы не мешали листать */
+@media (max-width:760px){
+  .rv{transform:translateY(10px);filter:blur(4px);transition:opacity .4s var(--ease),transform .45s var(--ease),filter .4s var(--ease);transition-delay:0s!important}
+  .w>span{transition-duration:.55s;transition-delay:calc(var(--wd,0s) * .5)!important}
+  .svc-art{transition-duration:.6s;transition-delay:0s}
+  .svc-art img{transition-duration:.7s!important}
+  .step-n{transition-duration:.25s}
+  .steps-bar i{transition-duration:.8s}
+}
