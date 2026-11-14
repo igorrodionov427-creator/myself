@@ -733,3 +733,10 @@ html:not(.js) .svc-art img{transform:none}
 .lb-n{font-size:12px;color:#8FA3C0;letter-spacing:.06em}
 .lb-hint{font-size:12px;color:#8FA3C0}
 @media (max-width:640px){.lb-prev,.lb-next{width:40px;height:40px;margin-top:-20px;font-size:28px;background:rgba(9,14,26,.55)}.lb-prev{left:6px}.lb-next{right:6px}.lb-stage{padding:60px 8px 130px}.lb-stage img{max-height:calc(100dvh - 200px)}}
+
+/* анимации появления отключены (по просьбе): всё видно сразу, плавная прокрутка остаётся */
+.rv,.rv.in{opacity:1!important;transform:none!important;filter:none!important;transition:none!important;clip-path:none!important}
+.w>span{transform:none!important;transition:none!important}
+.svc-art,.rv.in .svc-art{clip-path:none!important;transition:none!important}
+.svc-art img,.rv.in .svc-art img{transform:none!important}
+.rv.in.svc:hover .svc-art img,.svc:hover .svc-art img{transform:scale(1.03)!important;transition:transform .6s var(--ease)!important}
