@@ -14,7 +14,7 @@
   mnav.hidden = false;
   mnav.setAttribute('aria-hidden', 'true'); mnav.inert = true;
   let lockY = 0;
-  const links = [...mnav.querySelectorAll('a.ml, .btn, .mn-contacts')];
+  const links = [...mnav.querySelectorAll('a.ml, .btn')];
   const setMenu = open => {
     if (open === root.classList.contains('menu-open')) return;
     if (open) { lockY = scrollY; document.body.style.cssText += `;position:fixed;top:${-lockY}px;left:0;right:0;width:100%`; }
@@ -22,9 +22,11 @@
     links.forEach((el, i) => el.style.transitionDelay = open ? (0.06 + i * 0.045) + 's' : '0s');
     root.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    const en = root.lang === 'en';
+    burger.setAttribute('aria-label', open ? (en ? 'Close menu' : 'Закрыть меню') : (en ? 'Open menu' : 'Открыть меню'));
     mnav.setAttribute('aria-hidden', String(!open)); mnav.inert = !open;
   };
+  const dim = $('mnavDim'); if (dim) dim.addEventListener('click', () => setMenu(false));
   burger.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
   mnav.addEventListener('click', e => {
     const a = e.target.closest('a'); if (!a) return;
@@ -36,7 +38,7 @@
     } else setMenu(false);
   });
   addEventListener('keydown', e => { if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); burger.focus(); } });
-  matchMedia('(min-width: 960px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  matchMedia('(min-width: 1280px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
   /* появление при прокрутке */
   const els = document.querySelectorAll('.rv');
@@ -64,9 +66,7 @@
     settle(q('.hero .play'), 720, 640, .88, '.3em');
     lift(q('.hero .tag'), 770, '.7em', 560);
     settle(q('.hero .panel'), 800, 880, .982, '1.4em');
-    qa('.hero .ev').forEach((e, i) => settle(e, 1000 + i * 90, 640, .97, '.5em'));
     anim(q('.hero .dot'), [{ scale: 0 }, { scale: 1 }], 520, 1080, EXPO);
-    anim(q('.hero .track i'), [{ scale: '0 1' }, { scale: '1 1' }], 820, 1120, EXPO);
     qa('.hero .num').forEach((n, i) => rise(n, 920 + i * 70, 860));
     qa('.hero .lbl').forEach((l, i) => lift(l, 1030 + i * 45, '.6em', 520));
     anim(q('.hero .slash'), [{ scale: '1 0' }, { scale: '1 1' }], 700, 1010, EXPO);
@@ -115,20 +115,13 @@
     window.open('https://' + g[2] + g[1] + '.' + g[0] + '/', '_blank', 'noopener');
   }));
 
-  /* hero-виджет: заявка → бот → CRM, строки появляются по очереди и повторяются */
+  /* карточка «Пример автоматизации»: шаги появляются по очереди один раз */
   const feed = $('feed');
-  if (feed && !reduce) {
-    const evs = [...feed.children], bar = feed.parentElement.querySelector('.track i');
-    let step = 0, timer = 0;
-    const tick = () => {
-      if (step === 0) { evs.forEach(e => e.classList.remove('on')); bar.style.transform = 'scaleX(0)'; }
-      else if (step <= evs.length) { evs[step - 1].classList.add('on'); bar.style.transform = `scaleX(${step / evs.length})`; }
-      step = step > evs.length + 2 ? 0 : step + 1;           // после последней строки — пауза, затем заново
-      timer = setTimeout(tick, step === 1 ? 500 : 1300);
-    };
-    const start = () => { clearTimeout(timer); feed.classList.add('cycling'); step = 0; tick(); };
-    setTimeout(start, root.classList.contains('pre') ? 2600 : 600);
-    document.addEventListener('visibilitychange', () => { if (document.hidden) clearTimeout(timer); else start(); });
+  if (feed && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const evs = [...feed.children];
+    feed.classList.add('seq'); evs.forEach(e => e.classList.remove('on'));
+    const t0 = root.classList.contains('pre') ? 2200 : 500;
+    evs.forEach((e, i) => setTimeout(() => e.classList.add('on'), t0 + i * 1100));
   }
 
   /* блик на карточке основателя следует за курсором */
@@ -209,10 +202,13 @@
     if (url.pathname !== location.pathname || !url.hash || a.target === '_blank') return;
     const el = document.querySelector(url.hash); if (!el) return;
     e.preventDefault(); wheelStop();
-    const from = scrollY, to = el.getBoundingClientRect().top + scrollY - (el.id === 'main' ? 0 : HDR - 8), d = to - from;
-    const dur = Math.min(1600, 650 + Math.abs(d) * .2), t0 = performance.now(), my = ++run;
+    const off = el.id === 'main' ? 0 : HDR - 8, target = () => el.getBoundingClientRect().top + scrollY - off;
+    const from = scrollY, d0 = target() - from;
+    const dur = Math.min(1600, 650 + Math.abs(d0) * .2), t0 = performance.now(), my = ++run;
+    // цель пересчитывается каждый кадр: пока едем, ниже могут догрузиться картинки и сдвинуть секцию
     const step = now => { if (my !== run) return; const k = Math.min(1, (now - t0) / dur);
-      scrollTo({ top: from + d * easeIO(k), behavior: 'instant' }); if (k < 1) requestAnimationFrame(step); };
+      scrollTo({ top: from + (target() - from) * easeIO(k), behavior: 'instant' });
+      if (k < 1) requestAnimationFrame(step); else setTimeout(() => { if (my === run && Math.abs(target() - scrollY) > 2) scrollTo({ top: target(), behavior: 'instant' }); }, 250); };
     requestAnimationFrame(step);
     history.replaceState(null, '', url.hash);
   });

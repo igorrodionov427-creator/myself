@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://voriq.ru/consent/</loc></url>
+  <url><loc>https://voriq.ru/documents/</loc></url>
   <url><loc>https://voriq.ru/</loc></url>
   <url><loc>https://voriq.ru/privacy/</loc></url>
   <url><loc>https://voriq.ru/terms/</loc></url>
+  <url><loc>https://voriq.ru/en/</loc></url>
+  <url><loc>https://voriq.ru/blog/bot-dlya-avtoservisa/</loc></url>
+  <url><loc>https://voriq.ru/blog/kak-vyglyadit-bot-dlya-zayavok/</loc></url>
+  <url><loc>https://voriq.ru/blog/poisk-klientov-sredi-novyh-kompanij/</loc></url>
+  <url><loc>https://voriq.ru/blog/sajt-na-konstruktore-ili-na-zakaz/</loc></url>
+  <url><loc>https://voriq.ru/blog/svoya-smm-panel-vmesto-servisov/</loc></url>
+  <url><loc>https://voriq.ru/blog/uvedomleniya-o-zakazah-v-telegram/</loc></url>
   <url><loc>https://voriq.ru/blog/avtomatizaciya-malogo-biznesa/</loc></url>
   <url><loc>https://voriq.ru/blog/bot-dlya-salona-krasoty/</loc></url>
   <url><loc>https://voriq.ru/blog/bot-iz-telegram-v-max/</loc></url>
@@ -33,6 +41,7 @@
   <url><loc>https://voriq.ru/avtomatizaciya-biznesa/</loc></url>
   <url><loc>https://voriq.ru/razrabotka-po/</loc></url>
   <url><loc>https://voriq.ru/podderzhka-sajtov/</loc></url>
+  <url><loc>https://voriq.ru/works/</loc></url>
   <url><loc>https://voriq.ru/projects/maing/</loc></url>
   <url><loc>https://voriq.ru/projects/velion/</loc></url>
   <url><loc>https://voriq.ru/projects/apolline/</loc></url>

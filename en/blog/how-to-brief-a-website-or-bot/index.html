@@ -9,7 +9,8 @@
 <link rel="canonical" href="https://voriq.ru/en/blog/how-to-brief-a-website-or-bot/">
 <meta name="theme-color" content="#E6EDF6">
 <meta property="og:type" content="article">
-<meta property="og:locale" content="ru_RU">
+<meta property="og:locale" content="en_US">
+
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 <meta property="og:site_name" content="VORIQ">
 <meta property="og:title" content="How to brief a website or bot project — a simple checklist — VORIQ">
@@ -23,10 +24,10 @@
 <meta name="twitter:description" content="What to tell a developer to get an accurate plan and timeline the first time. A plain-language checklist.">
 <meta name="twitter:image" content="https://voriq.ru/assets/img/og.jpg">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=d69b5395">
+<link rel="stylesheet" href="/assets/css/style.css?v=3958cb48">
 <script>(function(){var d=document.documentElement;d.classList.add('js');
   if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   if(!('animate' in Element.prototype))return;
@@ -36,41 +37,43 @@
 </head>
 <body class="">
 <div class="progress" id="progress" aria-hidden="true"></div>
-<a class="skip" href="#main">Перейти к содержимому</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a class="logo" href="/" aria-label="VORIQ — на главную"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2B45"/><stop offset="1" stop-color="#5F88B4"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lgh)"/><path d="M11.5 12.5 18.6 28a1.5 1.5 0 0 0 2.7 0l2.4-5.2" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.2 17.2c1.3-2.3 2.6-3.8 4.6-4.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" opacity=".7"/></svg>voriq</a>
-    <nav class="nav" aria-label="Основное меню">
-      <a href="/#services">Услуги</a>
-      <a href="/#projects">Проекты</a>
-      <a href="/#about">О нас</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/blog/">Блог</a>
-      <a href="/#contact">Контакты</a>
+    <a class="logo" href="/en/" aria-label="VORIQ — home"><img class="logo-mark" src="/assets/img/logo.webp" alt="" width="38" height="38">voriq</a>
+    <nav class="nav" aria-label="Main menu">
+      <a href="/en/#services">Services</a>
+      <a href="/en/#about">About</a>
+      <a href="/en/#faq">FAQ</a>
+      <a href="/en/#contact">Contact</a>
+      <hr aria-hidden="true">
+      <a class="pg" href="/works/">Our work</a>
+      <a class="pg" href="/en/blog/">Blog</a>
+      <a class="pg" href="/documents/">Legal</a>
     </nav>
-    <a class="btn btn-primary btn-sm hdr-cta" href="/#contact">Обсудить проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav"><span></span></button>
+    <div class="lang-sw" role="group" aria-label="Site language"><a href="/" hreflang="ru" lang="ru">RU</a><span aria-current="true">EN</span></div>
+    <a class="btn btn-primary btn-sm hdr-cta" href="/en/#contact">Discuss a project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
 </header>
+<div class="mnav-dim" id="mnavDim" aria-hidden="true"></div>
 <div class="mnav" id="mnav" hidden>
-  <a class="ml" href="/#services">Услуги <small>01</small></a>
-  <a class="ml" href="/#projects">Проекты <small>02</small></a>
-  <a class="ml" href="/#about">О нас <small>03</small></a>
-  <a class="ml" href="/#faq">FAQ <small>04</small></a>
-  <a class="ml" href="/blog/">Блог <small>05</small></a>
-  <a class="ml" href="/#contact">Контакты <small>06</small></a>
-  <a class="btn btn-primary" href="/#contact">Обсудить проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  <div class="mn-contacts">
-    <a href="https://t.me/rydr3" target="_blank" rel="noopener"><span style="color:#2AABEE"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 18.3 19c-.2 1-.9 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.5 13 2 11.6c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.6.2 1.3 1z"/></svg></span>Telegram</a>
-    <a href="https://wa.me/79670450339" target="_blank" rel="noopener"><span style="color:#25D366"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.2a7.8 7.8 0 0 1-4-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.8 7.8 0 1 1 12 19.7zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg></span>WhatsApp</a>
-    <a href="https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo" target="_blank" rel="noopener"><img src="/assets/img/max.png" alt="" width="22" height="22" style="border-radius:6px">MAX</a>
-  </div>
+  <p class="mn-h">On this page</p>
+  <a class="ml" href="/en/#services">Services</a>
+  <a class="ml" href="/en/#about">About</a>
+  <a class="ml" href="/en/#faq">FAQ</a>
+  <a class="ml" href="/en/#contact">Contact</a>
+  <p class="mn-h">Pages</p>
+  <a class="ml pg" href="/works/">Our work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="ml pg" href="/en/blog/">Blog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="ml pg" href="/documents/">Legal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="btn btn-primary" href="/en/#contact">Discuss a project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div>
 
 <main id="main">
 <div class="wrap"><article class="doc article">
   <nav class="crumbs" aria-label="Навигация"><a href="/">VORIQ</a> · <a href="/en/blog/">Blog</a> · How to brief a website or bot project — a simple checklist</nav>
-  <span class="pc-meta"><span class="pc-tag">Tips</span><time datetime="2026-11-11">November 11, 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Tips</span></span>
   <h1>How to brief a website or bot project — a simple checklist</h1>
   <p class="upd">What to tell a developer to get an accurate plan and timeline the first time. A plain-language checklist.</p>
   <div class="prose"><p>You don't need a long technical spec. But the clearer the task, the more accurate the plan and timeline — and the fewer rewrites. Here's what to prepare; a few lines per point is plenty.</p>
@@ -94,12 +97,12 @@
   
 </article></div>
 <section class="section" style="padding-top:24px"><div class="wrap"><h2 class="h2 rv" style="margin-bottom:28px">More articles</h2><div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/en/blog/ai-agent-vs-chatbot/">
-  <span class="pc-meta"><span class="pc-tag">AI</span><time datetime="2026-11-11">November 11, 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">AI</span></span>
   <h3 class="h3">AI agent vs. chatbot — what&#x27;s the difference for a business</h3>
   <p>What an AI agent actually is, which tasks it can own, and when a simple button-based bot is the better choice.</p>
   <span class="svc-go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/en/blog/telegram-bot-for-business/">
-  <span class="pc-meta"><span class="pc-tag">Bots</span><time datetime="2026-11-11">November 11, 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Bots</span></span>
   <h3 class="h3">A Telegram bot for your business — what it does and who needs one</h3>
   <p>The jobs a Telegram bot takes off your team, why it beats a website form, and where to start if you don&#x27;t have one yet.</p>
   <span class="svc-go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -109,63 +112,68 @@
   <div class="wrap">
     <div class="ftr-grid">
       <div>
-        <a class="logo" href="/" aria-label="VORIQ — на главную"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2B45"/><stop offset="1" stop-color="#5F88B4"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lgf)"/><path d="M11.5 12.5 18.6 28a1.5 1.5 0 0 0 2.7 0l2.4-5.2" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.2 17.2c1.3-2.3 2.6-3.8 4.6-4.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" opacity=".7"/></svg>voriq</a>
-        <p>Разработка цифровых решений для людей и бизнеса: сайты, боты, ИИ и автоматизация.</p>
+        <a class="logo" href="/en/" aria-label="VORIQ — home"><img class="logo-mark" src="/assets/img/logo.webp" alt="" width="38" height="38">voriq</a>
+        <p>Digital solutions for people and businesses: websites, bots, AI and automation.</p>
       </div>
       <div>
-        <h4>Разделы</h4>
+        <h4>On this page</h4>
         <ul>
-          <li><a href="/#services">Услуги</a></li>
-          <li><a href="/#projects">Проекты</a></li>
-          <li><a href="/#about">О нас</a></li>
-          <li><a href="/#faq">FAQ</a></li>
-          <li><a href="/blog/">Блог</a></li>
-          <li><a href="/#contact">Контакты</a></li>
+          <li><a href="/en/#services">Services</a></li>
+          <li><a href="/en/#about">About</a></li>
+          <li><a href="/en/#faq">FAQ</a></li>
+          <li><a href="/en/#contact">Contact</a></li>
+        </ul>
+        <h4 style="margin-top:22px">Pages</h4>
+        <ul>
+          <li><a href="/works/">Our work</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+          <li><a href="/documents/">Legal details</a></li>
         </ul>
       </div>
       <div>
-        <h4>Услуги</h4>
+        <h4>Services</h4>
         <ul>
-          <li><a href="/razrabotka-sajtov/">Разработка сайтов</a></li>
-          <li><a href="/telegram-boty/">Боты Telegram и MAX</a></li>
-          <li><a href="/ii-agenty/">ИИ-агенты</a></li>
-          <li><a href="/avtomatizaciya-biznesa/">Автоматизация</a></li>
-          <li><a href="/razrabotka-po/">Разработка ПО</a></li>
-          <li><a href="/podderzhka-sajtov/">Поддержка сайтов</a></li>
+          <li><a href="/razrabotka-sajtov/">Website development</a></li>
+          <li><a href="/telegram-boty/">Telegram & MAX bots</a></li>
+          <li><a href="/ii-agenty/">AI agents</a></li>
+          <li><a href="/avtomatizaciya-biznesa/">Automation</a></li>
+          <li><a href="/razrabotka-po/">Custom software</a></li>
+          <li><a href="/podderzhka-sajtov/">Website support</a></li>
         </ul>
       </div>
       <div>
-        <h4>Контакты</h4>
+        <h4>Contact</h4>
         <ul>
           <li><a href="https://t.me/rydr3" target="_blank" rel="noopener">Telegram: @rydr3</a></li>
           <li><a href="tel:+79670450339">+7 967 045-03-39</a></li>
           <li><a href="https://wa.me/79670450339" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="https://t.me/voriq_applicationsBot" target="_blank" rel="noopener">Бот для заявок</a></li>
+          <li><a href="https://t.me/voriq_applicationsBot" target="_blank" rel="noopener">Request bot</a></li>
         </ul>
       </div>
       <div>
-        <h4>Исполнитель</h4>
-        <p class="legal" style="margin-top:0">Родионов Игорь Романович<br>Самозанятый (плательщик НПД)<br>ИНН 773135398240</p>
+        <h4>Contractor</h4>
+        <p class="legal" style="margin-top:0">Igor Romanovich Rodionov<br>Self-employed (Russia, NPD tax regime)<br>TIN 773135398240</p>
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© VORIQ, 2026. Все права защищены.</span>
-      <nav aria-label="Документы">
-        <a href="/privacy/">Политика конфиденциальности</a>
-        <a href="/terms/">Условия оказания услуг</a>
-        <a href="/consent/">Согласие на обработку данных</a>
+      <span>© VORIQ, 2026. All rights reserved.</span>
+      <nav aria-label="Legal">
+        <a href="/documents/">Legal details</a>
+        <a href="/privacy/">Privacy policy (RU)</a>
+        <a href="/terms/">Terms of service (RU)</a>
+        <a href="/consent/">Data processing consent (RU)</a>
       </nav>
     </div>
   </div>
 </footer>
 
-<div class="cookie" id="cookie" role="region" aria-label="Уведомление о cookie">
-  <span>Мы не используем рекламные и аналитические cookie и ничего не храним в вашем браузере. <a href="/privacy/">Подробнее</a></span>
-  <button type="button" id="cookieOk">Понятно</button>
+<div class="cookie" id="cookie" role="region" aria-label="Cookie notice">
+  <span>We don’t use advertising or analytics cookies and store nothing in your browser. <a href="/privacy/">Learn more</a></span>
+  <button type="button" id="cookieOk">Got it</button>
 </div>
 
-<script src="/assets/js/config.js?v=d69b5395" defer></script>
-<script src="/assets/js/main.js?v=d69b5395" defer></script>
-<script src="/assets/js/form.js?v=d69b5395" defer></script>
+<script src="/assets/js/config.js?v=3958cb48" defer></script>
+<script src="/assets/js/main.js?v=3958cb48" defer></script>
+<script src="/assets/js/form.js?v=3958cb48" defer></script>
 </body>
 </html>

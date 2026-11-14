@@ -10,6 +10,7 @@
 <meta name="theme-color" content="#E6EDF6">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
+
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 <meta property="og:site_name" content="VORIQ">
 <meta property="og:title" content="Блог VORIQ — сайты, боты, ИИ и автоматизация">
@@ -23,10 +24,10 @@
 <meta name="twitter:description" content="Простым языком о сайтах, ботах для Telegram и MAX, ИИ-агентах и автоматизации бизнеса.">
 <meta name="twitter:image" content="https://voriq.ru/assets/img/og.jpg">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=d69b5395">
+<link rel="stylesheet" href="/assets/css/style.css?v=3958cb48">
 <script>(function(){var d=document.documentElement;d.classList.add('js');
   if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   if(!('animate' in Element.prototype))return;
@@ -39,125 +40,157 @@
 <a class="skip" href="#main">Перейти к содержимому</a>
 <header class="hdr" id="hdr">
   <div class="wrap hdr-in">
-    <a class="logo" href="/" aria-label="VORIQ — на главную"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2B45"/><stop offset="1" stop-color="#5F88B4"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lgh)"/><path d="M11.5 12.5 18.6 28a1.5 1.5 0 0 0 2.7 0l2.4-5.2" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.2 17.2c1.3-2.3 2.6-3.8 4.6-4.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" opacity=".7"/></svg>voriq</a>
+    <a class="logo" href="/" aria-label="VORIQ — на главную"><img class="logo-mark" src="/assets/img/logo.webp" alt="" width="38" height="38">voriq</a>
     <nav class="nav" aria-label="Основное меню">
       <a href="/#services">Услуги</a>
-      <a href="/#projects">Проекты</a>
       <a href="/#about">О нас</a>
       <a href="/#faq">FAQ</a>
-      <a href="/blog/">Блог</a>
       <a href="/#contact">Контакты</a>
+      <hr aria-hidden="true">
+      <a class="pg" href="/works/">Наши работы</a>
+      <a class="pg" href="/blog/">Блог</a>
+      <a class="pg" href="/documents/">Документы</a>
     </nav>
+    <div class="lang-sw" role="group" aria-label="Язык сайта"><span aria-current="true">RU</span><a href="/en/" hreflang="en" lang="en">EN</a></div>
     <a class="btn btn-primary btn-sm hdr-cta" href="/#contact">Обсудить проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav"><span></span></button>
   </div>
 </header>
+<div class="mnav-dim" id="mnavDim" aria-hidden="true"></div>
 <div class="mnav" id="mnav" hidden>
-  <a class="ml" href="/#services">Услуги <small>01</small></a>
-  <a class="ml" href="/#projects">Проекты <small>02</small></a>
-  <a class="ml" href="/#about">О нас <small>03</small></a>
-  <a class="ml" href="/#faq">FAQ <small>04</small></a>
-  <a class="ml" href="/blog/">Блог <small>05</small></a>
-  <a class="ml" href="/#contact">Контакты <small>06</small></a>
+  <p class="mn-h">На главной</p>
+  <a class="ml" href="/#services">Услуги</a>
+  <a class="ml" href="/#about">О нас</a>
+  <a class="ml" href="/#faq">FAQ</a>
+  <a class="ml" href="/#contact">Контакты</a>
+  <p class="mn-h">Страницы</p>
+  <a class="ml pg" href="/works/">Наши работы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="ml pg" href="/blog/">Блог <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="ml pg" href="/documents/">Документы <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   <a class="btn btn-primary" href="/#contact">Обсудить проект <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  <div class="mn-contacts">
-    <a href="https://t.me/rydr3" target="_blank" rel="noopener"><span style="color:#2AABEE"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 18.3 19c-.2 1-.9 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.5 13 2 11.6c-1-.3-1-1 .2-1.5l17.9-6.9c.8-.3 1.6.2 1.3 1z"/></svg></span>Telegram</a>
-    <a href="https://wa.me/79670450339" target="_blank" rel="noopener"><span style="color:#25D366"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.2a7.8 7.8 0 0 1-4-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.8 7.8 0 1 1 12 19.7zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg></span>WhatsApp</a>
-    <a href="https://max.ru/u/f9LHodD0cOI2tlgtGSDxYNm3lBYSskgV4OjiwH2SbofnAP5cFvRZjvrQSvo" target="_blank" rel="noopener"><img src="/assets/img/max.png" alt="" width="22" height="22" style="border-radius:6px">MAX</a>
-  </div>
 </div>
 
 <main id="main">
 <section class="section" style="padding-top:48px"><div class="wrap">
   <nav class="crumbs" aria-label="Навигация"><a href="/">VORIQ</a> · Блог</nav>
   <div class="section-head" style="margin-top:18px"><h1 class="h2 rv">Блог</h1><p class="lead rv" style="--d:.06s">Простым языком о сайтах, ботах для Telegram и MAX, ИИ-агентах и автоматизации бизнеса.</p></div>
-  <div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/avtomatizaciya-malogo-biznesa/">
-  <span class="pc-meta"><span class="pc-tag">Автоматизация</span><time datetime="2026-11-13">13 ноября 2026</time></span>
+  <div class="post-grid"><a class="post-card rv" style="--d:0.00s" href="/blog/bot-dlya-avtoservisa/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
+  <h3 class="h3">Бот для автосервиса — запись на ремонт, статусы и напоминания о ТО</h3>
+  <p>Как Telegram- или MAX-бот помогает автосервису: запись на диагностику и ремонт, уточнение марки и проблемы, уведомления о готовности машины и напоминания о ТО.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.07s" href="/blog/kak-vyglyadit-bot-dlya-zayavok/">
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
+  <h3 class="h3">Как выглядит бот для заявок изнутри — путь заявки от клиента до владельца</h3>
+  <p>Показываем на реальных скриншотах, как работает Telegram-бот для заявок: вопросы клиенту, карточка заявки для владельца, статусы и админ-меню.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.14s" href="/blog/poisk-klientov-sredi-novyh-kompanij/">
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span></span>
+  <h3 class="h3">Как находить клиентов среди новых компаний — автоматический сбор контактов</h3>
+  <p>Как бот собирает список новых зарегистрированных компаний за период, находит их телефоны, email и сайты и выдаёт готовую таблицу для звонков и рассылки.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.00s" href="/blog/sajt-na-konstruktore-ili-na-zakaz/">
+  <span class="pc-meta"><span class="pc-tag">Сайты</span></span>
+  <h3 class="h3">Сайт на конструкторе или на заказ — что выбрать бизнесу</h3>
+  <p>Чем сайт на Tilda, Wix или другом конструкторе отличается от сайта, сделанного на заказ: скорость, SEO, интеграции, перенос и ограничения. Когда что выбирать.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.07s" href="/blog/svoya-smm-panel-vmesto-servisov/">
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span></span>
+  <h3 class="h3">Своя SMM-панель вместо подписочных сервисов — когда это выгодно агентству</h3>
+  <p>Почему SMM-специалисты и агентства переходят с Metricool, Hootsuite и SMMplanner на собственную панель автопостинга: без оплаты за каждого клиента и с ключами на своём сервере.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.14s" href="/blog/uvedomleniya-o-zakazah-v-telegram/">
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span></span>
+  <h3 class="h3">Уведомления о заказах интернет-магазина в Telegram — зачем и как настроить</h3>
+  <p>Как сделать, чтобы каждый заказ и сообщение в поддержку с сайта магазина сразу приходили владельцу в Telegram: состав заказа, доставка, контакты и оплата в одной карточке.</p>
+  <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a><a class="post-card rv" style="--d:0.00s" href="/blog/avtomatizaciya-malogo-biznesa/">
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span></span>
   <h3 class="h3">Автоматизация малого бизнеса — с чего начать и что даёт результат быстрее всего</h3>
   <p>Какие процессы в малом бизнесе стоит автоматизировать в первую очередь: заявки, запись, уведомления, документы, отчёты. Простые шаги без дорогих внедрений.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/blog/bot-dlya-salona-krasoty/">
-  <span class="pc-meta"><span class="pc-tag">Боты</span><time datetime="2026-11-13">13 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
   <h3 class="h3">Бот для салона красоты и барбершопа — запись, напоминания и повторные визиты</h3>
   <p>Как бот в Telegram или MAX записывает клиентов в салон и барбершоп, напоминает о визите, снижает неявки и возвращает клиентов на повторную запись.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.14s" href="/blog/bot-iz-telegram-v-max/">
-  <span class="pc-meta"><span class="pc-tag">Боты</span><time datetime="2026-11-13">13 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
   <h3 class="h3">Как запустить бота в MAX, если он уже есть в Telegram</h3>
   <p>Можно ли перенести Telegram-бота в мессенджер MAX, что меняется, как сделать один сценарий для двух мессенджеров и не вести две базы заявок.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.00s" href="/blog/chat-bot-dlya-sajta/">
-  <span class="pc-meta"><span class="pc-tag">Боты</span><time datetime="2026-11-13">13 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
   <h3 class="h3">Чат-бот для сайта — зачем он нужен и как работает</h3>
   <p>Что умеет чат-бот на сайте, чем он лучше формы обратной связи, какие задачи берёт на себя и как подключить его к Telegram, MAX и CRM.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/blog/ii-konsultant-na-sajt/">
-  <span class="pc-meta"><span class="pc-tag">ИИ</span><time datetime="2026-11-13">13 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">ИИ</span></span>
   <h3 class="h3">ИИ-консультант на сайт — что умеет и чем отличается от обычного чат-бота</h3>
   <p>Как работает ИИ-консультант на сайте и в Telegram, чем он отличается от бота с кнопками, откуда берёт ответы и как сделать, чтобы он не выдумывал.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.14s" href="/blog/sajt-dlya-eksperta/">
-  <span class="pc-meta"><span class="pc-tag">Сайты</span><time datetime="2026-11-13">13 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Сайты</span></span>
   <h3 class="h3">Сайт для эксперта, мастера или самозанятого — что на нём должно быть</h3>
   <p>Какой сайт нужен специалисту, который работает сам на себя: структура, что писать на первом экране, как показать работы и получать заявки в Telegram.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.00s" href="/blog/bot-dlya-zapisi-klientov/">
-  <span class="pc-meta"><span class="pc-tag">Боты</span><time datetime="2026-11-12">12 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
   <h3 class="h3">Бот для записи клиентов — как он работает и кому нужен</h3>
   <p>Как Telegram- или MAX-бот принимает записи без администратора, напоминает клиентам о визите и снижает число неявок. Разбираем на примере салона и клиники.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/blog/bot-v-max-dlya-biznesa/">
-  <span class="pc-meta"><span class="pc-tag">Боты</span><time datetime="2026-11-12">12 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
   <h3 class="h3">Бот в мессенджере MAX для бизнеса — что важно знать</h3>
   <p>Зачем бизнесу бот в MAX, чем он похож на Telegram-бота и чем отличается, и как сделать так, чтобы один сценарий работал сразу в обоих мессенджерах.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.14s" href="/blog/integraciya-sajta-s-amocrm-i-bitrix24/">
-  <span class="pc-meta"><span class="pc-tag">Автоматизация</span><time datetime="2026-11-12">12 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span></span>
   <h3 class="h3">Интеграция сайта и бота с amoCRM и Битрикс24 — как это устроено</h3>
   <p>Как сделать так, чтобы заявки с сайта и из бота сами попадали в amoCRM или Битрикс24 — с источником, ответственным и задачей менеджеру. Без ручного переноса.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.00s" href="/blog/kak-vybrat-podryadchika-dlya-sajta/">
-  <span class="pc-meta"><span class="pc-tag">Советы</span><time datetime="2026-11-12">12 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Советы</span></span>
   <h3 class="h3">Как выбрать подрядчика для сайта или бота — 10 вопросов</h3>
   <p>Какие вопросы задать студии или фрилансеру до начала работ, чтобы не получить сорванные сроки, сайт без доступов и бота, который никто не поддерживает.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/blog/pochemu-sajt-ne-prinosit-zayavki/">
-  <span class="pc-meta"><span class="pc-tag">Сайты</span><time datetime="2026-11-12">12 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Сайты</span></span>
   <h3 class="h3">Почему сайт не приносит заявки — 8 частых причин</h3>
   <p>Сайт есть, посетители заходят, а заявок нет. Разбираем 8 частых причин — от медленной загрузки до неудобной формы — и что с каждой делать.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.14s" href="/blog/podderzhka-sajta-posle-zapuska/">
-  <span class="pc-meta"><span class="pc-tag">Поддержка</span><time datetime="2026-11-12">12 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Поддержка</span></span>
   <h3 class="h3">Поддержка сайта после запуска — что входит и зачем она нужна</h3>
   <p>Почему сайт и бот нельзя «сделать и забыть»: обновления, мониторинг, резервные копии, доработки. Что входит в поддержку и как понять, нужна ли она вам.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.00s" href="/blog/avtomatizaciya-zayavok-sajt-bot-crm/">
-  <span class="pc-meta"><span class="pc-tag">Автоматизация</span><time datetime="2026-11-11">11 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Автоматизация</span></span>
   <h3 class="h3">Автоматизация заявок — как связать сайт, бота и CRM</h3>
   <p>Как сделать так, чтобы заявки с сайта, из Telegram и мессенджеров сами попадали в одно место, а вы отвечали быстрее.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/blog/ii-agent-dlya-biznesa/">
-  <span class="pc-meta"><span class="pc-tag">ИИ</span><time datetime="2026-11-11">11 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">ИИ</span></span>
   <h3 class="h3">ИИ-агент для бизнеса — чем он отличается от обычного чат-бота</h3>
   <p>Что такое ИИ-агент, какие задачи он берёт на себя и где без него можно обойтись. Простым языком, без хайпа.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.14s" href="/blog/kak-podgotovit-tz-na-sajt-ili-bota/">
-  <span class="pc-meta"><span class="pc-tag">Советы</span><time datetime="2026-11-11">11 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Советы</span></span>
   <h3 class="h3">Как подготовить задачу на сайт или бота — чек-лист</h3>
   <p>Что рассказать разработчику, чтобы получить точный план и сроки с первого раза. Простой чек-лист без технических терминов.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.00s" href="/blog/lending-ili-mnogostranichnyj-sajt/">
-  <span class="pc-meta"><span class="pc-tag">Сайты</span><time datetime="2026-11-11">11 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Сайты</span></span>
   <h3 class="h3">Лендинг или многостраничный сайт — что выбрать бизнесу</h3>
   <p>Когда хватит одной продающей страницы, а когда нужен полноценный сайт с разделами. Разбираем на примерах.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.07s" href="/blog/skolko-vremeni-razrabotka-sajta/">
-  <span class="pc-meta"><span class="pc-tag">Сайты</span><time datetime="2026-11-11">11 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Сайты</span></span>
   <h3 class="h3">Сколько времени занимает разработка сайта</h3>
   <p>Реальные сроки разработки лендинга, корпоративного сайта и интернет-магазина — из чего они складываются и как запустить проект быстрее.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a><a class="post-card rv" style="--d:0.14s" href="/blog/telegram-bot-dlya-biznesa/">
-  <span class="pc-meta"><span class="pc-tag">Боты</span><time datetime="2026-11-11">11 ноября 2026</time></span>
+  <span class="pc-meta"><span class="pc-tag">Боты</span></span>
   <h3 class="h3">Telegram-бот для бизнеса — что он умеет и кому нужен</h3>
   <p>Какие задачи бизнеса закрывает Telegram-бот, чем он лучше формы на сайте и с чего начать, если бота у вас ещё нет.</p>
   <span class="svc-go">Читать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -168,18 +201,22 @@
   <div class="wrap">
     <div class="ftr-grid">
       <div>
-        <a class="logo" href="/" aria-label="VORIQ — на главную"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2B45"/><stop offset="1" stop-color="#5F88B4"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lgf)"/><path d="M11.5 12.5 18.6 28a1.5 1.5 0 0 0 2.7 0l2.4-5.2" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.2 17.2c1.3-2.3 2.6-3.8 4.6-4.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" opacity=".7"/></svg>voriq</a>
+        <a class="logo" href="/" aria-label="VORIQ — на главную"><img class="logo-mark" src="/assets/img/logo.webp" alt="" width="38" height="38">voriq</a>
         <p>Разработка цифровых решений для людей и бизнеса: сайты, боты, ИИ и автоматизация.</p>
       </div>
       <div>
-        <h4>Разделы</h4>
+        <h4>На главной</h4>
         <ul>
           <li><a href="/#services">Услуги</a></li>
-          <li><a href="/#projects">Проекты</a></li>
           <li><a href="/#about">О нас</a></li>
           <li><a href="/#faq">FAQ</a></li>
-          <li><a href="/blog/">Блог</a></li>
           <li><a href="/#contact">Контакты</a></li>
+        </ul>
+        <h4 style="margin-top:22px">Страницы</h4>
+        <ul>
+          <li><a href="/works/">Наши работы</a></li>
+          <li><a href="/blog/">Блог</a></li>
+          <li><a href="/documents/">Документы и реквизиты</a></li>
         </ul>
       </div>
       <div>
@@ -210,6 +247,7 @@
     <div class="ftr-bot">
       <span>© VORIQ, 2026. Все права защищены.</span>
       <nav aria-label="Документы">
+        <a href="/documents/">Документы и реквизиты</a>
         <a href="/privacy/">Политика конфиденциальности</a>
         <a href="/terms/">Условия оказания услуг</a>
         <a href="/consent/">Согласие на обработку данных</a>
@@ -223,8 +261,8 @@
   <button type="button" id="cookieOk">Понятно</button>
 </div>
 
-<script src="/assets/js/config.js?v=d69b5395" defer></script>
-<script src="/assets/js/main.js?v=d69b5395" defer></script>
-<script src="/assets/js/form.js?v=d69b5395" defer></script>
+<script src="/assets/js/config.js?v=3958cb48" defer></script>
+<script src="/assets/js/main.js?v=3958cb48" defer></script>
+<script src="/assets/js/form.js?v=3958cb48" defer></script>
 </body>
 </html>
