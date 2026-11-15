@@ -67,6 +67,9 @@
     lift(q('.hero .tag'), 770, '.7em', 560);
     settle(q('.hero .panel'), 800, 880, .982, '1.4em');
     qa('.hero .steps .ev').forEach((e, i) => lift(e, 1050 + i * 150, '.5em', 620));
+    qa('.hero .dash .d-main, .hero .dash .d-mini').forEach((e, i) => lift(e, 1050 + i * 140, '.5em', 620));
+    anim(q('.hero .d-line'), [{ strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDasharray: 1, strokeDashoffset: 0 }], 1300, 1250, SOFT);
+    anim(q('.hero .d-area'), [{ opacity: 0 }, { opacity: 1 }], 900, 1650, SOFT);
     anim(q('.hero .dot'), [{ scale: 0 }, { scale: 1 }], 520, 1080, EXPO);
     qa('.hero .num').forEach((n, i) => rise(n, 920 + i * 70, 860));
     qa('.hero .lbl').forEach((l, i) => lift(l, 1030 + i * 45, '.6em', 520));

@@ -160,6 +160,26 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero .steps .ok svg{width:calc(13*var(--pu));height:calc(13*var(--pu))}
 @media (hover:hover){.hero .steps .ev:hover{transform:translateY(calc(-2*var(--pu)));background:rgba(255,255,255,.95);box-shadow:0 0 0 1px #fff,0 calc(8*var(--pu)) calc(20*var(--pu)) rgba(28,52,92,.08)}.hero .steps .ev:hover .ok{color:#4A78B0}}
 .hero .p-caps{text-transform:uppercase;letter-spacing:.14em;font-size:calc(10*var(--pu));font-weight:520}
+/* v2: «живой фрагмент интерфейса» — мини-панель бизнеса */
+.hero .dash{gap:calc(8*var(--pu))}
+.hero .d-live{display:inline-flex;align-items:center;gap:calc(6*var(--pu));font-size:calc(11*var(--pu));font-weight:470;color:#4D5B77;padding:calc(4*var(--pu)) calc(9*var(--pu));border-radius:999px;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(255,255,255,.85)}
+.hero .d-live i{width:calc(6*var(--pu));height:calc(6*var(--pu));border-radius:50%;background:#4A78B0;box-shadow:0 0 0 calc(3*var(--pu)) rgba(74,120,176,.15)}
+.hero .d-main,.hero .d-mini{border-radius:calc(14*var(--pu));background:rgba(255,255,255,.82);box-shadow:0 0 0 1px rgba(255,255,255,.95),0 calc(3*var(--pu)) calc(10*var(--pu)) rgba(28,52,92,.05);transition:transform .45s var(--ease),box-shadow .45s ease,background-color .45s ease}
+.hero .d-main{padding:calc(9*var(--pu)) calc(12*var(--pu)) calc(7*var(--pu))}
+.hero .d-top{display:flex;align-items:flex-start;justify-content:space-between}
+.hero .dash small{display:flex;align-items:center;gap:calc(5*var(--pu));font-size:calc(11*var(--pu));color:var(--muted);line-height:1.2}
+.hero .dash small img{width:calc(14*var(--pu));height:calc(14*var(--pu));border-radius:50%}
+.hero .dash b{display:block;font-size:calc(19*var(--pu));font-weight:470;letter-spacing:-.03em;line-height:1.1;color:var(--text);margin-top:calc(2*var(--pu));font-variant-numeric:tabular-nums}
+.hero .d-up{font-size:calc(11*var(--pu));font-weight:520;color:#2F6E52;background:rgba(47,158,106,.1);padding:calc(3*var(--pu)) calc(7*var(--pu));border-radius:999px}
+.hero .d-chart{display:block;width:100%;height:calc(32*var(--pu));margin-top:calc(4*var(--pu));overflow:visible}
+.hero .d-days{display:flex;justify-content:space-between;font-size:calc(9.5*var(--pu));color:#8C97AE;margin-top:calc(2*var(--pu))}
+.hero .d-row{display:grid;grid-template-columns:1fr 1fr;gap:calc(8*var(--pu))}
+.hero .d-mini{position:relative;padding:calc(8*var(--pu)) calc(11*var(--pu));min-height:calc(54*var(--pu))}
+.hero .d-mini b{font-size:calc(16*var(--pu))}
+.hero .d-bars{position:absolute;right:calc(11*var(--pu));bottom:calc(11*var(--pu));display:flex;align-items:flex-end;gap:calc(3*var(--pu));height:calc(26*var(--pu))}
+.hero .d-bars i{width:calc(5*var(--pu));border-radius:calc(2*var(--pu));background:linear-gradient(180deg,#7FA0CC,#C9D7EA)}
+.hero .d-ai em{display:block;font-style:normal;font-size:calc(10*var(--pu));color:var(--muted);line-height:1.25;margin-top:calc(1*var(--pu))}
+@media (hover:hover){.hero .d-main:hover,.hero .d-mini:hover{transform:translateY(calc(-2*var(--pu)));background:rgba(255,255,255,.95);box-shadow:0 0 0 1px #fff,0 calc(8*var(--pu)) calc(20*var(--pu)) rgba(28,52,92,.08)}}
 /* последовательное появление: строка → её статус */
 .hero .feed.seq .ev{opacity:0;transform:translateY(calc(6*var(--pu)));transition:opacity .7s ease,transform .8s var(--ease)}
 .hero .feed.seq .ev .ok{opacity:0;transform:scale(.6);transition:opacity .5s ease .45s,transform .6s var(--ease) .45s}
