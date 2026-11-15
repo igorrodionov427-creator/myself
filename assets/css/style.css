@@ -151,6 +151,15 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero .ev .ok{margin-left:auto;flex:none;width:calc(18*var(--pu));height:calc(18*var(--pu));border-radius:50%;display:grid;place-items:center;background:#E7EEF7;color:#4A78B0}
 .hero .ev .ok svg{width:calc(11*var(--pu));height:calc(11*var(--pu))}
 .hero .p-foot{font-size:calc(11*var(--pu));color:#7A86A0;letter-spacing:-.005em;padding:0 calc(2*var(--pu))}
+/* «От идеи до результата»: номер этапа, тонкая линия процесса, мягкий hover */
+.hero .steps{position:relative}
+.hero .steps::before{content:"";position:absolute;left:calc(25*var(--pu));top:calc(26*var(--pu));bottom:calc(26*var(--pu));width:1px;background:linear-gradient(180deg,rgba(74,120,176,.08),rgba(74,120,176,.32),rgba(74,120,176,.08));pointer-events:none}
+.hero .steps .ev{position:relative;transition:transform .45s var(--ease),background-color .45s ease,box-shadow .45s ease}
+.hero .steps .n{position:relative;z-index:1;width:calc(30*var(--pu));height:calc(30*var(--pu));flex:none;border-radius:50%;display:grid;place-items:center;font-size:calc(11.5*var(--pu));font-weight:520;letter-spacing:.02em;font-variant-numeric:tabular-nums;color:#4A78B0;background:#EEF3F9;box-shadow:inset 0 0 0 1px rgba(120,145,180,.2)}
+.hero .steps .ok{background:transparent;box-shadow:inset 0 0 0 1px rgba(120,145,180,.22);color:#6E86AA;width:calc(24*var(--pu));height:calc(24*var(--pu))}
+.hero .steps .ok svg{width:calc(13*var(--pu));height:calc(13*var(--pu))}
+@media (hover:hover){.hero .steps .ev:hover{transform:translateY(calc(-2*var(--pu)));background:rgba(255,255,255,.95);box-shadow:0 0 0 1px #fff,0 calc(8*var(--pu)) calc(20*var(--pu)) rgba(28,52,92,.08)}.hero .steps .ev:hover .ok{color:#4A78B0}}
+.hero .p-caps{text-transform:uppercase;letter-spacing:.14em;font-size:calc(10*var(--pu));font-weight:520}
 /* последовательное появление: строка → её статус */
 .hero .feed.seq .ev{opacity:0;transform:translateY(calc(6*var(--pu)));transition:opacity .7s ease,transform .8s var(--ease)}
 .hero .feed.seq .ev .ok{opacity:0;transform:scale(.6);transition:opacity .5s ease .45s,transform .6s var(--ease) .45s}

@@ -66,6 +66,7 @@
     settle(q('.hero .play'), 720, 640, .88, '.3em');
     lift(q('.hero .tag'), 770, '.7em', 560);
     settle(q('.hero .panel'), 800, 880, .982, '1.4em');
+    qa('.hero .steps .ev').forEach((e, i) => lift(e, 1050 + i * 150, '.5em', 620));
     anim(q('.hero .dot'), [{ scale: 0 }, { scale: 1 }], 520, 1080, EXPO);
     qa('.hero .num').forEach((n, i) => rise(n, 920 + i * 70, 860));
     qa('.hero .lbl').forEach((l, i) => lift(l, 1030 + i * 45, '.6em', 520));
@@ -115,7 +116,7 @@
     window.open('https://' + g[2] + g[1] + '.' + g[0] + '/', '_blank', 'noopener');
   }));
 
-  /* карточка «Пример автоматизации»: шаги появляются по очереди один раз */
+  /* старый сценарий карточки (отключён; карточка теперь «От идеи до результата») */
   const feed = $('feed');
   if (feed && false) {   // анимация строк отключена — всё видно сразу
     const evs = [...feed.children];
