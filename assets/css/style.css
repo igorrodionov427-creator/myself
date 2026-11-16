@@ -769,3 +769,4 @@ html:not(.js) .svc-art img{transform:none}
 .svc-art,.rv.in .svc-art{clip-path:none!important;transition:none!important}
 .svc-art img,.rv.in .svc-art img{transform:none!important}
 .rv.in.svc:hover .svc-art img,.svc:hover .svc-art img{transform:scale(1.03)!important;transition:transform .6s var(--ease)!important}
+@media (max-width:640px){.hero .play{display:none!important}}
