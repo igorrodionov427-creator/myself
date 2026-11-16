@@ -20,16 +20,18 @@
     WhatsApp: [L('+7 900 123-45-67', '+1 555 123 4567'), 'tel', L('Номер в WhatsApp', 'Your WhatsApp number')],
     MAX: [L('Номер или ссылка на профиль', 'Phone or profile link'), 'text', L('Ваш контакт в MAX', 'Your MAX contact')],
     Email: [L('name@example.ru', 'name@example.com'), 'email', L('Ваш email', 'Your email')],
-    'Другое': [L('Например: VK — vk.com/ivan, или «звоните после 18:00»', 'E.g. LinkedIn, Signal, or “call after 6 pm”'), 'text', L('Где с вами связаться', 'Where to reach you')],
+    'Другое': [L('Ваш профиль, ник или номер — например, vk.com/ivan', 'Your profile, username or number — e.g. linkedin.com/in/john'), 'text', L('Ваш контакт', 'Your contact')],
   };
   const applyCtype = () => {
     const [ph, mode, lbl] = CT[ctype()], inp = form.elements.contact;
     inp.placeholder = ph; inp.inputMode = mode === 'tel' ? 'tel' : mode === 'email' ? 'email' : 'text';
     inp.autocomplete = mode === 'tel' ? 'tel' : mode === 'email' ? 'email' : 'off';
     document.getElementById('l-contact').textContent = lbl;
+    const other = ctype() === 'Другое', vw = document.getElementById('via-wrap');
+    vw.hidden = !other; form.elements.via.required = other; if (!other) setErr('via', '');
     if (form.querySelector('[data-f="contact"]').classList.contains('bad') && inp.value) check('contact');
   };
-  form.querySelectorAll('input[name=ctype]').forEach(r => r.addEventListener('change', () => { applyCtype(); form.elements.contact.focus(); }));
+  form.querySelectorAll('input[name=ctype]').forEach(r => r.addEventListener('change', () => { applyCtype(); (ctype() === 'Другое' ? form.elements.via : form.elements.contact).focus(); }));
 
   const rules = {
     name: v => v.trim().length >= 2 || L('Напишите, как к вам обращаться', 'Please enter your name'),
@@ -43,6 +45,7 @@
       if (t === 'MAX') return phone || s.length >= 3 || L('Укажите номер или ссылку на профиль в MAX', 'Enter a phone or MAX profile link');
       return s.length >= 3 || L('Напишите, где и как с вами связаться', 'Tell us where and how to reach you');
     },
+    via: v => ctype() !== 'Другое' || v.trim().length >= 2 || L('Напишите, где с вами связаться: VK, Instagram, Signal…', 'Tell us the app or service: LinkedIn, Signal…'),
     consent: (_, el) => el.checked || L('Нужно согласие на обработку данных', 'Please agree to data processing'),
   };
 
@@ -101,7 +104,7 @@
     const lead = {
       name: form.elements.name.value.trim().slice(0, 100),
       contact: form.elements.contact.value.trim().slice(0, 120),
-      ctype: ctype(),
+      ctype: ctype() === 'Другое' ? form.elements.via.value.trim().slice(0, 40) : ctype(),
       type: (form.querySelector('input[name=type]:checked') || {}).value || '—',
       msg: form.elements.msg.value.trim().slice(0, 2000) || '—',
       page: location.href,
