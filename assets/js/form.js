@@ -17,7 +17,7 @@
   const CT = {
     Telegram: [L('@ваш_ник или номер телефона', '@username or phone number'), 'text', L('Ваш ник в Telegram', 'Your Telegram username')],
     'Телефон': [L('+7 900 123-45-67', '+1 555 123 4567'), 'tel', L('Ваш номер телефона', 'Your phone number')],
-    WhatsApp: [L('+7 900 123-45-67', '+1 555 123 4567'), 'tel', L('Номер в WhatsApp', 'Your WhatsApp number')],
+    WhatsApp: [L('Номер телефона или ник в WhatsApp', 'Phone number or WhatsApp username'), 'text', L('Номер или ник в WhatsApp', 'Your WhatsApp number or username')],
     MAX: [L('Номер или ссылка на профиль', 'Phone or profile link'), 'text', L('Ваш контакт в MAX', 'Your MAX contact')],
     Email: [L('name@example.ru', 'name@example.com'), 'email', L('Ваш email', 'Your email')],
     'Другое': [L('Ваш профиль, ник или номер — например, vk.com/ivan', 'Your profile, username or number — e.g. linkedin.com/in/john'), 'text', L('Ваш контакт', 'Your contact')],
@@ -40,7 +40,8 @@
       if (!s) return L('Оставьте контакт, чтобы мы могли ответить', 'Leave a contact so we can reply');
       const phone = s.replace(/[^\d]/g, '').length >= 10 && /^[\d\s()+-]+$/.test(s);
       if (t === 'Telegram') return /^@?[A-Za-z0-9_]{5,32}$/.test(s) || phone || L('Укажите ник в Telegram (например, @ivan_petrov) или номер', 'Enter a Telegram username (e.g. @john_smith) or phone');
-      if (t === 'Телефон' || t === 'WhatsApp') return phone || L('Укажите номер телефона, например +7 900 123-45-67', 'Enter a phone number with country code');
+      if (t === 'WhatsApp') return phone || /^@?[A-Za-z0-9_.]{3,35}$/.test(s) || L('Укажите номер телефона или ник в WhatsApp', 'Enter a phone number or WhatsApp username');
+      if (t === 'Телефон') return phone || L('Укажите номер телефона, например +7 900 123-45-67', 'Enter a phone number with country code');
       if (t === 'Email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s) || L('Похоже, в адресе почты ошибка', 'That email address looks wrong');
       if (t === 'MAX') return phone || s.length >= 3 || L('Укажите номер или ссылку на профиль в MAX', 'Enter a phone or MAX profile link');
       return s.length >= 3 || L('Напишите, где и как с вами связаться', 'Tell us where and how to reach you');
