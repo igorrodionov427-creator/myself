@@ -771,3 +771,7 @@ html:not(.js) .svc-art img{transform:none}
 .svc-art img,.rv.in .svc-art img{transform:none!important}
 .rv.in.svc:hover .svc-art img,.svc:hover .svc-art img{transform:scale(1.03)!important;transition:transform .6s var(--ease)!important}
 @media (max-width:640px){.hero .play{display:none!important}}
+
+/* подсказка «почта скопирована» */
+.copy-tip{position:fixed;left:50%;top:92px;z-index:9999;transform:translate(-50%,-12px);opacity:0;pointer-events:none;padding:12px 20px;border-radius:999px;background:#0F1B31;color:#fff;font-size:14.5px;font-weight:450;letter-spacing:-.01em;box-shadow:0 14px 40px -12px rgba(15,27,49,.45);transition:opacity .3s ease,transform .4s var(--ease)}
+.copy-tip.on{opacity:1;transform:translate(-50%,0)}

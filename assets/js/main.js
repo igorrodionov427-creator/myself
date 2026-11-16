@@ -135,6 +135,26 @@
     ph.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%'); ph.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
   });
 
+  /* почта и телефон: на ПК клик копирует и показывает подсказку; на телефоне — обычные mailto/tel */
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const en = (document.documentElement.lang || '').startsWith('en');
+    let tip, tt;
+    const legacy = txt => { const t = document.createElement('textarea'); t.value = txt; t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;opacity:0;top:0;left:0'; document.body.appendChild(t); t.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (_) {} t.remove(); return ok; };
+    const copy = txt => (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => true, () => legacy(txt));
+    const fmt = h => { const d = h.replace(/\D/g, ''); return d.length === 11 ? `+${d[0]} ${d.slice(1, 4)} ${d.slice(4, 7)}-${d.slice(7, 9)}-${d.slice(9)}` : h; };
+    document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      const h = a.getAttribute('href'), isTel = h.startsWith('tel:');
+      const addr = isTel ? fmt(h.slice(4)) : h.slice(7).split('?')[0];
+      copy(addr).then(ok => {
+        if (!ok) { location.href = a.href; return; }
+        if (!tip) { tip = document.createElement('div'); tip.className = 'copy-tip'; tip.setAttribute('role', 'status'); tip.setAttribute('aria-live', 'polite'); document.body.appendChild(tip); }
+        tip.textContent = (isTel ? (en ? 'Phone copied: ' : 'Телефон скопирован: ') : (en ? 'Email copied: ' : 'Почта скопирована: ')) + addr;
+        tip.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => tip.classList.remove('on'), 2200);
+      });
+    }));
+  }
+
   /* cookie: показываем при каждом заходе, ничего не сохраняем */
   const ck = $('cookie');
   if (ck) { setTimeout(() => ck.classList.add('on'), 900); $('cookieOk').addEventListener('click', () => ck.classList.remove('on')); }
