@@ -775,3 +775,5 @@ html:not(.js) .svc-art img{transform:none}
 /* подсказка «почта скопирована» */
 .copy-tip{position:fixed;left:50%;top:92px;z-index:9999;transform:translate(-50%,-12px);opacity:0;pointer-events:none;padding:12px 20px;border-radius:999px;background:#0F1B31;color:#fff;font-size:14.5px;font-weight:450;letter-spacing:-.01em;box-shadow:0 14px 40px -12px rgba(15,27,49,.45);transition:opacity .3s ease,transform .4s var(--ease)}
 .copy-tip.on{opacity:1;transform:translate(-50%,0)}
+.pf-vpn{display:flex;align-items:flex-start;gap:7px;margin:12px 0 0;font-size:13px;line-height:1.4;color:var(--muted)}
+.pf-vpn svg{width:15px;height:15px;flex:none;margin-top:1px;color:#4A78B0}
