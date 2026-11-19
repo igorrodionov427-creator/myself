@@ -787,3 +787,9 @@ html:not(.js) .svc-art img{transform:none}
 .pf-vpn{display:flex;align-items:flex-start;gap:7px;margin:12px 0 0;font-size:13px;line-height:1.4;color:var(--muted)}
 .pf-vpn svg{width:15px;height:15px;flex:none;margin-top:1px;color:#4A78B0}
 .hero a.stat{color:inherit;text-decoration:none}
+.art-figs{display:grid;gap:14px;margin:26px 0;align-items:start}
+.art-figs.n2{grid-template-columns:1fr 1fr}.art-figs.n3{grid-template-columns:repeat(3,1fr)}
+.art-figs figure{margin:0}
+.art-figs img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line,#E4E7EE);background:#fff}
+.art-figs figcaption{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:8px}
+@media(max-width:640px){.art-figs.n3{grid-template-columns:1fr 1fr}}
