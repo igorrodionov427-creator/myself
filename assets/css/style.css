@@ -810,3 +810,9 @@ html:not(.js) .svc-art img{transform:none}
 .vs-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 .vs-post{margin:0}.vs-post img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:var(--ring)}
 .vs-post figcaption{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.4}
+
+@media (min-width:1080px){.sw.sw-stack{grid-template-columns:1fr;gap:40px}
+  .sw-stack .sw-copy{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;align-items:start}
+  .sw-stack .sw-copy>.tag,.sw-stack .sw-copy>h2,.sw-stack .sw-copy>.lead{grid-column:1}
+  .sw-stack .sw-copy>.sw-list{grid-column:2;grid-row:1/span 4}
+  .sw-stack .wshots{gap:28px}}
