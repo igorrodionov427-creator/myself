@@ -813,6 +813,9 @@ html:not(.js) .svc-art img{transform:none}
 
 @media (min-width:1080px){.sw.sw-stack{grid-template-columns:1fr;gap:40px}
   .sw-stack .sw-copy{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;align-items:start}
-  .sw-stack .sw-copy>.tag,.sw-stack .sw-copy>h2,.sw-stack .sw-copy>.lead{grid-column:1}
+  .sw-stack .sw-copy>.tag,.sw-stack .sw-copy>h2,.sw-stack .sw-copy>h3,.sw-stack .sw-copy>.lead{grid-column:1}
   .sw-stack .sw-copy>.sw-list{grid-column:2;grid-row:1/span 4}
   .sw-stack .wshots{gap:28px}}
+
+.wshots-col{display:grid;gap:22px}
+@media (min-width:1080px){.sw-stack .wshots-col{grid-template-columns:1fr 1fr;gap:28px}}
