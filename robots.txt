@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /demo/
 
 User-agent: GPTBot
 Allow: /
