@@ -1,3 +1,5 @@
+/* старый Safari (до iOS 14) не знает MediaQueryList.addEventListener */
+function onMQ(mq, fn) { if (mq.addEventListener) mq.addEventListener('change', fn); else if (mq.addListener) mq.addListener(fn); }
 /* Шапка, мобильное меню, появление секций, FAQ, cookie, ссылки проектов. */
 (() => {
   const $ = id => document.getElementById(id);
@@ -38,7 +40,7 @@
     } else setMenu(false);
   });
   addEventListener('keydown', e => { if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); burger.focus(); } });
-  matchMedia('(min-width: 1280px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  onMQ(matchMedia('(min-width: 1280px)'), e => { if (e.matches) setMenu(false); });
 
   /* появление при прокрутке */
   const els = document.querySelectorAll('.rv');
@@ -48,6 +50,7 @@
     els.forEach(el => io.observe(el));
     window.__rvObserve = el => io.observe(el);
   }
+  window.__vq = 1;   // появление блоков запустилось — страховка из boot.js не нужна
 
   /* hero: вход один раз (WAAPI), затем стили возвращаются к авторскому CSS */
   (() => {
@@ -255,7 +258,7 @@
   const stage = lb.querySelector('.lb-stage'), big = stage.querySelector('img');
   let i = 0, lastFocus = null;
   const caption = el => {
-    const c = el.closest('figure')?.querySelector('figcaption');
+    const f = el.closest('figure'), c = f && f.querySelector('figcaption');
     if (!c) return el.alt || '';
     const parts = [...c.children].filter(x => !x.classList.contains('bshot-n')).map(x => x.textContent.trim()).filter(Boolean);
     return parts.length ? parts.join(' · ') : c.textContent.trim();

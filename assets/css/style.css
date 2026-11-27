@@ -819,3 +819,9 @@ html:not(.js) .svc-art img{transform:none}
 
 .wshots-col{display:grid;gap:22px}
 @media (min-width:1080px){.sw-stack .wshots-col{grid-template-columns:1fr 1fr;gap:28px}}
+/* страховка: если скрипт не запустился (старый браузер) — показываем всё */
+html.rv-off .rv{opacity:1!important;filter:none!important;transform:none!important;clip-path:none!important}
+/* тач-устройства: без размытия при появлении блоков — плавнее на слабых телефонах */
+@media (hover:none){.rv{filter:none!important}}
+/* старый Safari без aspect-ratio */
+@supports not (aspect-ratio:1){.pf-shot{position:relative;height:0;padding-top:calc(62.5% - 10px)}.pf-shot img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}}
