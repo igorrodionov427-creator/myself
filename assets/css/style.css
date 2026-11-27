@@ -825,3 +825,6 @@ html.rv-off .rv{opacity:1!important;filter:none!important;transform:none!importa
 @media (hover:none){.rv{filter:none!important}}
 /* старый Safari без aspect-ratio */
 @supports not (aspect-ratio:1){.pf-shot{position:relative;height:0;padding-top:calc(62.5% - 10px)}.pf-shot img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}}
+/* старый Safari (до iOS 15) не знает aspect-ratio: картинки услуг 4:3 — высота по самой картинке, а не 100% */
+.svc-art img{height:auto;max-height:100%}
+@supports not (aspect-ratio:1){.svc-art{height:auto}.svc-art img{max-height:none}}
